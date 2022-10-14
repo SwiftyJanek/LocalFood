@@ -16,7 +16,7 @@ struct ContentView: View {
             TabView{
                 Text("Hier Startseite")
                      .tabItem {
-                        Image(systemName: "fork.knife")
+                        Image(systemName: "house")
                         Text("Home")
                       }
                 // So können wir auf andere Views verweisen, easy :D
