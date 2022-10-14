@@ -9,26 +9,36 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
     var body: some View {
         VStack{
-            Text("Titel").font(.largeTitle)
+            Text("Local Food").font(.largeTitle)
+            Spacer()
+            TabView{
+                Text("Hier Startseite")
+                     .tabItem {
+                        Image(systemName: "fork.knife")
+                        Text("Home")
+                      }
+                // So können wir auf andere Views verweisen, easy :D
+                RezepteView()
+                     .tabItem {
+                        Image(systemName: "fork.knife")
+                        Text("Rezepte")
+                      }
+                Text("Hier Einkauf")
+                     .tabItem {
+                        Image(systemName: "cart")
+                        Text("Einkauf")
+                      }
+                Text("Hier Profil")
+                     .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Profil")
+                      }
+            }
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
