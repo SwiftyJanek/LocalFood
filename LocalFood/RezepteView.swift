@@ -13,9 +13,10 @@ struct RezepteView: View {
 
     var body: some View {
         VStack{
-            Text("RezepteView").font(.largeTitle)
             
             ScrollView {
+                Text("RezepteView").font(.largeTitle)
+
                          LazyVGrid(columns: columns) {
                              ForEach(0x1f600...0x1f679, id: \.self) { value in
                                  Text(String(format: "%x", value))
