@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RezepteView.swift
 //  LocalFood
 //
 //  Created by Janek Behrens on 14.10.22.
@@ -13,7 +13,6 @@ struct RezepteView: View {
 
     var body: some View {
         VStack{
-            
             ScrollView {
                 Text("RezepteView").font(.largeTitle)
 
@@ -25,7 +24,6 @@ struct RezepteView: View {
                              }
                          }
                      }
-            
         }
     }
     
@@ -37,6 +35,6 @@ struct RezepteView: View {
 
 struct RezepteView_Previews: PreviewProvider {
     static var previews: some View {
-        RezepteView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        RezepteView()
     }
 }

@@ -15,7 +15,6 @@
 		08EDE0C228F9B6F800BBF02F /* LocalFood.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0C028F9B6F800BBF02F /* LocalFood.xcdatamodeld */; };
 		08EDE0C928FA0B3700BBF02F /* RezepteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0C828FA0B3700BBF02F /* RezepteView.swift */; };
 		08EDE0CC28FA12DC00BBF02F /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0CB28FA12DC00BBF02F /* ProfilView.swift */; };
-		08EDE0D128FA134000BBF02F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0D028FA134000BBF02F /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		08EDE0C128F9B6F800BBF02F /* LocalFood.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalFood.xcdatamodel; sourceTree = "<group>"; };
 		08EDE0C828FA0B3700BBF02F /* RezepteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezepteView.swift; sourceTree = "<group>"; };
 		08EDE0CB28FA12DC00BBF02F /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
-		08EDE0D028FA134000BBF02F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 		08EDE0CD28FA12F200BBF02F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				08EDE0D028FA134000BBF02F /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,7 +187,6 @@
 				08EDE0B828F9B6F700BBF02F /* ContentView.swift in Sources */,
 				08EDE0B628F9B6F700BBF02F /* LocalFoodApp.swift in Sources */,
 				08EDE0C928FA0B3700BBF02F /* RezepteView.swift in Sources */,
-				08EDE0D128FA134000BBF02F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
