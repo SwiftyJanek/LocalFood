@@ -14,7 +14,7 @@ struct ContentView: View {
             Text("Local Food").font(.largeTitle)
             Spacer()
             TabView{
-                Text("Hier Startseite")
+                Text("Hier Startseite Test für Branch")
                      .tabItem {
                         Image(systemName: "house")
                         Text("Home")
