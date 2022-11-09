@@ -17,7 +17,7 @@ struct ContentView: View {
                     Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                     Image("Logo").resizable().frame(width: 35, height: 35)
                     Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                }
+                }.background(Color.white)
                 //HEADER
                
                 
@@ -31,16 +31,17 @@ struct ContentView: View {
                     ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
                     Text("Rezepte für Dich").fontWeight(.bold).padding(.top, 10)
                     ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
-                    Text("Challanges").fontWeight(.bold).padding(.top, 10)
+                    Text("Test1").fontWeight(.bold).padding(.top, 10)
                     ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                }.frame(height: 670).border(Color.gray).background(Color.white)
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.23).border(Color.gray).background(Color.white)
                 
                 
                 // TABBAR
                 TabBar()
                 
-                
-            }
+          
+            }.background(Color.white)
+       
         }.edgesIgnoringSafeArea(.bottom)
         
 
