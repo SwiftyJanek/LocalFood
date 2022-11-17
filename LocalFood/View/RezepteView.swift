@@ -10,27 +10,46 @@ import CoreData
 
 struct RezepteView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
-
+    
     var body: some View {
-        VStack{
-            ScrollView {
-                Text("RezepteView").font(.largeTitle)
-
-                         LazyVGrid(columns: columns) {
-                             ForEach(0x1f600...0x1f679, id: \.self) { value in
-                                 Text(String(format: "%x", value))
-                                 Text(emoji(value))
-                                     .font(.largeTitle)
-                             }
-                         }
-                     }
+        GeometryReader { geometry in
+            
+            VStack{
+                
+                ScrollView{
+                    
+                /// Hier ändern
+                    
+                    
+                    HStack{
+                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                    }.padding(.top, 10)
+                    Text("Neue Rezepte").fontWeight(.bold).padding(.top, 10)
+                    let images = ["1","2"]
+                    ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
+                    Text("Rezept der Woche").fontWeight(.bold).padding(.top,10)
+                    let images2 = ["3","4"]
+                    ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
+                    Text("Rezepte für Dich").fontWeight(.bold).padding(.top, 10)
+                    ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
+                    Text("Challanges").fontWeight(.bold).padding(.top, 10)
+                    ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
+                    
+                    /// Hier Ende
+                    
+                    
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
+                
+                TabBar()
+                
+                
+            }
+            
         }
+        
     }
     
-    private func emoji(_ value: Int) -> String {
-        guard let scalar = UnicodeScalar(value) else { return "?" }
-        return String(Character(scalar))
-    }
+    
 }
 
 struct RezepteView_Previews: PreviewProvider {
