@@ -14,7 +14,7 @@ struct RezepteView: View {
     var body: some View {
         GeometryReader { geometry in
             
-            VStack{
+            VStack(spacing:0){
                 
                 ScrollView{
                     
@@ -38,7 +38,7 @@ struct RezepteView: View {
                     /// Hier Ende
                     
                     
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.07).border(Color.gray).background(Color.white)
                 
                 TabBar()
                 
