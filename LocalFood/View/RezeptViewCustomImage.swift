@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TitleImage: View {
+    var image: Image
+    
     var body: some View {
-        Image("4")
+        image
             .resizable(resizingMode: .stretch)
             .frame(width: 300, height: 200)
             .clipShape(Rectangle())
@@ -21,6 +23,6 @@ struct TitleImage: View {
 
 struct TitleImage_Previews: PreviewProvider {
     static var previews: some View {
-        TitleImage()
+        TitleImage(image: Image("kartoffelLauchSuppe"))
     }
 }

@@ -9,16 +9,19 @@ import SwiftUI
 import CoreData
 
 
-struct RezepteView: View {
+struct RezeptView: View {
+    @EnvironmentObject var modelData: ModelData
+    var rezept: Rezept
+    
+    var rezeptIndex: Int {
+        modelData.rezepte.firstIndex(where: { $0.id == rezept.id })!
+    }
+    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
-    let zutaten = ["Zwiebeln", "Parmesan", "Tomatensoße"]
-    let zutatenMenge = [ "1 Stück", "50g", "500g"]
-    let rezeptSchritte = 3
-    var schrittText = ["Die Zwiebel und die Tomaten in Würfel schneiden, (Dosentomaten abgießen), Knoblauch und Ingwer sehr fein hacken.", "In einer hohen Pfanne das Kokosöl erhitzen, Zwiebel, Knoblauch und Ingwer hineingeben und glasig dünsten. Spinat, Tomaten und Kokosmilch (inkl. dem Wasser) hineingeben, würzen, einmal gut umrühren und zudecken.", "Alles bei schwacher Hitze, leicht blubbernd ca. 10 Min köcheln lassen. Zum Schluss die Kichererbsen dazugeben, verrühren und kurz ziehen lassen. Eventuell nochmal abschmecken und mit Chiliflocken bestreut servieren."]
     
     let bewertung = 4
     
-    @Binding var rating: Int
+    //@Binding var rating: Int
     var label = ""
     var maximumRating = 5
     var offImage: Image?
@@ -28,25 +31,27 @@ struct RezepteView: View {
     
     @State private var kommentar = "verfasse einen Kommentar..."
 
-    
-    
     var body: some View {
         GeometryReader { geometry in
-            
             VStack(spacing:0){
-                
                 ScrollView{
                 /// Hier ändern
                     
                     HStack{
-                        Text("Rezept").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Text(rezept.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                     }.padding(.top, 10)
                     
-                    TitleImage()
+                    TitleImage(image: rezept.bild)
                     HStack{
-                        Text("⏳ 30min").fontWeight(.bold)
-                        Text("🥣 2").fontWeight(.bold).padding(.leading, 30)
-                        Text("🥬 vegan").fontWeight(.bold).padding(.leading, 30)
+                        Text("⏳ \(rezept.dauerMinuten)").fontWeight(.bold)
+                        Text("🥣 \(rezept.portionen)").fontWeight(.bold).padding(.leading, 30)
+                        if (rezept.isVegan){
+                            Text("🥬 vegan").fontWeight(.bold).padding(.leading, 30)
+                        }
+                        if (rezept.isVegetarisch){
+                            Text("🌱 vegetarisch").fontWeight(.bold).padding(.leading, 30)
+                        }
+                        
                     }.padding(.top, 10)
                     
                     Divider()
@@ -54,16 +59,17 @@ struct RezepteView: View {
                     VStack(){
                         HStack(){
                             VStack(alignment: .trailing) {
-                                ForEach(zutaten, id: \.self) { zutat in
+                                ForEach(rezept.zutatenListe, id: \.self) { zutat in
                                     Text(zutat)
                                 }
                             }
                             Divider()
                             VStack(alignment: .leading) {
-                                ForEach(zutatenMenge, id: \.self) { zutatGewicht in
+                                ForEach(rezept.zutatenMenge, id: \.self) { zutatGewicht in
                                     Text(zutatGewicht)
                                 }
                             }
+                            .padding(.trailing)
                         }
                     }
                     
@@ -72,8 +78,8 @@ struct RezepteView: View {
                     Text("Zubereitung").font(.title2).fontWeight(.bold)
 
                     VStack(alignment: .center) {
-                        ForEach(schrittText, id: \.self) { text in
-                            Text("Schritt ").font(.subheadline).fontWeight(.bold)
+                        ForEach(Array(self.rezept.schritte.enumerated()), id: \.1.self) { (index, text) in
+                            Text("Schritt \(index+1)").font(.subheadline).fontWeight(.bold)
                             Text(text)
                                 .font(.body)
                                 .fontWeight(.light)
@@ -90,7 +96,7 @@ struct RezepteView: View {
                     VStack{
                         HStack{
                             Text("Bewertung")
-                            
+                            /*
                             if label.isEmpty == false {
                                 Text(label)
                             }
@@ -101,7 +107,7 @@ struct RezepteView: View {
                                     .onTapGesture {
                                         rating = number
                                     }
-                            }
+                            }*/
                         }
                         
                         Button {
@@ -175,31 +181,13 @@ struct RezepteView: View {
                             }
                         }.padding()
                     }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                                      
-
-                    
-                    
                     /// Hier Ende
-                    
-                    
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.07).border(Color.gray).background(Color.white)
-                
                 TabBar()
-                
-                
             }
-            
         }
-        
     }
-    
+    /*
     func image(for number: Int) -> Image {
         if number > rating {
             return offImage ?? onImage
@@ -207,12 +195,15 @@ struct RezepteView: View {
             return onImage
         }
     }
-    
+*/
     
 }
 
 struct RezepteView_Previews: PreviewProvider {
+    static let modelData = ModelData()
+
     static var previews: some View {
-        RezepteView(rating: .constant(4))
+        RezeptView(rezept: modelData.rezepte[0])
+            .environmentObject(modelData)
     }
 }
