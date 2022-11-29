@@ -10,30 +10,32 @@ import SwiftUI
 struct ProfilView: View {
     var body: some View {
         GeometryReader { geometry in
-            VStack{
-                
-                ScrollView{
+            NavigationStack {
+                VStack{
+                    
+                    ScrollView{
+                        
+                        
+                        HStack{
+                            Text("Profil").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        }.padding(.top, 10)
+                        Text("Profil hier anzeigen").fontWeight(.bold).padding(.top, 10)
+                        Text("Beispiel User").fontWeight(.bold).padding(.top, 10)
+                        Spacer()
+                        let images = ["1","2"]
+                        ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
+                        
+                        
+                        
+                        
+                        
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
+                    
+                    TabBar()
                     
                     
-                    HStack{
-                        Text("Profil").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.padding(.top, 10)
-                    Text("Profil hier anzeigen").fontWeight(.bold).padding(.top, 10)
-                    Text("Beispiel User").fontWeight(.bold).padding(.top, 10)
-                    Spacer()
-                    let images = ["1","2"]
-                    ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                    
-                    
-                    
-                    
-                    
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
-                
-                TabBar()
-                
-                
-            }
+                }
+            }.navigationBarBackButtonHidden(true)
         }
 
 
