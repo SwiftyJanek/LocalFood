@@ -1,5 +1,5 @@
 //
-//  RezepteView.swift
+//  RezeptView.swift
 //  LocalFood
 //
 //  Created by Janek Behrens on 14.10.22.
@@ -199,7 +199,7 @@ struct RezeptView: View {
     
 }
 
-struct RezepteView_Previews: PreviewProvider {
+struct RezeptView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
