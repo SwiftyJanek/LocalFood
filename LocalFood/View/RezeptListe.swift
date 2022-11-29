@@ -10,6 +10,7 @@ import SwiftUI
 struct RezeptListe: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
+
     
     var filteredRezepte: [Rezept] {
         modelData.rezepte.filter { rezept in
@@ -18,22 +19,24 @@ struct RezeptListe: View {
     }
 
     var body: some View {
-        NavigationView {
-            List {
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Nur Favoriten anzeigen")
-                }
-
-                ForEach(filteredRezepte) { rezept in
-                    NavigationLink {
-                        RezeptView(rezept: rezept, rating: .constant(4))
-                    } label: {
-                        RezeptRow(rezept: rezept)
+        NavigationStack {
+            NavigationView {
+                List {
+                    Toggle(isOn: $showFavoritesOnly) {
+                        Text("Nur Favoriten anzeigen")
+                    }
+                    
+                    ForEach(filteredRezepte) { rezept in
+                        NavigationLink {
+                            RezeptView(rezept: rezept, rating: .constant(4))
+                        } label: {
+                            RezeptRow(rezept: rezept)
+                        }
                     }
                 }
+                .navigationTitle("Rezeptliste")
             }
-            .navigationTitle("Rezeptliste")
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
