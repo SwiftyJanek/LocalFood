@@ -53,11 +53,7 @@ struct RezeptView: View {
 }
 
 struct RezeptView_Previews: PreviewProvider {
-<<<<<<< Updated upstream
-=======
-    static let modelData = ModelData()
 
->>>>>>> Stashed changes
     static var previews: some View {
         RezeptView()
     }
