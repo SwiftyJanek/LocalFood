@@ -13,9 +13,9 @@ struct TitleImage: View {
     var body: some View {
         image
             .resizable(resizingMode: .stretch)
-            .frame(width: 300, height: 200)
+            .frame(width: 330, height: 220)
             .clipShape(Rectangle())
-            .overlay { Rectangle().stroke(.white, lineWidth: 4) }
+            .overlay { Rectangle().stroke(.white, lineWidth: 3) }
             .shadow(radius: 7)
             
     }

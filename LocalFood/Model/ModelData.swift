@@ -32,3 +32,26 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+func write<T: Encodable>(_ filename: String, _ rezept: Rezept) -> T {
+
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+    else {
+        fatalError("Couldn't find \(filename) in main bundle.")
+    }
+
+    
+
+    do {
+        let encoder = JSONEncoder()
+        return try encoder.encode(rezept) as! T
+    } catch {
+        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+    }
+    
+    do {
+        data = try Data
+    } catch {
+        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+    }
+}

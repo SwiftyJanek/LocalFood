@@ -21,7 +21,7 @@ struct RezeptView: View {
     
     let bewertung = 4
     
-    //@Binding var rating: Int
+    @Binding var rating: Int
     var label = ""
     var maximumRating = 5
     var offImage: Image?
@@ -96,7 +96,7 @@ struct RezeptView: View {
                     VStack{
                         HStack{
                             Text("Bewertung")
-                            /*
+                            
                             if label.isEmpty == false {
                                 Text(label)
                             }
@@ -107,7 +107,7 @@ struct RezeptView: View {
                                     .onTapGesture {
                                         rating = number
                                     }
-                            }*/
+                            }
                         }
                         
                         Button {
@@ -187,7 +187,7 @@ struct RezeptView: View {
             }
         }
     }
-    /*
+    
     func image(for number: Int) -> Image {
         if number > rating {
             return offImage ?? onImage
@@ -195,7 +195,7 @@ struct RezeptView: View {
             return onImage
         }
     }
-*/
+
     
 }
 
@@ -203,7 +203,7 @@ struct RezepteView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        RezeptView(rezept: modelData.rezepte[0])
+        RezeptView(rezept: modelData.rezepte[0], rating: .constant(4))
             .environmentObject(modelData)
     }
 }
