@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         
         GeometryReader { geometry in
-            NavigationView {
+            NavigationStack {
                 VStack{
                     HStack{
                         Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)

@@ -13,7 +13,7 @@ struct RezepteView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            NavigationView {
+            NavigationStack {
                 VStack{
                     
                     ScrollView{
