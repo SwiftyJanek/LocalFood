@@ -12,7 +12,7 @@ struct ProfilView: View {
         GeometryReader { geometry in
             NavigationStack {
                 
-                VStack{
+                VStack(spacing: 0){
                     
                     ScrollView{
                         
@@ -30,7 +30,7 @@ struct ProfilView: View {
                         
                         
                         
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.095).border(Color.gray).background(Color.white)
                     
                     TabBar()
                     

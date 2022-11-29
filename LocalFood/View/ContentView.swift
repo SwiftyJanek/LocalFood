@@ -19,7 +19,7 @@ struct ContentView: View {
         
         GeometryReader { geometry in
             NavigationStack {
-                VStack{
+                VStack(spacing: 0){
 
                     HStack{
                         Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
@@ -41,14 +41,19 @@ struct ContentView: View {
                         ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
                         Text("Test1").fontWeight(.bold).padding(.top, 10)
                         ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.24).border(Color.gray).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.20).background(Color.white)
                     
+                    //Linie zwischen Navigation und Inhalt
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        
+                        
                     
                     // TABBAR
                     TabBar()
                     
                     
-                }.background(Color.white)
+                }.background(Color.blue)
             }.navigationBarBackButtonHidden(true)
             
         }.edgesIgnoringSafeArea(.bottom)

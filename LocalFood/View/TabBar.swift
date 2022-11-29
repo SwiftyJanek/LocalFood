@@ -42,7 +42,7 @@ struct TabBar: View {
                     }.buttonStyle(PlainButtonStyle())
                 }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(Color.white).edgesIgnoringSafeArea(.bottom)
             
-            }.edgesIgnoringSafeArea(.bottom)
+        }.edgesIgnoringSafeArea(.bottom)
         
         }
     }

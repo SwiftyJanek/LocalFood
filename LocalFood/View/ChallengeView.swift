@@ -13,8 +13,7 @@ struct ChallengeView: View {
         GeometryReader { geometry in
             NavigationStack {
                 
-                VStack{
-                    
+                VStack(spacing: 0){
                     ScrollView{
                         HStack{
                             Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
@@ -25,7 +24,7 @@ struct ChallengeView: View {
                         let images = ["1","2"]
                         ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
                         Text("TESTTESTETST")
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.095).border(Color.gray).background(Color.white)
                     
                     TabBar()
                     
