@@ -20,7 +20,7 @@ struct TabBar: View {
                     NavigationLink(destination: ContentView() ) {
                         TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "house", tabName: "Start")
                     }.buttonStyle(PlainButtonStyle())
-                    NavigationLink(destination: RezepteView() ) {
+                    NavigationLink(destination: RezeptView() ) {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "fork.knife", tabName: "Rezepte")
                     }.buttonStyle(PlainButtonStyle())
                     ZStack{
