@@ -25,10 +25,11 @@ struct ContentView: View {
                         Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.background(Color.white)
+                    }.background(Color.white).padding(.bottom)
                     //HEADER
-                    
-                    
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+
                     // CONTENT
                     ScrollView{
                         Text("Neuigkeiten").fontWeight(.bold).padding(.top, 15)
@@ -41,7 +42,7 @@ struct ContentView: View {
                         ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
                         Text("Test1").fontWeight(.bold).padding(.top, 10)
                         ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.20).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.23).background(Color.white)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
@@ -53,7 +54,7 @@ struct ContentView: View {
                     TabBar()
                     
                     
-                }.background(Color.blue)
+                }.background(Color.white)
             }.navigationBarBackButtonHidden(true)
             
         }.edgesIgnoringSafeArea(.bottom)

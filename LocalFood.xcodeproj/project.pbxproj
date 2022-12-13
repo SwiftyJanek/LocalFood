@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082883F92949392700516ED4 /* ProfileInfo.swift */; };
 		084832EF29311D9D00D380E7 /* RezeptViewCustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832EE29311D9D00D380E7 /* RezeptViewCustomImage.swift */; };
 		084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F0293158C600D380E7 /* ProfileImageCircle.swift */; };
 		084832F329316F0D00D380E7 /* Rezept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F229316F0D00D380E7 /* Rezept.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		082883F92949392700516ED4 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		084832EE29311D9D00D380E7 /* RezeptViewCustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptViewCustomImage.swift; sourceTree = "<group>"; };
 		084832F0293158C600D380E7 /* ProfileImageCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCircle.swift; sourceTree = "<group>"; };
 		084832F229316F0D00D380E7 /* Rezept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rezept.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				084832F8293179FA00D380E7 /* RezeptRow.swift */,
 				084832FC293184AD00D380E7 /* RezeptListe.swift */,
 				08EDE0C828FA0B3700BBF02F /* RezeptView.swift */,
+				082883F92949392700516ED4 /* ProfileInfo.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				08EDE0C228F9B6F800BBF02F /* LocalFood.xcdatamodeld in Sources */,
 				CFDCD778291BD1E700A4FB9B /* ProfilView.swift in Sources */,
 				08EDE0B828F9B6F700BBF02F /* ContentView.swift in Sources */,
+				082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */,
 				08EDE0B628F9B6F700BBF02F /* LocalFoodApp.swift in Sources */,
 				084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */,
 				CFDCD77A291BD2F900A4FB9B /* ChallengeView.swift in Sources */,
