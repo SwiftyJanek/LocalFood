@@ -8,15 +8,9 @@
 import SwiftUI
 
 struct TabBar: View {
-
-    
     var body: some View {
-        
-        
         GeometryReader { geometry in
                 HStack{
-          
-                    
                     NavigationLink(destination: ContentView() ) {
                         TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "house", tabName: "Start")
                     }.buttonStyle(PlainButtonStyle())
@@ -43,7 +37,6 @@ struct TabBar: View {
                 }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(Color.white).edgesIgnoringSafeArea(.bottom)
             
         }.edgesIgnoringSafeArea(.bottom)
-        
         }
     }
 

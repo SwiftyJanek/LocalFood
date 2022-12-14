@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProfileInfo: View {
-    @State var progressValue: Float = 0.3
-
+    @State var progressValue: Float = 0.4
+    let nextBadges = ["abzeichen", "rakete", "abzeichen", "rakete"]
+    let progress = [0.5,0.2,0.7,0.3]
+    
     var body: some View {
         NavigationStack{
             List {
@@ -26,21 +28,50 @@ struct ProfileInfo: View {
                     ProgressBar(value: $progressValue).frame(height: 20)
                     Text("2")
                 }
+                Text("Aktueller Rang: Newcomer")
                 // Add a section for your profile details, such as your location and bio
-                Section(header: Text("Details")) {
-                    Text("Location: New York, NY")
-                    Text("Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+                Section(header: Text("Abzeichen")) {
+                    
+                    BadgeGrid(badges: ["abzeichen", "tier", "wolf", "rakete", "rakete"])
+                }
+                Section(header: Text("Nächste Abzeichen")) {
+
+                    ScrollView(.horizontal){
+                        HStack {
+                            ForEach(self.nextBadges, id: \.self) { badge in
+                                ProgressCircularBar(progress: self.$progressValue, imageName: badge)
+                                    .padding(.vertical)
+                                    .frame(width: 57.0, height: 57.0)
+                            }
+                        }
+                        .padding(.leading)
+                    }
                 }
                 
-                // Add a section for your social media accounts
-                Section(header: Text("Social Media")) {
+                Section(header: Text("Mein Bereich")) {
                     HStack {
-                        Image("twitter-icon")
-                        Text("@twitterhandle")
+                        NavigationLink {
+
+                        } label: {
+                            Image(systemName: "heart")
+                            Text("Lebensmittel")
+                        }
                     }
                     HStack {
-                        Image("instagram-icon")
-                        Text("@instagramhandle")
+                        NavigationLink {
+
+                        } label: {
+                            Image(systemName: "person")
+                            Text("Eigene Rezepte")
+                        }
+                    }
+                    HStack {
+                        NavigationLink {
+                            RezeptListe()
+                        } label: {
+                            Image(systemName: "heart")
+                            Text("Rezepte")
+                        }
                     }
                 }
             }
