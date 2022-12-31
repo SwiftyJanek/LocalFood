@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0821A3DD2949EA2500655574 /* BadgesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DC2949EA2500655574 /* BadgesGrid.swift */; };
 		0821A3DF294A183400655574 /* BadgeInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DE294A183400655574 /* BadgeInProgress.swift */; };
-		0821A3E9294A1AFB00655574 /* CircularProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 0821A3E8294A1AFB00655574 /* CircularProgressView */; };
 		082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082883F92949392700516ED4 /* ProfileInfo.swift */; };
 		084832EF29311D9D00D380E7 /* RezeptViewCustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832EE29311D9D00D380E7 /* RezeptViewCustomImage.swift */; };
 		084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F0293158C600D380E7 /* ProfileImageCircle.swift */; };
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0821A3E9294A1AFB00655574 /* CircularProgressView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +178,6 @@
 			);
 			name = LocalFood;
 			packageProductDependencies = (
-				0821A3E8294A1AFB00655574 /* CircularProgressView */,
 			);
 			productName = LocalFood;
 			productReference = 08EDE0B228F9B6F700BBF02F /* LocalFood.app */;
@@ -211,7 +208,6 @@
 			);
 			mainGroup = 08EDE0A928F9B6F700BBF02F;
 			packageReferences = (
-				0821A3E7294A1AFB00655574 /* XCRemoteSwiftPackageReference "CircularProgressView" */,
 			);
 			productRefGroup = 08EDE0B328F9B6F700BBF02F /* Products */;
 			projectDirPath = "";
@@ -457,25 +453,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0821A3E7294A1AFB00655574 /* XCRemoteSwiftPackageReference "CircularProgressView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bdolewski/CircularProgressView.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0821A3E8294A1AFB00655574 /* CircularProgressView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0821A3E7294A1AFB00655574 /* XCRemoteSwiftPackageReference "CircularProgressView" */;
-			productName = CircularProgressView;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		08EDE0C028F9B6F800BBF02F /* LocalFood.xcdatamodeld */ = {

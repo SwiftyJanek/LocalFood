@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileInfo: View {
-    @State var progressValue: Float = 0.4
+    @State var progressValue: Float = 0.6
     let nextBadges = ["abzeichen", "rakete", "abzeichen", "rakete"]
     let progress = [0.5,0.2,0.7,0.3]
     
