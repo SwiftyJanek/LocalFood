@@ -75,7 +75,7 @@ struct ProfileInfo: View {
                     }
                 }
             }
-            .navigationBarTitle("Profile")    }
+               }
     }
 }
 

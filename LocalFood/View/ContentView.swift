@@ -10,10 +10,7 @@ import CoreData
 
 struct ContentView: View {
 
-    
-    init(){
-        UINavigationBar.setAnimationsEnabled(false)
-    }
+
     
     var body: some View {
         
@@ -42,7 +39,7 @@ struct ContentView: View {
                         ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
                         Text("Test1").fontWeight(.bold).padding(.top, 10)
                         ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.23).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}

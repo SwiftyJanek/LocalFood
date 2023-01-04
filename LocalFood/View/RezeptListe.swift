@@ -22,6 +22,20 @@ struct RezeptListe: View {
         GeometryReader { geometry in
             NavigationStack {
                 VStack(spacing: 0){
+                    
+                    HStack{
+                        Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Image("Logo").resizable().frame(width: 35, height: 35)
+                        Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                    }.background(Color.white).padding(.bottom)
+                    //HEADER
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+
+                
+                    
+                    
+                    
                     ScrollView{
                         NavigationView {
                             List {
@@ -39,13 +53,17 @@ struct RezeptListe: View {
                             }
                             .navigationTitle("Rezeptliste")
                         }
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.09).border(Color.gray).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+                    
+                    //Linie zwischen Navigation und Inhalt
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                     
                     TabBar()
                 }
                 
             }.navigationBarBackButtonHidden(true)
-        }
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }
 

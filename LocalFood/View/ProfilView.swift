@@ -13,14 +13,29 @@ struct ProfilView: View {
             NavigationStack {
                 VStack(spacing: 0){
                     
-                    ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.23).border(Color.gray).background(Color.white)
+                    HStack{
+                        Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Image("Logo").resizable().frame(width: 35, height: 35)
+                        Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                    }.background(Color.white).padding(.bottom)
+                    //HEADER
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+
+                    // CONTENT
+                    
+                    ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+                    
+                    //Linie zwischen Navigation und Inhalt
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                    
 
                     TabBar()
                     
                 }
-            }
-            .headerProminence(.increased)
-        }
+            }.navigationBarBackButtonHidden(true)
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }
 
