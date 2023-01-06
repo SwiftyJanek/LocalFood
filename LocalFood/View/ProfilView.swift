@@ -11,34 +11,31 @@ struct ProfilView: View {
     var body: some View {
         GeometryReader { geometry in
             NavigationStack {
-                VStack{
-                    
-                    ScrollView{
-                        
-                        
-                        HStack{
-                            Text("Profil").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                        }.padding(.top, 10)
-                        Text("Profil hier anzeigen").fontWeight(.bold).padding(.top, 10)
-                        Text("Beispiel User").fontWeight(.bold).padding(.top, 10)
-                        Spacer()
-                        let images = ["1","2"]
-                        ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                        
-                        
-                        
-                        
-                        
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.10).border(Color.gray).background(Color.white)
-                    
+                VStack(spacing: 0){
+
+                    HStack{
+                        Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Image("Logo").resizable().frame(width: 35, height: 35)
+                        Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                    }.background(Color.white).padding(.bottom)
+                    //HEADER
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+
+                    // CONTENT
+
+                    ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+
+                    //Linie zwischen Navigation und Inhalt
+                    VStack{}
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+
+
                     TabBar()
-                    
-                    
+
                 }
             }.navigationBarBackButtonHidden(true)
-        }
-
-
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }
 

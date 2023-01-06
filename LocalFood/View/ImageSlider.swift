@@ -17,10 +17,6 @@ struct ImageSlider: View {
         self.images = images
     }
     
-    
-    
-
-    
     var body: some View {
         // TabView + tabViewStyle(PageTabViewStyle)
         TabView {
