@@ -12,6 +12,10 @@ struct ProfileInfo: View {
     let nextBadges = ["abzeichen", "rakete", "abzeichen", "rakete"]
     let progress = [0.5,0.2,0.7,0.3]
     
+    //TEST
+    @State private var showingSheet = false
+
+    
     var body: some View {
         NavigationStack{
             List {
@@ -73,9 +77,15 @@ struct ProfileInfo: View {
                             Text("Rezepte")
                         }
                     }
+                    Button("+ Rezept erstellen") {
+                               showingSheet.toggle()
+                           }
+                           .sheet(isPresented: $showingSheet) {
+                               CreateRezeptView(newRezept: Rezept(id: 1, name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: ""))
+                           }
                 }
             }
-               }
+        }
     }
 }
 

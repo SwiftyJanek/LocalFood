@@ -26,4 +26,20 @@ struct Rezept: Hashable, Codable, Identifiable {
         var bild: Image {
             Image(bildName)
         }
+    
+    init(id: Int, name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String) {
+        self.id = id
+        self.name = name
+        self.kategorie = kategorie
+        self.dauerMinuten = dauerMinuten
+        self.portionen = portionen
+        self.isVegan = isVegan
+        self.isVegetarisch = isVegetarisch
+        self.isFavorisiert = isFavorisiert
+        self.isFavorit = isFavorit
+        self.zutatenListe = zutatenListe
+        self.zutatenMenge = zutatenMenge
+        self.schritte = schritte
+        self.bildName = bildName
+    }
 }

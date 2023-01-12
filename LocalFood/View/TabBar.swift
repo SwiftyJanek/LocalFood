@@ -20,6 +20,7 @@ struct TabBar: View {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "fork.knife", tabName: "Rezepte")
                     }.buttonStyle(PlainButtonStyle())
                     ZStack{
+                        
                         Circle().foregroundColor(.white)
                             .frame(width: geometry.size.width/7, height: geometry.size.width/7)
                             .shadow(radius: 4)

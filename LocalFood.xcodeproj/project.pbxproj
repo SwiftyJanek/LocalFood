@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0821A3DD2949EA2500655574 /* BadgesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DC2949EA2500655574 /* BadgesGrid.swift */; };
 		0821A3DF294A183400655574 /* BadgeInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DE294A183400655574 /* BadgeInProgress.swift */; };
+		08233518296CA9CD004D047F /* CreateRezeptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08233517296CA9CC004D047F /* CreateRezeptView.swift */; };
+		0823351B296DD044004D047F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0823351A296DD044004D047F /* ImagePicker.swift */; };
 		082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082883F92949392700516ED4 /* ProfileInfo.swift */; };
 		084832EF29311D9D00D380E7 /* RezeptViewCustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832EE29311D9D00D380E7 /* RezeptViewCustomImage.swift */; };
 		084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F0293158C600D380E7 /* ProfileImageCircle.swift */; };
@@ -28,7 +30,6 @@
 		CF4D8DD929197B0000857208 /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4D8DD829197B0000857208 /* ImageSlider.swift */; };
 		CF549D1C2919A1F2008ACDC4 /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF549D1B2919A1F2008ACDC4 /* TabBarIcon.swift */; };
 		CF700EB5291AACC800382B42 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF700EB4291AACC800382B42 /* TabBar.swift */; };
-		CFA65BB82936650900DCE2C8 /* RezepteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA65BB72936650900DCE2C8 /* RezepteView.swift */; };
 		CFDCD778291BD1E700A4FB9B /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCD777291BD1E700A4FB9B /* ProfilView.swift */; };
 		CFDCD77A291BD2F900A4FB9B /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCD779291BD2F900A4FB9B /* ChallengeView.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,9 @@
 /* Begin PBXFileReference section */
 		0821A3DC2949EA2500655574 /* BadgesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesGrid.swift; sourceTree = "<group>"; };
 		0821A3DE294A183400655574 /* BadgeInProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeInProgress.swift; sourceTree = "<group>"; };
+		08233517296CA9CC004D047F /* CreateRezeptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRezeptView.swift; sourceTree = "<group>"; };
+		0823351A296DD044004D047F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0823351C296DF003004D047F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		082883F92949392700516ED4 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		084832EE29311D9D00D380E7 /* RezeptViewCustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptViewCustomImage.swift; sourceTree = "<group>"; };
 		084832F0293158C600D380E7 /* ProfileImageCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCircle.swift; sourceTree = "<group>"; };
@@ -56,7 +60,6 @@
 		CF4D8DD829197B0000857208 /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		CF549D1B2919A1F2008ACDC4 /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
 		CF700EB4291AACC800382B42 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		CFA65BB72936650900DCE2C8 /* RezepteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezepteView.swift; sourceTree = "<group>"; };
 		CFDCD777291BD1E700A4FB9B /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 		CFDCD779291BD2F900A4FB9B /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +86,15 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		08233519296DCFEC004D047F /* CreateRezept */ = {
+			isa = PBXGroup;
+			children = (
+				08233517296CA9CC004D047F /* CreateRezeptView.swift */,
+				0823351A296DD044004D047F /* ImagePicker.swift */,
+			);
+			name = CreateRezept;
+			sourceTree = "<group>";
+		};
 		08EDE0A928F9B6F700BBF02F = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 		08EDE0B428F9B6F700BBF02F /* LocalFood */ = {
 			isa = PBXGroup;
 			children = (
+				0823351C296DF003004D047F /* Info.plist */,
 				08EDE0CF28FA12FD00BBF02F /* Resources */,
 				08EDE0CE28FA12F800BBF02F /* Controller */,
 				08EDE0CD28FA12F200BBF02F /* Model */,
@@ -126,6 +139,7 @@
 		08EDE0CA28FA12B300BBF02F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08233519296DCFEC004D047F /* CreateRezept */,
 				0821A3DB2949DE1300655574 /* Profile */,
 				08EDE0B728F9B6F700BBF02F /* ContentView.swift */,
 				084832F0293158C600D380E7 /* ProfileImageCircle.swift */,
@@ -248,6 +262,7 @@
 				084832F9293179FA00D380E7 /* RezeptRow.swift in Sources */,
 				CF549D1C2919A1F2008ACDC4 /* TabBarIcon.swift in Sources */,
 				08EDE0BF28F9B6F800BBF02F /* Persistence.swift in Sources */,
+				0823351B296DD044004D047F /* ImagePicker.swift in Sources */,
 				CF4D8DD929197B0000857208 /* ImageSlider.swift in Sources */,
 				084832EF29311D9D00D380E7 /* RezeptViewCustomImage.swift in Sources */,
 				084832FD293184AD00D380E7 /* RezeptListe.swift in Sources */,
@@ -255,6 +270,7 @@
 				0821A3DD2949EA2500655574 /* BadgesGrid.swift in Sources */,
 				CFDCD778291BD1E700A4FB9B /* ProfilView.swift in Sources */,
 				08EDE0B828F9B6F700BBF02F /* ContentView.swift in Sources */,
+				08233518296CA9CD004D047F /* CreateRezeptView.swift in Sources */,
 				082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */,
 				08EDE0B628F9B6F700BBF02F /* LocalFoodApp.swift in Sources */,
 				084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */,
@@ -392,7 +408,7 @@
 				DEVELOPMENT_TEAM = 3D73QAQ7P7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LocalFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -420,7 +436,7 @@
 				DEVELOPMENT_TEAM = 3D73QAQ7P7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LocalFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

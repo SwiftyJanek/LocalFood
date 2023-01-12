@@ -26,6 +26,8 @@ struct ProfilView: View {
 
                     ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
 
+                    
+                    
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
