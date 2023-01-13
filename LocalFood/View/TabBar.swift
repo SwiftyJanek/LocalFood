@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
 
-
+    @State private var showingSheet = false
     var body: some View {
         GeometryReader { geometry in
                 HStack{
@@ -21,13 +21,36 @@ struct TabBar: View {
                     }.buttonStyle(PlainButtonStyle())
                     ZStack{
                         
-                        Circle().foregroundColor(.white)
-                            .frame(width: geometry.size.width/7, height: geometry.size.width/7)
-                            .shadow(radius: 4)
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                     
+                        
+                        Button(action: {
+                            showingSheet.toggle()
+                           
+                        }, label: {
+                            Circle().foregroundColor(.white)
+                                .frame(width: geometry.size.width/7, height: geometry.size.width/7)
+                                .shadow(radius: 4)
+                                .overlay(
+                                        Image(systemName: "plus.circle")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .foregroundColor(.black)
+                                            .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                                         
+                                           
+                                )
+                       
+                        }).sheet(isPresented: $showingSheet) {
+                            CreateRezeptView(newRezept: Rezept(id: 1, name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: ""))
+                        }
+                        
+                        
+                 
+
+                        
+                 
+                        
+                        
 
                     }.offset(y: -geometry.size.height/3/1)
                     NavigationLink(destination: ChallengeView() ) {
