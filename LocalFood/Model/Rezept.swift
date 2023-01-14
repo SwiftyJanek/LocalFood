@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Rezept: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: UUID
     var name: String
     var kategorie: String
     var dauerMinuten: String
@@ -22,13 +22,13 @@ struct Rezept: Hashable, Codable, Identifiable {
     var zutatenMenge: [String]
     var schritte: [String]
     
-    private var bildName: String
+    var bildName: String
         var bild: Image {
             Image(bildName)
         }
     
-    init(id: Int, name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String) {
-        self.id = id
+    init(name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String) {
+        self.id = UUID()
         self.name = name
         self.kategorie = kategorie
         self.dauerMinuten = dauerMinuten
@@ -43,3 +43,5 @@ struct Rezept: Hashable, Codable, Identifiable {
         self.bildName = bildName
     }
 }
+
+

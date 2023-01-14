@@ -51,8 +51,11 @@ struct RezeptListe: View {
                                     }
                                 }
                             }
+                            .onAppear{self.modelData.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")}
                             .navigationTitle("Rezeptliste")
-                        }
+                        
+                            
+                        }.frame(height: geometry.size.height/1.22)
                     }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
                     
                     //Linie zwischen Navigation und Inhalt

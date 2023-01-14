@@ -1,6 +1,6 @@
 [
     {
-        "id": 1001,
+        "id": "ee3b8bc9-f18b-43c2-b839-9e5cbe1f7b0d",
         "name": "Kürbissuppe",
         "kategorie": "Suppe",
         "dauerMinuten": "35",
@@ -15,7 +15,7 @@
         "bildName": "kuerbissuppe"
     },
     {
-        "id": 1002,
+        "id": "d2263689-6a99-455a-89e6-1f2edeec3c51",
         "name": "Kartoffel Lauch Suppe",
         "kategorie": "Suppe",
         "dauerMinuten": "30",
