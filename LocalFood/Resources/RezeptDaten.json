@@ -12,7 +12,8 @@
         "zutatenListe": ["Hokkaido-Kürbis","Zwiebel","Knoblauchzehe","Butter","Gemüsebrühe","Salz","Pfeffer","Schlagsahne","Petersilie","Chiliflocken"],
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
-        "bildName": "kuerbissuppe"
+        "bildName": "kuerbissuppe",
+        "bildURL" : "FotoHinzufuegen.png"
     },
     {
         "id": "d2263689-6a99-455a-89e6-1f2edeec3c51",
@@ -27,6 +28,7 @@
         "zutatenListe": ["Hokkaido-Kürbis","Zwiebel","Knoblauchzehe","Butter","Gemüsebrühe","Salz","Pfeffer","Schlagsahne","Petersilie","Chiliflocken"],
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
-        "bildName": "kartoffelLauchSuppe"
+        "bildName": "kartoffelLauchSuppe",
+        "bildURL" : "FotoHinzufuegen.png"
     }
 ]

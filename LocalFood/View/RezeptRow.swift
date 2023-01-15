@@ -12,13 +12,29 @@ struct RezeptRow: View {
 
     var body: some View {
         HStack{
-            rezept.bild
-                .resizable()
-                .frame(width: 50, height: 50)
-            Text(rezept.name)
-            
+            if let image = loadImage(from: rezept.bildURL) {
+                image
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text(rezept.name)
+            } else {
+                rezept.bild
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text(rezept.name)
+            }
             Spacer()
         }
+    }
+}
+
+func loadImage(from url: URL) -> Image? {
+    if let imageData = try? Data(contentsOf: url),
+        let uiImage = UIImage(data: imageData) {
+        return Image(uiImage: uiImage)
+    } else {
+        print("RezeptROW - Fehler, konnte das User-Bild nicht laden...")
+        return nil
     }
 }
 

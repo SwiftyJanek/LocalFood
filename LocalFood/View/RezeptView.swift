@@ -41,7 +41,11 @@ struct RezeptView: View {
                         Text(rezept.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                     }.padding(.top, 10)
                     
-                    TitleImage(image: rezept.bild)
+                    
+                    getImageView(bildName: rezept.bildName, bildURL: rezept.bildURL)
+                    
+                    
+                    
                     HStack{
                         Text("⏳ \(rezept.dauerMinuten)").fontWeight(.bold)
                         Text("🥣 \(rezept.portionen)").fontWeight(.bold).padding(.leading, 30)
@@ -197,8 +201,30 @@ struct RezeptView: View {
             return onImage
         }
     }
-
     
+    func getImageView(bildName: String, bildURL: URL) -> some View {
+        if bildName.contains(".png") {
+            //Benuterfoto
+            print("- finalUrl: \(bildURL)")
+            if let imageData = try? Data(contentsOf: bildURL),
+                let uiImage = UIImage(data: imageData){
+                let image = Image(uiImage: uiImage)
+                return TitleImage(image: image)
+            } else {
+                print("RezeptView - Fehler, konnte das User-Bild nicht laden...")
+            }
+        } else if bildName.isEmpty {
+            print("No Image provided")
+            let image = Image("FotoHinzufuegen")
+            return TitleImage(image: image)
+        } else {
+            //Beispielfoto
+            return TitleImage(image: rezept.bild)
+        }
+        print("No Image provided")
+        let image = Image("FotoHinzufuegen")
+        return TitleImage(image: image)
+    }
 }
 
 struct RezeptView_Previews: PreviewProvider {

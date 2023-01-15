@@ -52,6 +52,8 @@ struct CreateRezeptView: View {
                         Text("\(portionen, specifier: "%.f") Portionen")
                     }
                 }
+                
+                //Hier wird das Bild hinzugefügt, dazu wird ein Sheet mit der lokalen gallerie geöffnet
                 Section(header: Text("Bild hinzufügen")){
                     HStack{
                         Image(uiImage: self.image)
@@ -66,7 +68,7 @@ struct CreateRezeptView: View {
                                 showSheet = true
                             }
                             .sheet(isPresented: $showSheet) {
-                                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
                             }
                     }
                 }
@@ -148,8 +150,9 @@ struct CreateRezeptView: View {
                                 }
                             }
                             
-                            newRezept.bildName = image.description
-                            store(image: image, forKey: image.description, withStorageType: .fileSystem)
+                            print("image.description: \(image.description)")
+                            newRezept.bildURL = store(image: image, forKey: image.description, withName: newRezept.name , withStorageType: .fileSystem) ?? URL(filePath: "")
+                            newRezept.bildName = newRezept.name + ".png"
                             
                             print("\(newRezept.name)\n\(newRezept.kategorie)\n\(newRezept.dauerMinuten)\n\(newRezept.portionen)\n\(newRezept.isVegan)\n\(newRezept.isVegetarisch)\n\(newRezept.isFavorisiert)\n\(newRezept.isFavorit)\n\(newRezept.zutatenListe.description)\n\(newRezept.zutatenMenge.description)\n\(newRezept.schritte.description)\n\(newRezept.bildName)")
                             
@@ -181,8 +184,8 @@ private func filePath(forKey key: String) -> URL? {
     let fileManager = FileManager.default
     guard let documentURL = fileManager.urls(for: .documentDirectory,
                                             in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
-    
-    return documentURL.appendingPathComponent(key + ".png")
+    let fileName = (key + ".png").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    return documentURL.appendingPathComponent(fileName!)
 }
 
 enum StorageType {
@@ -192,12 +195,14 @@ enum StorageType {
 
 private func store(image: UIImage,
                     forKey key: String,
-                    withStorageType storageType: StorageType) {
+                   withName filename: String,
+                   withStorageType storageType: StorageType) -> URL? {
+    let imageName = filename
     if let pngRepresentation = image.pngData() {
         switch storageType {
         case .fileSystem:
-            if let filePath = filePath(forKey: key) {
-                do  {
+            if let filePath = filePath(forKey: imageName) {
+                do {
                     try pngRepresentation.write(to: filePath,
                                                 options: .atomic)
                 } catch let err {
@@ -209,12 +214,15 @@ private func store(image: UIImage,
                                         forKey: key)
         }
     }
+    print("Bild gespeichert in Pfad: \(filePath(forKey: imageName))")
+    print("Bildname: \(imageName)")
+    return filePath(forKey: imageName)
 }
 
 
 struct CreateRezeptView_Previews: PreviewProvider {
 
     static var previews: some View {
-        CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: ""))
+        CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: "")))
     }
 }
