@@ -24,9 +24,8 @@ struct RezeptListe: View {
                 VStack(spacing: 0){
                     
                     HStack{
-                        Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                     }.background(Color.white).padding(.bottom)
                     //HEADER
                     VStack{}
@@ -62,7 +61,7 @@ struct RezeptListe: View {
                     TabBar()
                 }
                 
-            }.navigationBarBackButtonHidden(true)
+            }.navigationBarBackButtonHidden(true).navigationTitle("Rezepte").navigationBarHidden(true)
         }.edgesIgnoringSafeArea(.bottom)
     }
 }

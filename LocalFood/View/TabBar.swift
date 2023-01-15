@@ -61,6 +61,9 @@ struct TabBar: View {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "person.crop.circle", tabName: "Profil")
                     }.buttonStyle(PlainButtonStyle())
                 }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(Color.white).edgesIgnoringSafeArea(.bottom)
+                .onAppear(){
+                    UIView.setAnimationsEnabled(false)
+                }
 
         }.edgesIgnoringSafeArea(.bottom)
         }
