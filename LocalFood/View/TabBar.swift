@@ -24,6 +24,7 @@ struct TabBar: View {
                      
                         
                         Button(action: {
+                            changeAnimation()
                             showingSheet.toggle()
                            
                         }, label: {
@@ -69,6 +70,9 @@ struct TabBar: View {
         }
     }
 
+func changeAnimation(){
+    UIView.setAnimationsEnabled(true)
+}
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {

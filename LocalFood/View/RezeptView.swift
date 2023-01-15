@@ -40,7 +40,9 @@ struct RezeptView: View {
                 HStack(spacing:0){
                 }.background(Color.white).padding(.bottom, 1).frame(width: geometry.size.width , height: geometry.size.height/2000)
                 
-
+                //Linie zwischen Navigation und Inhalt
+                VStack{}
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
                 ScrollView{
                 /// Hier ändern
