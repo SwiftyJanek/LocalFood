@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
 
-
+    @State private var showingSheet = false
     var body: some View {
         GeometryReader { geometry in
                 HStack{
@@ -21,13 +21,37 @@ struct TabBar: View {
                     }.buttonStyle(PlainButtonStyle())
                     ZStack{
                         
-                        Circle().foregroundColor(.white)
-                            .frame(width: geometry.size.width/7, height: geometry.size.width/7)
-                            .shadow(radius: 4)
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                     
+                        
+                        Button(action: {
+                            changeAnimation()
+                            showingSheet.toggle()
+                           
+                        }, label: {
+                            Circle().foregroundColor(.white)
+                                .frame(width: geometry.size.width/7, height: geometry.size.width/7)
+                                .shadow(radius: 4)
+                                .overlay(
+                                        Image(systemName: "plus.circle")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .foregroundColor(.black)
+                                            .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                                         
+                                           
+                                )
+                       
+                        }).sheet(isPresented: $showingSheet) {
+                            CreateRezeptView(newRezept: Rezept(id: 1, name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: ""))
+                        }
+                        
+                        
+                 
+
+                        
+                 
+                        
+                        
 
                     }.offset(y: -geometry.size.height/3/1)
                     NavigationLink(destination: ChallengeView() ) {
@@ -38,11 +62,17 @@ struct TabBar: View {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "person.crop.circle", tabName: "Profil")
                     }.buttonStyle(PlainButtonStyle())
                 }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(Color.white).edgesIgnoringSafeArea(.bottom)
+                .onAppear(){
+                    UIView.setAnimationsEnabled(false)
+                }
 
         }.edgesIgnoringSafeArea(.bottom)
         }
     }
 
+func changeAnimation(){
+    UIView.setAnimationsEnabled(true)
+}
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {

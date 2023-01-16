@@ -20,9 +20,8 @@ struct ChallengeView: View {
 
                 VStack(spacing: 0){
                     HStack{
-                        Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                        Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                     }.background(Color.white).padding(.bottom)
                     //HEADER
                     VStack{}

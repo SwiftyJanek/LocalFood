@@ -32,8 +32,18 @@ struct RezeptView: View {
     @State private var kommentar = "verfasse einen Kommentar..."
 
     var body: some View {
+    
         GeometryReader { geometry in
             VStack(spacing:0){
+                
+                
+                HStack(spacing:0){
+                }.background(Color.white).padding(.bottom, 1).frame(width: geometry.size.width , height: geometry.size.height/2000)
+                
+                //Linie zwischen Navigation und Inhalt
+                VStack{}
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                
                 ScrollView{
                 /// Hier ändern
                     
@@ -186,11 +196,15 @@ struct RezeptView: View {
                         }.padding()
                     }
                     /// Hier Ende
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.07).border(Color.gray).background(Color.white)
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(Color.white)
                 
+                VStack{}
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
                 TabBar()
-            }
+            }.onAppear(){
+                UIView.setAnimationsEnabled(true)
+            }.navigationTitle("Test")
         }
     }
     
