@@ -49,6 +49,9 @@ struct ChallengeView: View {
                                             ProgressCircularBar(progress: $progressValue,imageName: "1" )
                                                 .padding(.vertical)
                                                 .frame(width: 60.0, height: 60.0)
+                                                
+                                            
+                                            
                                             Text("Pilz Challange")
                                             Text("\t")
                                             Text("🌱")
