@@ -9,7 +9,7 @@ import Foundation
 
 final class ModelData: ObservableObject {
     @Published var rezepte: [Rezept] = []
-    init() {
+    public init() {
         self.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")
     }
 }

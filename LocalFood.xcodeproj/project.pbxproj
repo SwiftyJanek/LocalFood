@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081A80C92975D6C000934421 /* CameraOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A80C82975D6C000934421 /* CameraOpen.swift */; };
 		0821A3DD2949EA2500655574 /* BadgesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DC2949EA2500655574 /* BadgesGrid.swift */; };
 		0821A3DF294A183400655574 /* BadgeInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821A3DE294A183400655574 /* BadgeInProgress.swift */; };
 		08233518296CA9CD004D047F /* CreateRezeptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08233517296CA9CC004D047F /* CreateRezeptView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081A80C82975D6C000934421 /* CameraOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraOpen.swift; path = LocalFood/View/CameraOpen.swift; sourceTree = SOURCE_ROOT; };
 		0821A3DC2949EA2500655574 /* BadgesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesGrid.swift; sourceTree = "<group>"; };
 		0821A3DE294A183400655574 /* BadgeInProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeInProgress.swift; sourceTree = "<group>"; };
 		08233517296CA9CC004D047F /* CreateRezeptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRezeptView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		08EDE0CE28FA12F800BBF02F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				081A80C82975D6C000934421 /* CameraOpen.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				08EDE0C228F9B6F800BBF02F /* LocalFood.xcdatamodeld in Sources */,
 				0821A3DD2949EA2500655574 /* BadgesGrid.swift in Sources */,
 				CFDCD778291BD1E700A4FB9B /* ProfilView.swift in Sources */,
+				081A80C92975D6C000934421 /* CameraOpen.swift in Sources */,
 				08EDE0B828F9B6F700BBF02F /* ContentView.swift in Sources */,
 				08233518296CA9CD004D047F /* CreateRezeptView.swift in Sources */,
 				082883FA2949392700516ED4 /* ProfileInfo.swift in Sources */,

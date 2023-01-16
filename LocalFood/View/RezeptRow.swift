@@ -16,11 +16,13 @@ struct RezeptRow: View {
                 image
                     .resizable()
                     .frame(width: 50, height: 50)
+                    .cornerRadius(10)
                 Text(rezept.name)
             } else {
                 rezept.bild
                     .resizable()
                     .frame(width: 50, height: 50)
+                    .cornerRadius(10)
                 Text(rezept.name)
             }
             Spacer()

@@ -30,6 +30,8 @@ struct RezeptView: View {
     var onColor = Color.yellow
     
     @State private var kommentar = "verfasse einen Kommentar..."
+    
+    @State private var showImagePicker: Bool = false
 
     var body: some View {
     
@@ -102,7 +104,8 @@ struct RezeptView: View {
                         }
                     
                     Spacer()
-                    Text("Erstellt von 👤 Benutzer123")
+                        Text("🙋🏼‍♂️ Erstellt von Janek Behrens")
+                            .font(.caption)
                     Divider()
 
                         }.padding()
@@ -124,10 +127,13 @@ struct RezeptView: View {
                             }
                         }
                         
-                        Button {
-                            print("Foto teilen")
-                        } label: {
-                            Label("Foto teilen", systemImage: "camera")
+                        Button(action: {
+                            self.showImagePicker.toggle()
+                        }) {
+                            Text("Foto teilen")
+                        }
+                        .sheet(isPresented: $showImagePicker) {
+                            CameraOpen(showImagePicker: self.$showImagePicker)
                         }
                         .padding()
                         .frame(maxWidth: 300)
@@ -143,6 +149,7 @@ struct RezeptView: View {
                                     TextEditor(text: $kommentar)
                                         .foregroundColor(.secondary)
                                         .padding(.horizontal)
+                                        
                                     
                         }.frame(height: 100.0).scaledToFit()
                         
@@ -160,17 +167,12 @@ struct RezeptView: View {
                         VStack(alignment: .leading){
                             VStack{
                                 HStack{
-                                    ProfileImageCircle().padding(5)
-                                    VStack(alignment: .leading){
-                                        Text("Janek Behrens")
-                                            .font(.headline)
-                                        
-                                        
-                                        Text("Ein echt tolles Rezept, ich habe es mit Oma zusammen gebacken! 😋🤤")
-                                    }
+                                    Text("Bitte beachte die Community-Richtlinien, bevor du einen Kommentar schreibst!")
+                                        .font(.caption)
                                 }
-                                .padding(.top, 25.0)
                             }
+                            Divider()
+                            
                             VStack{
                                 HStack{
                                     ProfileImageCircle().padding(5)
