@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProfileInfo: View {
     @State var progressValue: Float = 0.6
-    let nextBadges = ["abzeichen", "rakete", "abzeichen", "rakete"]
-    let progress = [0.5,0.2,0.7,0.3]
+    let nextBadges = ["erstesDienstjahr", "meeresChamp", "PilzMeister", "abzeichenChamp"]
+    @State var progress: [Float] = [0.5,0.2,0.7,0.3]
     
     //TEST
     @State private var showingSheet = false
@@ -36,14 +36,14 @@ struct ProfileInfo: View {
                 // Add a section for your profile details, such as your location and bio
                 Section(header: Text("Abzeichen")) {
                     
-                    BadgeGrid(badges: ["abzeichen", "tier", "wolf", "rakete", "rakete"])
+                    BadgeGrid(badges: ["pilzChamp", "sommerChamp", "winterChamp", "ersteChallengeGeschafft"])
                 }
                 Section(header: Text("Nächste Abzeichen")) {
 
                     ScrollView(.horizontal){
                         HStack {
-                            ForEach(self.nextBadges, id: \.self) { badge in
-                                ProgressCircularBar(progress: self.$progressValue, imageName: badge)
+                            ForEach(Array(self.nextBadges.enumerated()), id: \.offset) { (index, badge) in
+                                ProgressCircularBar(progress: self.$progress[index], imageName: badge)
                                     .padding(.vertical)
                                     .frame(width: 57.0, height: 57.0)
                             }
@@ -71,7 +71,7 @@ struct ProfileInfo: View {
                     }
                     HStack {
                         NavigationLink {
-                            RezeptListe()
+                            RezeptListe(showFavoritesOnly: true)
                         } label: {
                             Image(systemName: "heart")
                             Text("Rezepte")

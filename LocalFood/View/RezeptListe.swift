@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RezeptListe: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var showFavoritesOnly = false
+    @State var showFavoritesOnly = false
 
     
     var filteredRezepte: [Rezept] {
