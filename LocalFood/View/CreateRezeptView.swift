@@ -180,12 +180,12 @@ func didDismiss() {
     // Handle the dismissing action.
 }
 
-private func filePath(forKey key: String) -> URL? {
+private func filePath(forKey key: String) -> URL {
     let fileManager = FileManager.default
-    guard let documentURL = fileManager.urls(for: .documentDirectory,
-                                            in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
-    let fileName = (key + ".png").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    return documentURL.appendingPathComponent(fileName!)
+    let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let fileName = (key + ".png")
+    let fileURL = documentsURL.appendingPathComponent(fileName)
+    return fileURL
 }
 
 enum StorageType {
@@ -194,30 +194,40 @@ enum StorageType {
 }
 
 private func store(image: UIImage,
-                    forKey key: String,
-                   withName filename: String,
-                   withStorageType storageType: StorageType) -> URL? {
+forKey key: String,
+withName filename: String,
+                   withStorageType storageType: StorageType) -> URL {
     let imageName = filename
+    var destination: URL = URL(filePath: "")
     if let pngRepresentation = image.pngData() {
         switch storageType {
         case .fileSystem:
-            if let filePath = filePath(forKey: imageName) {
-                do {
-                    try pngRepresentation.write(to: filePath,
-                                                options: .atomic)
-                } catch let err {
-                    print("Saving file resulted in error: ", err)
-                }
+            let filePath = filePath(forKey: imageName)
+            do {
+                try pngRepresentation.write(to: filePath, options: .atomic)
+                // Copy the image to the Asset Catalog
+                let fileManager = FileManager.default
+                let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let sourceURL = documentsURL.appendingPathComponent("\(imageName).png")
+                let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.copyPerm")!
+                //let destinationURL = Bundle.main.resourceURL!.appendingPathComponent("\(imageName).png")
+                let zielURL = containerURL.appendingPathComponent("\(imageName).png")
+                destination = zielURL
+                print("copy from: \(sourceURL) to: \(zielURL)")
+                try fileManager.copyItem(at: sourceURL, to: zielURL)
+            } catch let err {
+                print("Saving file resulted in error: ", err)
             }
         case .userDefaults:
-            UserDefaults.standard.set(pngRepresentation,
-                                        forKey: key)
+            UserDefaults.standard.set(pngRepresentation, forKey: key)
         }
     }
-    print("Bild gespeichert in Pfad: \(filePath(forKey: imageName))")
+    //print("Bild gespeichert in Pfad: (filePath(forKey: \(imageName))")
     print("Bildname: \(imageName)")
-    return filePath(forKey: imageName)
+    return destination
 }
+                    
+
 
 
 struct CreateRezeptView_Previews: PreviewProvider {

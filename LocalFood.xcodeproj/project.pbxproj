@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		081A80C82975D6C000934421 /* CameraOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraOpen.swift; path = LocalFood/View/CameraOpen.swift; sourceTree = SOURCE_ROOT; };
+		081A80CA297715E700934421 /* LocalFood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocalFood.entitlements; sourceTree = "<group>"; };
 		0821A3DC2949EA2500655574 /* BadgesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesGrid.swift; sourceTree = "<group>"; };
 		0821A3DE294A183400655574 /* BadgeInProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeInProgress.swift; sourceTree = "<group>"; };
 		08233517296CA9CC004D047F /* CreateRezeptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRezeptView.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		08EDE0B428F9B6F700BBF02F /* LocalFood */ = {
 			isa = PBXGroup;
 			children = (
+				081A80CA297715E700934421 /* LocalFood.entitlements */,
 				0823351C296DF003004D047F /* Info.plist */,
 				08EDE0CF28FA12FD00BBF02F /* Resources */,
 				08EDE0CE28FA12F800BBF02F /* Controller */,
@@ -434,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LocalFood/LocalFood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalFood/Preview Content\"";
@@ -462,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LocalFood/LocalFood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalFood/Preview Content\"";

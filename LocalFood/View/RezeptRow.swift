@@ -33,6 +33,7 @@ struct RezeptRow: View {
 func loadImage(from url: URL) -> Image? {
     if let imageData = try? Data(contentsOf: url),
         let uiImage = UIImage(data: imageData) {
+        print("RezeptROW - UIImage geladen! \(url)")
         return Image(uiImage: uiImage)
     } else {
         print("RezeptROW - Fehler, konnte das User-Bild nicht laden...")

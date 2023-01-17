@@ -38,9 +38,9 @@ func load<T: Decodable>(_ filename: String) -> [T] {
     }
     do {
         let decoder = JSONDecoder()
-        print("Data: \(data)")
+        //print("Data: \(data)")
         let decodedData = try decoder.decode([T].self, from: data)
-        print("Decoded Data: \(decodedData)")
+        //print("Decoded Data: \(decodedData)")
         return decodedData
     } catch {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error) Path: \(jsonURL.path)")
