@@ -12,7 +12,8 @@ import CoreData
 struct RezeptView: View {
     @EnvironmentObject var modelData: ModelData
     var rezept: Rezept
-    
+    @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     var rezeptIndex: Int {
         modelData.rezepte.firstIndex(where: { $0.id == rezept.id })!
     }
@@ -198,7 +199,7 @@ struct RezeptView: View {
                         }.padding()
                     }
                     /// Hier Ende
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(Color.white)
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
                 
                 VStack{}
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
@@ -206,7 +207,7 @@ struct RezeptView: View {
                 TabBar()
             }.onAppear(){
                 UIView.setAnimationsEnabled(true)
-            }.navigationTitle("Test")
+            }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
         }
     }
     

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ChallangeDetails: View {
+struct ChallengeDetails: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ChallangeDetails_Previews: PreviewProvider {
+struct ChallengeDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ChallangeDetails()
+        ChallengeDetails()
     }
 }

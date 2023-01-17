@@ -13,7 +13,9 @@ struct RezeptListe: View {
     @State var searchText = ""
     @State var selectedCategory = "Alles"
     let categories = ["Alles", "Vorspeise", "Hauptgang", "Dessert", "Vegan", "Veggie"]
-
+    @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    
     var filteredRezepte: [Rezept] {
         modelData.rezepte.filter { rezept in
             (!showFavoritesOnly || rezept.isFavorit) && (searchText.isEmpty || rezept.name.contains(searchText)) && (selectedCategory == "Alles" || rezept.kategorie == selectedCategory)
@@ -29,11 +31,15 @@ struct RezeptListe: View {
                     
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.background(Color.white).padding(.bottom)
-                    //HEADER
+                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
+                    }.background(barColor.brightness(0.15)).padding(.bottom)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
+
+                
+                    
+                    
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                     
                     ScrollView{
                         VStack{
@@ -84,24 +90,22 @@ struct RezeptListe: View {
                                         RezeptRow(rezept: rezept)
                                     }
                                 }
-                            }
-                            .onAppear{self.modelData.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")}
                             .background(.white)
                             //.navigationTitle("Rezeptliste")
                             
+                            //.navigationTitle("Rezeptliste")
                             
-                        }.frame(height: geometry.size.height/1.22)
                             
+                        }.frame(maxHeight: .infinity)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
                         }.frame(maxHeight: .infinity)
                     }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                     
                     TabBar()
-                }
-                
             }
             .navigationBarBackButtonHidden(true)
             .navigationTitle("Rezepte")
@@ -128,6 +132,8 @@ struct RezeptListe: View {
                 }
             }
         }
+    }
+    
     }
     
 }
