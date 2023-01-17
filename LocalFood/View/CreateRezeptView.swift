@@ -121,8 +121,21 @@ struct CreateRezeptView: View {
                             newRezept.kategorie = kategorie
                             newRezept.dauerMinuten = String(dauer)
                             newRezept.portionen = Int(portionen)
-                            if eigenschaft == 2 {newRezept.isVegan = true} else { newRezept.isVegetarisch = false}
-                            if eigenschaft == 1 {newRezept.isVegetarisch = true} else { newRezept.isVegan = false}
+                            //wenn Vegan
+                            if eigenschaft == 2 {
+                                newRezept.isVegan = true
+                                newRezept.isVegetarisch = false
+                            }
+                            //Wenn Vegetarisch
+                            if eigenschaft == 1 {
+                                newRezept.isVegetarisch = true
+                                newRezept.isVegan = false
+                            }
+                            //Wenn weder Vegetarisch noch vegan
+                            if eigenschaft == 0 {
+                                newRezept.isVegan = false
+                                newRezept.isVegetarisch = false
+                            }
                             newRezept.isFavorisiert = false
                             newRezept.isFavorit = false
                             

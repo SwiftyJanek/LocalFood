@@ -35,7 +35,7 @@ struct RezeptView: View {
     @State private var showImagePicker: Bool = false
 
     var body: some View {
-    
+        
         GeometryReader { geometry in
             VStack(spacing:0){
                 
@@ -48,7 +48,7 @@ struct RezeptView: View {
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
                 ScrollView{
-                /// Hier ändern
+                    /// Hier ändern
                     
                     HStack{
                         Text(rezept.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
@@ -72,7 +72,7 @@ struct RezeptView: View {
                     }.padding(.top, 10)
                     
                     Divider()
-                        Text("Zutatenliste").font(.title2).fontWeight(.bold)
+                    Text("Zutatenliste").font(.title2).fontWeight(.bold)
                     VStack(){
                         HStack(){
                             VStack(alignment: .trailing) {
@@ -93,7 +93,7 @@ struct RezeptView: View {
                     Divider()
                     
                     Text("Zubereitung").font(.title2).fontWeight(.bold)
-
+                    
                     VStack(alignment: .center) {
                         ForEach(Array(self.rezept.schritte.enumerated()), id: \.1.self) { (index, text) in
                             Text("Schritt \(index+1)").font(.subheadline).fontWeight(.bold)
@@ -103,14 +103,14 @@ struct RezeptView: View {
                                 .multilineTextAlignment(.center)
                             Spacer()
                         }
-                    
-                    Spacer()
+                        
+                        Spacer()
                         Text("🙋🏼‍♂️ Erstellt von Janek Behrens")
                             .font(.caption)
-                    Divider()
-
-                        }.padding()
-                
+                        Divider()
+                        
+                    }.padding()
+                    
                     VStack{
                         HStack{
                             Text("Bewertung")
@@ -118,7 +118,7 @@ struct RezeptView: View {
                             if label.isEmpty == false {
                                 Text(label)
                             }
-
+                            
                             ForEach(1..<maximumRating + 1, id: \.self) { number in
                                 image(for: number)
                                     .foregroundColor(number > rating ? offColor : onColor)
@@ -144,15 +144,16 @@ struct RezeptView: View {
                         
                         Divider()
                         
-                        Text("Kommentare").font(.title2).fontWeight(.bold)
                         
-                        NavigationView {
-                                    TextEditor(text: $kommentar)
-                                        .foregroundColor(.secondary)
-                                        .padding(.horizontal)
-                                        
-                                    
-                        }.frame(height: 100.0).scaledToFit()
+                        //NavigationView {
+                        Text("Kommentare").font(.title2).fontWeight(.bold)
+                        TextEditor(text: $kommentar)
+                            .foregroundColor(Color.gray)
+                            .font(.custom("HelveticaNeue", size: 13))
+                            .lineSpacing(5)
+                            .frame(height: 120)
+                            .border(.black)
+                            .padding()
                         
                         Button {
                             print("Veröffentlichen")
@@ -164,6 +165,11 @@ struct RezeptView: View {
                         .background(Color(red: 0, green: 0.5, blue: 0.5))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
+                        
+                        //}.frame(height: 120.0)
+                        //    .padding()
+                        
+                        
                         
                         VStack(alignment: .leading){
                             VStack{
@@ -200,7 +206,7 @@ struct RezeptView: View {
                     }
                     /// Hier Ende
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
-                
+                    .navigationTitle(rezept.name)
                 VStack{}
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
