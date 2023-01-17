@@ -79,7 +79,7 @@ struct RezeptListe: View {
                                 
                                 ForEach(filteredRezepte) { rezept in
                                     NavigationLink {
-                                        RezeptView(rezept: rezept, rating: .constant(4))
+                                        RezeptView(rezept: rezept, rating: .constant(4), kommentar: "")
                                     } label: {
                                         RezeptRow(rezept: rezept)
                                     }

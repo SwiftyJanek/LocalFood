@@ -30,7 +30,8 @@ struct RezeptView: View {
     var offColor = Color.gray
     var onColor = Color.yellow
     
-    @State private var kommentar = "verfasse einen Kommentar..."
+    @State var kommentar: String
+    @State var kommentarPlaceholder = "Schreibe einen Kommentar..."
     
     @State private var showImagePicker: Bool = false
 
@@ -147,16 +148,42 @@ struct RezeptView: View {
                         
                         //NavigationView {
                         Text("Kommentare").font(.title2).fontWeight(.bold)
-                        TextEditor(text: $kommentar)
-                            .foregroundColor(Color.gray)
-                            .font(.custom("HelveticaNeue", size: 13))
-                            .lineSpacing(5)
-                            .frame(height: 120)
-                            .border(.black)
-                            .padding()
+                        VStack{
+                            HStack{
+                                Text("Bitte beachte die Community-Richtlinien, bevor du einen Kommentar schreibst!")
+                                    .font(.caption)
+                                    .padding(.top)
+                            }
+                        }
+                        
+                        ZStack {
+                            if self.kommentar.isEmpty {
+                                    TextEditor(text:$kommentarPlaceholder)
+                                        .disabled(true)
+                                        .foregroundColor(Color.gray)
+                                        .font(.custom("HelveticaNeue", size: 13))
+                                        .lineSpacing(5)
+                                        .frame(height: 120)
+                                        .border(.black)
+                                        .padding()
+
+                            }
+                            TextEditor(text: $kommentar)
+                                .opacity(self.kommentar.isEmpty ? 0.25 : 1)
+                                .foregroundColor(Color.gray)
+                                .font(.custom("HelveticaNeue", size: 13))
+                                .lineSpacing(5)
+                                .frame(height: 120)
+                                .border(.black)
+                                .padding()
+
+                        }
+
+                            
                         
                         Button {
                             print("Veröffentlichen")
+                            kommentar = ""
                         } label: {
                             Label("Kommentar veröffentlicht", systemImage: "square.and.pencil")
                         }
@@ -166,18 +193,8 @@ struct RezeptView: View {
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         
-                        //}.frame(height: 120.0)
-                        //    .padding()
-                        
-                        
-                        
                         VStack(alignment: .leading){
-                            VStack{
-                                HStack{
-                                    Text("Bitte beachte die Community-Richtlinien, bevor du einen Kommentar schreibst!")
-                                        .font(.caption)
-                                }
-                            }
+                            
                             Divider()
                             
                             ForEach(Array(self.rezept.kommentar.enumerated()), id: \.1.self) { (index, kommentar) in
@@ -268,7 +285,7 @@ struct RezeptView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        RezeptView(rezept: modelData.rezepte[0], rating: .constant(4))
+        RezeptView(rezept: modelData.rezepte[0], rating: .constant(4), kommentar: "")
             .environmentObject(modelData)
     }
 }
