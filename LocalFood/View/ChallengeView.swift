@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ChallengeView: View {
-
+    @EnvironmentObject var modelData: ModelDataChallenge
+    @State var showFavoritesOnly = false
+    var filteredRezepte: [Challenge] = ModelDataChallenge().challenges
     @State var progressValue: Float = 0.6
- 
-    
+    @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
 
     var body: some View {
 
@@ -22,8 +24,8 @@ struct ChallengeView: View {
                 VStack(spacing: 0){
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.background(Color.white).padding(.bottom)
+                        Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
+                    }.background(barColor.brightness(0.15)).padding(.bottom)
                     //HEADER
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
@@ -32,7 +34,28 @@ struct ChallengeView: View {
                     VStack(spacing: 0){
        
                         List{
-                                
+           
+                                Section(header: Text("In Bearbeitung")) {
+                                    HStack{
+                                    NavigationLink {
+                                        ChallengeDetails()
+                                    } label: {
+                                        ProgressCircularBar(progress: 0.5, imageName: "pilzChamp" )
+                                            .padding(.vertical)
+                                            .frame(width: 60.0, height: 60.0)
+                                        Text("Pilz Challenge")
+                                        Text(" ")
+                                        ProgressBar(value: 0.5).frame(height: 15)
+                                        Text(" ")
+                                        
+                            
+                             
+                               
+                                    }
+                                    
+                                }
+                            }
+
                                 HStack{
                                     let images = ["1","2"]
                                     ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
@@ -40,100 +63,79 @@ struct ChallengeView: View {
                                 
                                 Section(header: Text("Draußen in der Natur")) {
                               
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            
-                                        
-                                            ProgressCircularBar(progress: $progressValue,imageName: "1" )
-                                                .padding(.vertical)
-                                                .frame(width: 60.0, height: 60.0)
-                                                
-                                            
-                                            
-                                            Text("Pilz Challange")
-                                            Text("\t")
-                                            Text("🌱")
-                                            Text("🌱")
-                                            Text("🌱").opacity(0.4)
-                                           
-                                            
+                                    ForEach(filteredRezepte) { challenge in
+                                        let loop = challenge.kategorie
+                                        if loop == "Draußen in der Natur" {
+                                            HStack{
+                                                NavigationLink {
+                                                    ChallengeDetails()
+                                                } label: {
+                                                    ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                        .padding(.vertical)
+                                                        .frame(width: 60.0, height: 60.0)
+                                                    Text(challenge.name)
+                                                    Text("\t")
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                }
+                                            }
                                         }
                                     }
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            Image("1")
-                                                .resizable()
-                                                .frame(width: 50, height: 50)
-                                                .clipShape(Circle())
-                                            Text("Pilz Challange")
-                                        }
-                                    }
-                                   
                                 }
                                 
-                                Section(header: Text("Beim Einkaufen!")) {
-                                    
-                                    
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            Image("2")
-                                                .resizable()
-                                                .frame(width: 50, height: 50)
-                                                .clipShape(Circle())
-                                            Text("Pilz Challange")
+                            Section(header: Text("Beim Einkaufen")) {
+                                
+                                ForEach(filteredRezepte) { challenge in
+                                    let loop = challenge.kategorie
+                                    if loop == "Beim Einkaufen" {
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails()
+                                            } label: {
+                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                                Text(challenge.name)
+                                                Text("\t")
+                                                Text("🌱")
+                                                Text("🌱")
+                                                Text("🌱").opacity(0.4)
+                                            }
                                         }
                                     }
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            Image("2")
-                                                .resizable()
-                                                .frame(width: 50, height: 50)
-                                                .clipShape(Circle())
-                                            Text("Pilz Challange")
-                                        }
-                                    }
-                                    
-                                    
-                                    
                                 }
                                 
-                                Section(header: Text("Beim Einkaufen!")) {
+                            }
+                                
+                                Section(header: Text("Beim Kochen")) {
                                     
-                                    
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            Image("3")
-                                                .resizable()
-                                                .frame(width: 50, height: 50)
-                                                .clipShape(Circle())
-                                            Text("Pilz Challange")
+                                    ForEach(filteredRezepte) { challenge in
+                                        let loop = challenge.kategorie
+                                        if loop == "Beim Kochen" {
+                                            HStack{
+                                                NavigationLink {
+                                                    ChallengeDetails()
+                                                } label: {
+                                                    ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                        .padding(.vertical)
+                                                        .frame(width: 60.0, height: 60.0)
+                                                    Text(challenge.name)
+                                                    Text("\t")
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                }
+                                            }
                                         }
                                     }
-                                    HStack {
-                                        NavigationLink {
-                                            // Link
-                                        } label: {
-                                            Image("4")
-                                                .resizable()
-                                                .frame(width: 50, height: 50)
-                                                .clipShape(Circle())
-                                            Text("Pilz Challange")
-                                        }
-                                    }
+                                    
+                                    
 
                                 }
                         }.listStyle(PlainListStyle())
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+                        
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22)
                         
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
@@ -141,7 +143,7 @@ struct ChallengeView: View {
                             
                     TabBar()
 
-                }
+                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
             }.navigationBarBackButtonHidden(true)
 
         }.edgesIgnoringSafeArea(.bottom)

@@ -10,7 +10,8 @@ import SwiftUI
 struct RezeptListe: View {
     @EnvironmentObject var modelData: ModelData
     @State var showFavoritesOnly = false
-
+    @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     
     var filteredRezepte: [Rezept] {
         modelData.rezepte.filter { rezept in
@@ -25,11 +26,11 @@ struct RezeptListe: View {
                     
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.background(Color.white).padding(.bottom)
+                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
+                    }.background(barColor.brightness(0.15)).padding(.bottom)
                     //HEADER
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
 
                 
                     
@@ -52,19 +53,20 @@ struct RezeptListe: View {
                             }
                             .onAppear{self.modelData.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")}
                             .navigationTitle("Rezeptliste")
+                         
                         
                             
                         }.frame(height: geometry.size.height/1.22)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                     
                     TabBar()
-                }
+                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
                 
-            }.navigationBarBackButtonHidden(true).navigationTitle("Rezepte").navigationBarHidden(true)
+            }.navigationBarBackButtonHidden(true).navigationTitle("Rezepte").navigationBarHidden(true).background(barColor.brightness(0.15))
         }.edgesIgnoringSafeArea(.bottom)
     }
 }

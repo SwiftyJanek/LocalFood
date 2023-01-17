@@ -10,8 +10,6 @@ import SwiftUI
 struct ProfileInfo: View {
     @State var progressValue: Float = 0.6
     let nextBadges = ["erstesDienstjahr", "meeresChamp", "PilzMeister", "abzeichenChamp"]
-    @State var progress: [Float] = [0.5,0.2,0.7,0.3]
-    
     //TEST
     @State private var showingSheet = false
 
@@ -29,7 +27,7 @@ struct ProfileInfo: View {
                 }
                 HStack{
                     Text("Level: 1")
-                    ProgressBar(value: $progressValue).frame(height: 20)
+                    ProgressBar(value: 0.5).frame(height: 20)
                     Text("2")
                 }
                 Text("Aktueller Rang: Newcomer")
@@ -43,7 +41,7 @@ struct ProfileInfo: View {
                     ScrollView(.horizontal){
                         HStack {
                             ForEach(Array(self.nextBadges.enumerated()), id: \.offset) { (index, badge) in
-                                ProgressCircularBar(progress: self.$progress[index], imageName: badge)
+                                ProgressCircularBar(progress: progressValue, imageName: badge)
                                     .padding(.vertical)
                                     .frame(width: 57.0, height: 57.0)
                             }
@@ -90,17 +88,17 @@ struct ProfileInfo: View {
 }
 
 struct ProgressBar: View {
-    @Binding var value: Float
+    @State var value: Float
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle().frame(width: geometry.size.width , height: geometry.size.height)
                     .opacity(0.3)
-                    .foregroundColor(Color(UIColor.systemTeal))
+                    .foregroundColor(Color(UIColor.systemGreen))
                 
                 Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(Color(UIColor.systemBlue))
+                    .foregroundColor(Color(UIColor.systemGreen))
             }.cornerRadius(45.0)
         }
     }
