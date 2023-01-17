@@ -180,9 +180,23 @@ struct RezeptView: View {
                             }
                             Divider()
                             
+                            ForEach(Array(self.rezept.kommentar.enumerated()), id: \.1.self) { (index, kommentar) in
+                                VStack{
+                                    HStack{
+                                        ProfileImageCircle(imageName: rezept.benutzerBild[index]).padding(5)
+                                        VStack(alignment: .leading){
+                                            Text(rezept.kommentarBenutzer[index])
+                                                .font(.headline)
+                                                .frame(alignment: .leading)
+                                            Text(kommentar)
+                                        }
+                                    }
+                                }
+                            }
+                            
                             VStack{
                                 HStack{
-                                    ProfileImageCircle().padding(5)
+                                    ProfileImageCircle(imageName: "profilePic_Janek").padding(5)
                                     VStack(alignment: .leading){
                                         Text("Janek Behrens")
                                             .font(.headline)
@@ -193,7 +207,7 @@ struct RezeptView: View {
                             }
                             VStack{
                                 HStack{
-                                    ProfileImageCircle().padding(5)
+                                    ProfileImageCircle(imageName: "profilePic_Janek").padding(5)
                                     VStack(alignment: .leading){
                                         Text("Janek Behrens")
                                             .font(.headline)

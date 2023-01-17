@@ -21,6 +21,9 @@ struct Rezept: Hashable, Codable, Identifiable {
     var zutatenListe: [String]
     var zutatenMenge: [String]
     var schritte: [String]
+    var kommentar: [String]
+    var kommentarBenutzer: [String]
+    var benutzerBild: [String]
     
     var bildURL: URL
     var bildName: String
@@ -28,7 +31,7 @@ struct Rezept: Hashable, Codable, Identifiable {
             Image(bildName)
         }
     
-    init(name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String, bildURL: URL) {
+    init(name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String, bildURL: URL, kommentar: [String], kommentarBenutzer: [String], benutzerBild: [String]) {
         self.id = UUID()
         self.name = name
         self.kategorie = kategorie
@@ -43,6 +46,9 @@ struct Rezept: Hashable, Codable, Identifiable {
         self.schritte = schritte
         self.bildURL = bildURL
         self.bildName = bildName
+        self.kommentar = kommentar
+        self.kommentarBenutzer = kommentarBenutzer
+        self.benutzerBild = benutzerBild
     }
 }
 

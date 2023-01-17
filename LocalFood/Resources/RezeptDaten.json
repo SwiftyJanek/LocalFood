@@ -13,7 +13,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "kuerbissuppe",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "d2263689-6a99-455a-89e6-1f2edeec3c51",
@@ -29,7 +32,10 @@
         "zutatenMenge": ["60g","1 Stk.","3 Stk.","230g","900ml","1 Priese","1 Priese","150g","1 Bund"],
         "schritte": ["Die Zwiebel schälen und kleine würfelig schneiden. Die Lauchstangen waschen und in dünne Scheiben schneiden. Die Kartoffeln waschen, schälen und grob würfelig schneiden. Den Schnittlauch waschen, ausschütteln und klein schneiden.","Einen großen Topf erhitzen und die Butter darin zerlassen. Die Zwiebel darin 3 Minuten bei kleiner Hitze glasig dünsten. Porree und Kartoffel hineingeben und 3 Minuten lang anschwitzen. Mit der klaren Gemüsesuppe ablöschen und alles 15 Minuten bei kleiner Hitze zugedeckt köcheln lassen.","Die Suppe mit einem Pürierstab glatt pürieren und mit Salz und Pfeffer abschmecken. Erneut aufkochen und bei kleiner Hitze 5 Minuten einkochen lassen. Appetitlich in Schalen anrichten und mit einem Esslöffel Schlagobers und dem frischen Schnittlauch garnieren."],
         "bildName": "kartoffelLauchSuppe",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "7a0f7f91-9fe1-428a-a597-a6152f7dc725",
@@ -45,7 +51,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "cereal",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "212130c8-950d-414b-bf58-6e6de976971f",
@@ -61,7 +70,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "eclair",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "3d8b48d2-1bf1-47d8-aade-ed0d3382b997",
@@ -77,7 +89,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "fleisch-spargel",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "9c752611-9840-4175-a91a-16eeb3f957a1",
@@ -93,7 +108,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "soup-kichererbsen",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "a47d23be-4d1e-46b9-8dba-65039a8d6b8d",
@@ -109,7 +127,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "Spargel-gericht",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "bff03c28-84b9-4e7d-8043-c0da321d8c1d",
@@ -125,7 +146,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "strawberry-dessert",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "347b5db8-5b63-4674-bc93-f4d07e362b05",
@@ -141,7 +165,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "veganer-Salat",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "76699511-f104-40d6-95ad-484860b98ea7",
@@ -157,7 +184,10 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "vegetarische-pizza",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     },
     {
         "id": "a98e993e-7eba-4aa1-a996-bd60ae90cede",
@@ -173,6 +203,9 @@
         "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","1 L","Priese","Priese","100 ml","10g","5g"],
         "schritte": ["Kürbis halbieren, vierteln und die Kerne mit einem Esslöffel herausschaben. Kürbis waschen, trocken tupfen und in Stücke schneiden. Zwiebel schälen und würfeln. Knoblauch schälen und hacken.","Butter in einem Topf schmelzen. Zwiebel und Knoblauch darin glasig dünsten. Kürbis zufügen und kurz mitdünsten. Mit Brühe ablöschen und mit Salz und Pfeffer würzen. Zugedeckt bei milder Hitze ca. 15 Minuten köcheln lassen.","Ca. 3/4 der Sahne zufügen und alles fein pürieren. Noch einmal abschmecken. Kürbissuppe mit Rest Sahne und nach Belieben mit Pfeffer, gehackter Petersilie und Chiliflocken anrichten und servieren.","Tipp: Kürbissuppe einfrieren! Dafür die abgekühlte Suppe in Gefrierdosen oder Gefrierbeutel geben, fest verschließen und ins Tiefkühlfach legen. Zum Auftauen einige Stunden vor dem Aufwärmen in den Kühlschrank stellen."],
         "bildName": "fleisch-spargel",
-        "bildURL" : "FotoHinzufuegen.png"
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     }
 ]
