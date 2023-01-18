@@ -244,7 +244,10 @@ struct RezeptView: View {
                 TabBar()
             }.onAppear(){
                 UIView.setAnimationsEnabled(true)
-            }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
+            }
+            .background(barColor.brightness(0.15)
+            .ignoresSafeArea(edges: .top))
+            
         }
     }
     
@@ -279,6 +282,7 @@ struct RezeptView: View {
         let image = Image("FotoHinzufuegen")
         return TitleImage(image: image)
     }
+    
 }
 
 struct RezeptView_Previews: PreviewProvider {

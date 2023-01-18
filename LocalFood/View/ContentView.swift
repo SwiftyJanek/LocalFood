@@ -28,16 +28,29 @@ struct ContentView: View {
 
                     // CONTENT
                     ScrollView{
-                        Text("Neuigkeiten").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor)
-                        let images = ["1","2"]
-                        ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                        Text("Rezept der Woche").fontWeight(.bold).padding(.top,10).foregroundColor(fontColor)
-                        let images2 = ["3","4"]
-                        ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
-                        Text("Rezepte für Dich").fontWeight(.bold).padding(.top, 10).foregroundColor(fontColor)
-                        ImageSlider(images: images2).frame(height: 262).shadow(radius: 10)
-                        Text("Test1").fontWeight(.bold).padding(.top, 10).foregroundColor(fontColor)
-                        ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
+                        Text("Willkommen bei LocalFood!").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
+                        Text("Wir haben es uns zur Aufgabe gemacht regionale Rezepte für jeden Geschmack anzubieten. Gepaart mit ein paar Herausforderung um deine Motivation zu steigern, hoffen wir, dich zu einem nach haltigeren und regionalen Lebensstiel zu überzeugen").multilineTextAlignment(.center).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5).font(.caption)
+                        Text("Neuigkeiten").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
+                        let images = ["StartseiteChallenge1","StartseiteChallenge2"]
+                        ImageSlider(images: images).frame(height: 220).shadow(radius: 10)
+                        
+                        
+                        
+                        Text("Rezept der Woche").fontWeight(.bold).padding(.top,10).foregroundColor(fontColor).shadow(radius: 5)
+                        let images2 = ["StartseiteRezept1","2"]
+                        ImageSlider(images: images2).frame(height: 220).shadow(radius: 10)
+                        
+                        
+                        
+                        Text("Saisonale Rezepte").fontWeight(.bold).padding(.top, 10).foregroundColor(fontColor).shadow(radius: 5)
+                        let images3 = ["StartseiteRezept2","StartseiteRezept1"]
+                        ImageSlider(images: images3).frame(height: 220).shadow(radius: 10)
+                        
+                        
+                        
+                        Text("Saison Früchte").fontWeight(.bold).padding(.top, 10).foregroundColor(fontColor).shadow(radius: 5)
+                        let images4 = ["StartseiteProdukt1"]
+                        ImageSlider(images: images4).frame(height: 220).shadow(radius: 10)
                     }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
 
                     //Linie zwischen Navigation und Inhalt

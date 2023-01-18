@@ -15,14 +15,14 @@ struct RezeptListe: View {
     let categories = ["Alles", "Vorspeise", "Hauptgang", "Dessert", "Vegan", "Veggie"]
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    
+    var feedbackGenerator = UINotificationFeedbackGenerator()
 
     var filteredRezepte: [Rezept] {
         modelData.rezepte.filter { rezept in
             (!showFavoritesOnly || rezept.isFavorit) && (searchText.isEmpty || rezept.name.contains(searchText)) && (selectedCategory == "Alles" || rezept.kategorie == selectedCategory)
         }
     }
-
-
 
     var body: some View {
         GeometryReader { geometry in
@@ -46,6 +46,7 @@ struct RezeptListe: View {
                                         
                                         Button(action: {
                                             selectedCategory = self.categories[row * 3 + col]
+                                            feedbackGenerator.notificationOccurred(.success)
                                             print("------")
                                             print("\(selectedCategory)")
                                         }) {
@@ -67,8 +68,6 @@ struct RezeptListe: View {
                                 }
                                 .listRowBackground(barColor.brightness(0.55))
 
-                                
-                                
                                 HStack {
                                     TextField("🔎 Rezept suchen...", text: $searchText)
                                         .padding(.leading, 10)
@@ -80,8 +79,6 @@ struct RezeptListe: View {
                                             .opacity(searchText == "" ? 0 : 1)
                                     }
                                 }
-                                //.border(.green)
-                                //.frame(height: 35)
                                 .listRowBackground(barColor.brightness(0.55))
 
                                 Toggle(isOn: $showFavoritesOnly) {
@@ -95,12 +92,11 @@ struct RezeptListe: View {
                                 ForEach(filteredRezepte) { rezept in
                                     NavigationLink {
                                         RezeptView(rezept: rezept, rating: .constant(4), kommentar: "")
+        
                                     } label: {
                                         RezeptRow(rezept: rezept)
                                     }
                                     .listRowBackground(barColor.brightness(0.55))
-
-                                    //.background(barColor.brightness(0.55))
                                 }
                             }
                             .listStyle(.plain)
@@ -108,6 +104,9 @@ struct RezeptListe: View {
                             .background(barColor.brightness(0.55))
                             //.preferredColorScheme()
                             .listRowBackground(barColor.brightness(0.55))
+                            .onAppear(){
+                                UIView.setAnimationsEnabled(true)
+                            }
                             
                             
                         }
@@ -122,7 +121,12 @@ struct RezeptListe: View {
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                     
                     TabBar()
-                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
+                }
+                .onAppear(){
+                    UIView.setAnimationsEnabled(true)
+                }
+                .background(barColor.brightness(0.15)
+                .ignoresSafeArea(edges: .top))
                 
             }
             .navigationBarBackButtonHidden(true)
