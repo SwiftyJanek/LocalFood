@@ -11,15 +11,20 @@ struct ChallengeDetails: View {
     
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State private var imageOne = false
+    @State private var imageTwo = false
+    @State private var imageThree = false
     @State private var isDisclosed = false
     @State private var isDisclosed2 = false
     @State private var isDisclosed3 = false
     @State private var showImagePicker: Bool = false
     var arrowDown: Image = Image(systemName: "chevron.compact.down")
     var arrowUp: Image = Image(systemName: "chevron.compact.up")
-      
-     
-
+    @EnvironmentObject var modelDataC : ModelDataChallenge
+    var challenge: Challenge
+    @Namespace private var imageAnimationOne
+    @Namespace private var imageAnimationTwo
+    @Namespace private var imageAnimationThree
     
     var body: some View {
         
@@ -40,10 +45,10 @@ struct ChallengeDetails: View {
                     // ANFANG HEADER CHallenge
                     VStack{
                         HStack{
-                            Text("Pilz Suche").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
+                            Text(challenge.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         }.padding(.top, 10)
-                        ProgressBar(value: 0.33).frame(height: 15).padding([.leading, .trailing], 30)
-                        Image("1")
+                        ProgressBar(value: 0.33).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+                        Image(challenge.bild1)
                             .resizable(resizingMode: .stretch)
                             .frame(width: 330, height: 220)
                             .clipShape(Rectangle())
@@ -53,16 +58,31 @@ struct ChallengeDetails: View {
                         VStack(alignment: .leading){
                             VStack{
                                 HStack{
+                                    
+    
                                     Text("Schwierigkeit: \t").padding(.leading, 30)
-                                        .font(.headline).padding(.bottom, 5)
-                                    Text("🌱")
-                                    Text("🌱")
-                                    Text("🌱").opacity(0.4)
+                                        .font(.headline).padding([.bottom, .top], 10)
+                                    
+                                    if (challenge.schwierigkeit == 1){
+                                        Text("🌱")
+                                        Text("🌱").opacity(0.4)
+                                        Text("🌱").opacity(0.4)
+                                    }else if (challenge.schwierigkeit == 2){
+                                        Text("🌱")
+                                        Text("🌱")
+                                        Text("🌱").opacity(0.4)
+                                    }else {
+                                        Text("🌱")
+                                        Text("🌱")
+                                        Text("🌱")
+                                        
+                                    }
+
                                 }
                                 HStack{
                                     Text("Belohnung:      \t")
                                         .font(.headline)
-                                    Text("120 🥬")
+                                    Text("\(challenge.belohnung) 🥬")
                                 }
                             }
                             Divider().padding()
@@ -73,7 +93,7 @@ struct ChallengeDetails: View {
                             
                         }.padding(.top, 10).padding(.bottom, 5)
                         HStack{
-                            Text("Der Maronen-Röhrling sieht, einer Esskastanie sehr ähnlich. Das liegt vor allem daran, dass der Hut eine dunkle Farbe hat und die Form eher unregelmäßig gewölbt ist. Doch der Maronen-Pilz muss nicht braun sein. Auch ein hellerer rötlicher oder oliv-brauner Ton ist möglich. Der Stiel der Marone ist meist sehr gebogen und recht dick.")
+                            Text(challenge.aufgabe)
                                 .font(.body)
                                 .fontWeight(.light)
                                 .multilineTextAlignment(.center)
@@ -90,15 +110,22 @@ struct ChallengeDetails: View {
                     //Marone Anfang
                     VStack{
                         
-                        Text("Maronen-Röhrling").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
-                        Image("Marone")
-                            .resizable(resizingMode: .stretch)
-                            .frame(width: 150, height: 150)
-                            .clipShape(Circle())
-                            .overlay {
-                                Circle().stroke(.white, lineWidth: 4)
+                        Text(challenge.step1Name).font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
+                        
+                        
+                        
+                
+                        VStack{
+                            
+                            if imageOne{
+                                imageOneBig
+                          
+                            }else{
+                                imageOneSmall
                             }
-                            .shadow(radius: 7).padding(.bottom, 10)
+                        }
+                        
+                        
                         
                         VStack{
                             
@@ -113,6 +140,7 @@ struct ChallengeDetails: View {
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(fontColor)
                                     .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                                    
                                 }else{
                                     arrowUp.resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -134,15 +162,15 @@ struct ChallengeDetails: View {
                         }.frame(height: 10)
                         VStack{
                            
-                            Text("Merkmale").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
-                            Text("Der Maronen-Röhrling sieht, einer Esskastanie sehr ähnlich. Das liegt vor allem daran, dass der Hut eine dunkle Farbe hat und die Form eher unregelmäßig gewölbt ist. Doch der Maronen-Pilz muss nicht braun sein. Auch ein hellerer rötlicher oder oliv-brauner Ton ist möglich. Der Stiel der Marone ist meist sehr gebogen und recht dick.")
+                            Text(challenge.step1Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
+                            Text(challenge.step1Header1Beschreibung)
                                 .font(.body)
                                 .fontWeight(.light)
                                 .multilineTextAlignment(.center)
                                 .padding([.leading, .trailing], 20)
                                 .padding(.bottom, 10)
-                            Text("Verbeitung").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
-                            Text("Besonders in Mitteleuropa ist der Pilz weit verbreitet. Hier findet man ihn hauptsächlich in Nadelwäldern. Dabei steht der oft zwischen den Wurzelausläufern von Fichten oder Lärchen. Die Hauptsaison des Maronen-Röhrling ist eigentlich der Herbst.")
+                            Text(challenge.step1Header2).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
+                            Text(challenge.step1Header2Beschreibung)
                                 .font(.body)
                                 .fontWeight(.light)
                                 .multilineTextAlignment(.center)
@@ -178,16 +206,22 @@ struct ChallengeDetails: View {
                     //Pfifferling
                     VStack{
                         
-                        Text("Pfifferling").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
+                        Text(challenge.step2Name).font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
                         
-                        Image("Pfifferling")
-                            .resizable(resizingMode: .stretch)
-                            .frame(width: 150, height: 150)
-                            .clipShape(Circle())
-                            .overlay {
-                                Circle().stroke(.white, lineWidth: 4)
+            
+                            
+                              VStack{
+                                
+                                if imageTwo{
+                                    imageTwoBig
+                              
+                                }else{
+                                    imageTwoSmall
+                                }
                             }
-                            .shadow(radius: 7).padding(.bottom, 10)
+                            
+                        
+                        
                         VStack{
                             
                             
@@ -213,15 +247,15 @@ struct ChallengeDetails: View {
                             .buttonStyle(.plain).multilineTextAlignment(.center).font(.title)
                         }.frame(height: 10)
                         VStack{
-                        Text("Merkmale").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
-                        Text("Der Maronen-Röhrling sieht, einer Esskastanie sehr ähnlich. Das liegt vor allem daran, dass der Hut eine dunkle Farbe hat und die Form eher unregelmäßig gewölbt ist. Doch der Maronen-Pilz muss nicht braun sein. Auch ein hellerer rötlicher oder oliv-brauner Ton ist möglich. Der Stiel der Marone ist meist sehr gebogen und recht dick.")
+                            Text(challenge.step1Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
+                            Text(challenge.step1Header1Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
                             .padding([.leading, .trailing], 20)
                             .padding(.bottom, 10)
-                        Text("Verbeitung").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
-                        Text("Besonders in Mitteleuropa ist der Pilz weit verbreitet. Hier findet man ihn hauptsächlich in Nadelwäldern. Dabei steht der oft zwischen den Wurzelausläufern von Fichten oder Lärchen. Die Hauptsaison des Maronen-Röhrling ist eigentlich der Herbst.")
+                        Text(challenge.step1Header2).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
+                        Text(challenge.step1Header2Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
@@ -253,16 +287,22 @@ struct ChallengeDetails: View {
                     
                     VStack{
                         
-                        Text("Steinpilz").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
+                        Text(challenge.step3Name).font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
                         
-                        Image("Steinpilz")
-                            .resizable(resizingMode: .stretch)
-                            .frame(width: 150, height: 150)
-                            .clipShape(Circle())
-                            .overlay {
-                                Circle().stroke(.white, lineWidth: 4)
-                            }
-                            .shadow(radius: 7).padding(.bottom, 10)
+                     
+                        
+                                VStack{
+                                    
+                                    if imageThree{
+                                        imageThreeBig
+                                  
+                                    }else{
+                                        imageThreeSmall
+                                    }
+                                }
+                                
+                        
+                        
                         VStack{
                             
                             
@@ -288,15 +328,15 @@ struct ChallengeDetails: View {
                             .buttonStyle(.plain).multilineTextAlignment(.center).font(.title)
                         }.frame(height: 10)
                         VStack{
-                        Text("Merkmale").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
-                        Text("Der Maronen-Röhrling sieht, einer Esskastanie sehr ähnlich. Das liegt vor allem daran, dass der Hut eine dunkle Farbe hat und die Form eher unregelmäßig gewölbt ist. Doch der Maronen-Pilz muss nicht braun sein. Auch ein hellerer rötlicher oder oliv-brauner Ton ist möglich. Der Stiel der Marone ist meist sehr gebogen und recht dick.")
+                        Text(challenge.step3Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
+                            Text(challenge.step3Header1Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
                             .padding([.leading, .trailing], 20)
                             .padding(.bottom, 10)
-                        Text("Verbeitung").font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
-                        Text("Besonders in Mitteleuropa ist der Pilz weit verbreitet. Hier findet man ihn hauptsächlich in Nadelwäldern. Dabei steht der oft zwischen den Wurzelausläufern von Fichten oder Lärchen. Die Hauptsaison des Maronen-Röhrling ist eigentlich der Herbst.")
+                        Text(challenge.step3Header2).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
+                        Text(challenge.step3Header2Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
@@ -330,6 +370,11 @@ struct ChallengeDetails: View {
                     Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
                     
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
+                
+                
+                
+                
+                
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
@@ -341,10 +386,115 @@ struct ChallengeDetails: View {
         
     }
     
+    
+    // Bilder größer und kleiner
+    var imageOneSmall: some View {
+        VStack{
+            imageChalOne
+            .matchedGeometryEffect(id: "ImageOne", in: imageAnimationOne)
+            .frame(width: 150, height: 150)
+        }
+    }
+    
+    var imageOneBig: some View {
+        VStack{
+                imageChalOne
+                .matchedGeometryEffect(id: "ImageOne", in: imageAnimationOne)
+                .frame(width: 320, height: 320)
+        }
+    }
+    
+    var imageChalOne: some View{
+        Image(challenge.bild2)
+        
+            .resizable()
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7).padding(.bottom, 10)
+            .onTapGesture{
+                withAnimation(.spring()){
+                    imageOne.toggle()
+                }
+            }
+    }
+    
+    // Bild 2
+    var imageTwoSmall: some View {
+        VStack{
+            imageChalTwo
+            .matchedGeometryEffect(id: "ImageTwo", in: imageAnimationTwo)
+            .frame(width: 150, height: 150)
+        }
+    }
+    
+    var imageTwoBig: some View {
+        VStack{
+                imageChalTwo
+                .matchedGeometryEffect(id: "ImageTwo", in: imageAnimationTwo)
+                .frame(width: 320, height: 320)
+        }
+    }
+    
+    var imageChalTwo: some View{
+        Image(challenge.bild3)
+        
+            .resizable()
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7).padding(.bottom, 10)
+            .onTapGesture{
+                withAnimation(.spring()){
+                    imageTwo.toggle()
+                }
+            }
+    }
 
+    
+    // Bild 3
+    
+    var imageThreeSmall: some View {
+        VStack{
+            imageChalThree
+            .matchedGeometryEffect(id: "ImageThree", in: imageAnimationThree)
+            .frame(width: 150, height: 150)
+        }
+    }
+    
+    var imageThreeBig: some View {
+        VStack{
+                imageChalThree
+                .matchedGeometryEffect(id: "ImageThree", in: imageAnimationThree)
+                .frame(width: 320, height: 320)
+        }
+    }
+    
+    var imageChalThree: some View{
+        Image(challenge.bild4)
+        
+            .resizable()
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7).padding(.bottom, 10)
+            .onTapGesture{
+                withAnimation(.spring()){
+                    imageThree.toggle()
+                }
+            }
+    }
+
+    
+    
+    
     struct ChallengeDetails_Previews: PreviewProvider {
+        static let modelDataC = ModelDataChallenge()
         static var previews: some View {
-            ChallengeDetails()
+            ChallengeDetails(challenge: modelDataC.challenges[0]).environmentObject(modelDataC)
         }
     }
 }
