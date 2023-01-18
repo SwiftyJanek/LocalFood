@@ -28,116 +28,168 @@ struct ChallengeView: View {
                         Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
                     }.background(barColor.brightness(0.15)).padding(.bottom)
                     //HEADER
+                    
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
-
+                    
                     // CONTENT
+                    
+                    // Scroll
+                    
+                    
+                    ScrollView{
+                    
+                    
                     VStack(spacing: 0){
-       
+                        
                         List{
-           
-                                Section(header: Text("In Bearbeitung")) {
-                                    HStack{
+                            Section(header: Text("In Bearbeitung").foregroundColor(fontColor)) {
+                                HStack{
                                     NavigationLink {
-                                        ChallengeDetails()
+                                        // ChallengeDetails(challenge: challenge)
                                     } label: {
                                         ProgressCircularBar(progress: 0.5, imageName: "pilzChamp" )
                                             .padding(.vertical)
                                             .frame(width: 60.0, height: 60.0)
-                                        Text("Pilz Challenge")
+                                        Text("Pilz Challenge").foregroundColor(fontColor)
                                         Text(" ")
                                         ProgressBar(value: 0.5).frame(height: 15)
                                         Text(" ")
-                                        
-                            
-                             
-                               
                                     }
-                                    
-                                }
+                                }.listRowBackground(barColor.brightness(0.55))
                             }
-
-                                HStack{
-                                    let images = ["1","2"]
-                                    ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
-                                }
+                            
+                            HStack{
+                                let images = ["1","2"]
+                                ImageSlider(images: images).frame(height: 262).shadow(radius: 10)
+                            }.listRowBackground(barColor.brightness(0.55))
+                            
+                 
+                            Section(header: Text("Draußen in der Natur").foregroundColor(fontColor)) {
                                 
-                                Section(header: Text("Draußen in der Natur")) {
-                              
-                                    ForEach(filteredRezepte) { challenge in
-                                        let loop = challenge.kategorie
-                                        if loop == "Draußen in der Natur" {
-                                            HStack{
-                                                NavigationLink {
-                                                    ChallengeDetails()
-                                                } label: {
-                                                    ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
-                                                        .padding(.vertical)
-                                                        .frame(width: 60.0, height: 60.0)
-                                                    Text(challenge.name)
-                                                    Text("\t")
+                                ForEach(filteredRezepte) { challenge in
+                                    let loop = challenge.kategorie
+                                    if loop == "Draußen in der Natur" {
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails(challenge: challenge)
+                                            } label: {
+                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                                Text(challenge.name).foregroundColor(fontColor)
+                                                Text("\t")
+                                                
+                                                if (challenge.schwierigkeit == 1){
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                    Text("🌱").opacity(0.4)
+                                                }else if (challenge.schwierigkeit == 2){
                                                     Text("🌱")
                                                     Text("🌱")
                                                     Text("🌱").opacity(0.4)
+                                                }else{
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱")
                                                 }
                                             }
-                                        }
+                                        }.listRowBackground(barColor.brightness(0.55))
                                     }
                                 }
+                            }
+                                    
+                            
+                     
+                            Section(header: Text("Beim Einkaufen").foregroundColor(fontColor)) {
                                 
-                            Section(header: Text("Beim Einkaufen")) {
                                 
                                 ForEach(filteredRezepte) { challenge in
                                     let loop = challenge.kategorie
                                     if loop == "Beim Einkaufen" {
                                         HStack{
                                             NavigationLink {
-                                                ChallengeDetails()
+                                                ChallengeDetails(challenge: challenge)
                                             } label: {
                                                 ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
                                                     .padding(.vertical)
                                                     .frame(width: 60.0, height: 60.0)
-                                                Text(challenge.name)
+                                                Text(challenge.name).foregroundColor(fontColor)
                                                 Text("\t")
-                                                Text("🌱")
-                                                Text("🌱")
-                                                Text("🌱").opacity(0.4)
+                                                if (challenge.schwierigkeit == 1){
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                    Text("🌱").opacity(0.4)
+                                                }else if (challenge.schwierigkeit == 2){
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                }else{
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                }
                                             }
-                                        }
+                                        }.listRowBackground(barColor.brightness(0.55))
                                     }
                                 }
                                 
                             }
+                            
+                            
+                      
+                            Section(header: Text("Beim Kochen").foregroundColor(fontColor)) {
                                 
-                                Section(header: Text("Beim Kochen")) {
-                                    
-                                    ForEach(filteredRezepte) { challenge in
-                                        let loop = challenge.kategorie
-                                        if loop == "Beim Kochen" {
-                                            HStack{
-                                                NavigationLink {
-                                                    ChallengeDetails()
-                                                } label: {
-                                                    ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
-                                                        .padding(.vertical)
-                                                        .frame(width: 60.0, height: 60.0)
-                                                    Text(challenge.name)
-                                                    Text("\t")
+                                
+                                ForEach(filteredRezepte) { challenge in
+                                    let loop = challenge.kategorie
+                                    if loop == "Beim Kochen" {
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails(challenge: challenge)
+                                            } label: {
+                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                                Text(challenge.name).foregroundColor(fontColor)
+                                                Text("\t")
+                                                if (challenge.schwierigkeit == 1){
+                                                    Text("🌱")
+                                                    Text("🌱").opacity(0.4)
+                                                    Text("🌱").opacity(0.4)
+                                                }else if (challenge.schwierigkeit == 2){
                                                     Text("🌱")
                                                     Text("🌱")
                                                     Text("🌱").opacity(0.4)
+                                                }else{
+                                                    Text("🌱")
+                                                    Text("🌱")
+                                                    Text("🌱")
                                                 }
                                             }
-                                        }
+                                        }.listRowBackground(barColor.brightness(0.55))
                                     }
-                                    
-                                    
-
                                 }
+                                
+                                
+                            }
+                            
                         }.listStyle(PlainListStyle())
+                            .scrollContentBackground(.hidden)
+                            .background(barColor.brightness(0.55))
+                            .listRowBackground(barColor.brightness(0.55))
                         
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22)
-                        
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
+                    
+                    
+                    
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
+                   
+                    
+                    // Scrol
+                    
+                    
+                    
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
@@ -145,7 +197,7 @@ struct ChallengeView: View {
                     TabBar()
 
                 }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
-            }.navigationBarBackButtonHidden(true).navigationTitle("Challenges").accentColor(fontColor).navigationBarHidden(true)
+            }.navigationBarBackButtonHidden(true).navigationTitle("Challenges").accentColor(fontColor).navigationBarHidden(true).background(barColor.brightness(0.15))
             
             
         }.edgesIgnoringSafeArea(.bottom)
