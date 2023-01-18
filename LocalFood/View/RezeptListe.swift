@@ -39,33 +39,39 @@ struct RezeptListe: View {
                     
                     ScrollView{
                         VStack{
-                            GridStack(rows: 2, columns: 3) { row, col in
-                                Button(action: {
-                                    self.selectedCategory = self.categories[row * 3 + col]
-                                    print("------")
-                                    print("\(selectedCategory)")
-                                }) {
-                                    VStack {
-                                        Image(self.categories[row * 3 + col])
-                                            .resizable()
-                                        
-                                        Text(self.categories[row * 3 + col])
-                                            .font(.callout)
-                                    }
-                                }
-                                .foregroundColor(.black)
-                                .frame(width: 82, height: 80)
-                                .padding(15)
-                                .background(self.selectedCategory == self.categories[row * 3 + col] ? Color(red: 60/255, green: 143/255, blue: 43/255) : Color(red: 164/255, green: 214/255, blue: 154/255))
-                                .cornerRadius(25)
-                                
-                            }.padding(.vertical)
+
                             
                         NavigationView {
                             List {
+                                GridStack(rows: 2, columns: 3) { row, col in
+                                    
+                                        Button(action: {
+                                            selectedCategory = self.categories[row * 3 + col]
+                                            print("------")
+                                            print("\(selectedCategory)")
+                                        }) {
+                                            VStack {
+                                                Image(self.categories[row * 3 + col])
+                                                    .resizable()
+                                                
+                                                Text(self.categories[row * 3 + col])
+                                                    .font(.callout)
+                                            }
+                                        }
+                                        .foregroundColor(.black)
+                                        .frame(width: 82, height: 80)
+                                        .padding(15)
+                                        .background(self.selectedCategory == self.categories[row * 3 + col] ? Color(red: 60/255, green: 143/255, blue: 43/255) : Color(red: 164/255, green: 214/255, blue: 154/255))
+                                        .cornerRadius(25)
+                                    
+                                }.padding(.vertical)
+                                
+                                
+                                
                                 HStack {
                                     TextField("🔎 Rezept suchen...", text: $searchText)
                                         .padding(.leading, 10)
+                                      
                                     Button(action: {
                                         self.searchText = ""
                                     }) {
@@ -73,9 +79,15 @@ struct RezeptListe: View {
                                             .opacity(searchText == "" ? 0 : 1)
                                     }
                                 }
+                                //.border(.green)
+                                //.frame(height: 35)
+                                .listRowBackground(barColor.brightness(0.55))
+
                                 Toggle(isOn: $showFavoritesOnly) {
                                     Text("Nur Favoriten anzeigen")
                                 }
+                                .listRowBackground(barColor.brightness(0.55))
+
                                 
                                 
                                 
@@ -85,17 +97,24 @@ struct RezeptListe: View {
                                     } label: {
                                         RezeptRow(rezept: rezept)
                                     }
+                                    .listRowBackground(barColor.brightness(0.55))
+
+                                    //.background(barColor.brightness(0.55))
                                 }
                             }
+                            .listStyle(.plain)
                             .onAppear{self.modelData.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")}
-                            .background(.white)
-                            //.navigationTitle("Rezeptliste")
+                            .background(barColor.brightness(0.55))
+                            //.preferredColorScheme()
+                            .listRowBackground(barColor.brightness(0.55))
                             
                             
-                        }.frame(height: geometry.size.height/1.22)
+                        }
+                        .frame(height: geometry.size.height/1.22)
+
                             
                         }.frame(maxHeight: .infinity)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
