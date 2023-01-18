@@ -47,7 +47,7 @@ struct ChallengeDetails: View {
                         HStack{
                             Text(challenge.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         }.padding(.top, 10)
-                        ProgressBar(value: 0.33).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+                        ProgressBar(value: challenge.progress).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
                         Image(challenge.bild1)
                             .resizable(resizingMode: .stretch)
                             .frame(width: 330, height: 220)
@@ -105,7 +105,7 @@ struct ChallengeDetails: View {
                     // ENDE HEADER CHallenge
                     
                     
-                    // Bilder der Pilze + FOto Buttons
+                    // Bilder der Pilze + Foto Buttons
                     
                     //Marone Anfang
                     VStack{
@@ -177,21 +177,50 @@ struct ChallengeDetails: View {
                                 .padding([.leading, .trailing], 20)
                             
                             
-                            Button(action: {
-                                self.showImagePicker.toggle()
-                            }) {
-                                Text("Gefunden")
+                            let idNow = challenge.id
+                            if(idNow == 100 || idNow == 101){
+                                // Button für Foto
+                                Button(action: {
+                                    self.showImagePicker.toggle()
+                                }) {
+                                    Text("Gefunden")
+                                }
+                                .sheet(isPresented: $showImagePicker) {
+                                    CameraOpen(showImagePicker: self.$showImagePicker)
+                                }
+                                .padding()
+                                .frame(maxWidth: 250)
+                                .frame(width: 200, height: 40)
+                                .background(fontColor)
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                                .font(.headline)
+                                // Ende BUtton für Foto
+                                
+                            }else{
+                                
+                                Button(action: {
+                                    self.showImagePicker.toggle()
+                                }) {
+                                    Text("Gefunden")
+                                        .padding()
+                                        .frame(maxWidth: 250)
+                                        .frame(width: 200, height: 40)
+                                        .background(fontColor)
+                                        .foregroundColor(.white)
+                                        .clipShape(Capsule())
+                                        .font(.headline)
+                                    
+                                }
+                                
                             }
-                            .sheet(isPresented: $showImagePicker) {
-                                CameraOpen(showImagePicker: self.$showImagePicker)
-                            }
-                            .padding()
-                            .frame(maxWidth: 250)
-                            .frame(width: 200, height: 40)
-                            .background(fontColor)
-                            .foregroundColor(.white)
-                            .clipShape(Capsule())
-                            .font(.headline)
+                      
+                            
+                            
+                            
+                            
+                            
+                            
                         }.frame(height: isDisclosed ? nil : 0, alignment: .top)
                             .clipped()
                         
@@ -225,6 +254,9 @@ struct ChallengeDetails: View {
                         VStack{
                             
                             
+                            
+                            
+                            // Button für Foto
                             Button(action: {
                                 isDisclosed2.toggle()
                                 
@@ -241,8 +273,9 @@ struct ChallengeDetails: View {
                                     .foregroundColor(fontColor)
                                     .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
                                 }
-
                             })
+                            // Ende Button für Foto
+                            
                             
                             .buttonStyle(.plain).multilineTextAlignment(.center).font(.title)
                         }.frame(height: 10)
@@ -262,21 +295,48 @@ struct ChallengeDetails: View {
                             .padding([.leading, .trailing], 20)
                         
                         
-                        Button(action: {
-                            self.showImagePicker.toggle()
-                        }) {
-                            Text("Gefunden")
-                        }
-                        .sheet(isPresented: $showImagePicker) {
-                            CameraOpen(showImagePicker: self.$showImagePicker)
-                        }
-                        .padding()
-                        .frame(maxWidth: 250)
-                        .frame(width: 200, height: 40)
-                        .background(fontColor)
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
-                        .font(.headline)
+                            
+                            
+                            
+                            
+                            
+                            let idNow = challenge.id
+                            if(idNow == 100 || idNow == 101){
+                                // Button für Foto
+                                Button(action: {
+                                    self.showImagePicker.toggle()
+                                }) {
+                                    Text("Gefunden")
+                                }
+                                .sheet(isPresented: $showImagePicker) {
+                                    CameraOpen(showImagePicker: self.$showImagePicker)
+                                }
+                                .padding()
+                                .frame(maxWidth: 250)
+                                .frame(width: 200, height: 40)
+                                .background(fontColor)
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                                .font(.headline)
+                                // Ende BUtton für Foto
+                                
+                            }else{
+                                
+                                
+                                
+                                
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         }.frame(height: isDisclosed2 ? nil : 0, alignment: .top)
                             .clipped()
                     }
@@ -342,24 +402,53 @@ struct ChallengeDetails: View {
                             .multilineTextAlignment(.center)
                             .padding([.leading, .trailing], 20)
                         
-                        
-                        Button(action: {
-                            self.showImagePicker.toggle()
-                        }) {
-                            Text("Gefunden")
-                        }
-                        .sheet(isPresented: $showImagePicker) {
-                            CameraOpen(showImagePicker: self.$showImagePicker)
-                        }
-                        .padding()
-                        .frame(maxWidth: 250)
-                        .frame(width: 200, height: 40)
-                        .background(fontColor)
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
-                        .font(.headline)
+                            
+                            
+                            
+                            
+                            let idNow = challenge.id
+                            if(idNow == 100 || idNow == 101){
+                                // Button für Foto
+                                Button(action: {
+                                    self.showImagePicker.toggle()
+                                }) {
+                                    Text("Gefunden")
+                                }
+                                .sheet(isPresented: $showImagePicker) {
+                                    CameraOpen(showImagePicker: self.$showImagePicker)
+                                }
+                                .padding()
+                                .frame(maxWidth: 250)
+                                .frame(width: 200, height: 40)
+                                .background(fontColor)
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                                .font(.headline)
+                                // Ende BUtton für Foto
+                                
+                            }else{
+                                
+                                
+                                
+                                
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         }.frame(height: isDisclosed3 ? nil : 0, alignment: .top)
                             .clipped()
+                        // Ende Button für Foto
+                        
+                        
+                        
+                        
+                        
                         
                     }
                     Divider().padding()
@@ -369,7 +458,7 @@ struct ChallengeDetails: View {
                     
                     Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
                     
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55)).navigationBarTitleDisplayMode(.inline)
                 
                 
                 
