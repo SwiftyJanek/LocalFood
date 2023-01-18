@@ -12,6 +12,9 @@ struct ContentView: View {
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     
+    @State private var showWelcome: Bool = true
+
+    
     var body: some View {
 
         GeometryReader { geometry in
@@ -28,11 +31,33 @@ struct ContentView: View {
 
                     // CONTENT
                     ScrollView{
-                        Text("Willkommen bei LocalFood!").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
-                        Text("Wir haben es uns zur Aufgabe gemacht regionale Rezepte für jeden Geschmack anzubieten. Gepaart mit ein paar Herausforderung um deine Motivation zu steigern, hoffen wir, dich zu einem nach haltigeren und regionalen Lebensstiel zu überzeugen.").multilineTextAlignment(.center).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5).font(.caption)
+                        if showWelcome == true {
+                            Text("Willkommen bei LocalFood!").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
+                        
+                            Text("Wir haben es uns zur Aufgabe gemacht regionale Rezepte für jeden Geschmack anzubieten. Gepaart mit ein paar Herausforderung um deine Motivation zu steigern, hoffen wir, dich zu einem nachhaltigeren und regionalen Lebensstiel zu überzeugen.").multilineTextAlignment(.center).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5).font(.caption)
+                            Button(action: {
+                                self.showWelcome.toggle()
+                            }) {
+                                Text("Danke!")
+                            }.padding()
+                                .frame(maxWidth: 250)
+                                .frame(width: 200, height: 40)
+                                .background(fontColor)
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                                .font(.headline)
+
+                            
+                            Divider()
+                        }
+                        
+
                         Text("Neuigkeiten").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
                         let images = ["StartseiteChallenge1","StartseiteChallenge2"]
-                        ImageSlider(images: images).frame(height: 220).shadow(radius: 10)
+                        ImageSlider(images: images)
+                            .frame(height: 220)
+                            .shadow(radius: 10)
+
                         
                         
                         
@@ -65,7 +90,10 @@ struct ContentView: View {
 
                 }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
    
-            }.navigationBarBackButtonHidden(true).background(barColor.brightness(0.15))
+            }
+            .navigationBarBackButtonHidden(true)
+            .background(barColor.brightness(0.15))
+            
 
         }.edgesIgnoringSafeArea(.bottom).background(barColor.brightness(0.15))
 

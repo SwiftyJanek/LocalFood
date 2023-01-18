@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ImageSlider: View {
-
+    
     // Array mit den Bildern
     var images = [String]()
+    @EnvironmentObject var modelDataC : ModelDataChallenge
+    var challenges: [Challenge] = ModelDataChallenge().challenges
+    @EnvironmentObject var modelData: ModelData
+    var rezepte: [Rezept] = ModelData().rezepte
     
     
     init(images: [String]) {
@@ -21,14 +25,55 @@ struct ImageSlider: View {
         // TabView + tabViewStyle(PageTabViewStyle)
         TabView {
             ForEach(images, id: \.self) { item in
-                //3
-                Image(item).resizable().scaledToFill()
-        
+                let element = item
+                if element == "StartseiteChallenge1"{
+                    NavigationLink(destination: ChallengeDetails(challenge: challenges[0])){
+                        Image(item).resizable().scaledToFill()
+                    }
+                    .navigationTitle("Startseite")
+                    .navigationBarHidden(true)
+                }
+                    
+                else if element == "StartseiteChallenge2"{
+                    NavigationLink(destination: ChallengeDetails(challenge: challenges[1])){
+                        Image(item).resizable().scaledToFill()
+                    }
+                    .navigationTitle("Startseite")
+                    .navigationBarHidden(true)
+                }
+                else if element == "StartseiteRezept1"{
+                    NavigationLink(destination: RezeptView(rezept: rezepte[3], rating: .constant(4), kommentar: "")){
+                        Image(item).resizable().scaledToFill()
+                    }
+                    .navigationTitle("Startseite")
+                    .navigationBarHidden(true)
+                }
+                else if element == "StartseiteRezept2"{
+                    NavigationLink(destination: RezeptView(rezept: rezepte[0], rating: .constant(4), kommentar: "")){
+                        Image(item).resizable().scaledToFill()
+                    }
+                    .navigationTitle("Startseite")
+                    .navigationBarHidden(true)
+                }
+                else if element == "StartseiteProdukt1"{
+                    NavigationLink(destination: RezeptView(rezept: rezepte[3], rating: .constant(4), kommentar: "")){
+                        Image(item).resizable().scaledToFill()
+                    }
+                    .navigationTitle("Startseite")
+                    .navigationBarHidden(true)
+                }
+                    
+                    
+                    
+                    
+                }
+                
             }
+            .tabViewStyle(PageTabViewStyle())
+            
         }
-        .tabViewStyle(PageTabViewStyle())
     }
-}
+
 
 
 struct ImageSlider_Previews: PreviewProvider {

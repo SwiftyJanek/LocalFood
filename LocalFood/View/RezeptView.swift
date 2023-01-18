@@ -40,7 +40,6 @@ struct RezeptView: View {
         GeometryReader { geometry in
             VStack(spacing:0){
                 
-                
                 HStack(spacing:0){
                 }.background(Color.white).padding(.bottom, 1).frame(width: geometry.size.width , height: geometry.size.height/2000)
                 
@@ -237,7 +236,7 @@ struct RezeptView: View {
                     }
                     /// Hier Ende
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
-                    .navigationTitle(rezept.name)
+                    .navigationTitle(rezept.name).navigationBarTitleDisplayMode(.inline)
                 VStack{}
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
