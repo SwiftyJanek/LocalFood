@@ -39,12 +39,11 @@ struct RezeptListe: View {
                     
                     ScrollView{
                         VStack{
-
-                            
                         NavigationView {
                             List {
-                                GridStack(rows: 2, columns: 3) { row, col in
-                                    
+                                ScrollView{
+                                    GridStack(rows: 2, columns: 3) { row, col in
+                                        
                                         Button(action: {
                                             selectedCategory = self.categories[row * 3 + col]
                                             print("------")
@@ -63,9 +62,11 @@ struct RezeptListe: View {
                                         .padding(15)
                                         .background(self.selectedCategory == self.categories[row * 3 + col] ? Color(red: 60/255, green: 143/255, blue: 43/255) : Color(red: 164/255, green: 214/255, blue: 154/255))
                                         .cornerRadius(25)
-                                    
-                                }.padding(.vertical)
-                                
+                                        
+                                    }.padding(.vertical)
+                                }
+                                .listRowBackground(barColor.brightness(0.55))
+
                                 
                                 
                                 HStack {
