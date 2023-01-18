@@ -29,7 +29,7 @@ struct ContentView: View {
                     // CONTENT
                     ScrollView{
                         Text("Willkommen bei LocalFood!").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
-                        Text("Wir haben es uns zur Aufgabe gemacht regionale Rezepte für jeden Geschmack anzubieten. Gepaart mit ein paar Herausforderung um deine Motivation zu steigern, hoffen wir, dich zu einem nach haltigeren und regionalen Lebensstiel zu überzeugen").multilineTextAlignment(.center).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5).font(.caption)
+                        Text("Wir haben es uns zur Aufgabe gemacht regionale Rezepte für jeden Geschmack anzubieten. Gepaart mit ein paar Herausforderung um deine Motivation zu steigern, hoffen wir, dich zu einem nach haltigeren und regionalen Lebensstiel zu überzeugen.").multilineTextAlignment(.center).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5).font(.caption)
                         Text("Neuigkeiten").fontWeight(.bold).padding(.top, 15).foregroundColor(fontColor).shadow(radius: 5)
                         let images = ["StartseiteChallenge1","StartseiteChallenge2"]
                         ImageSlider(images: images).frame(height: 220).shadow(radius: 10)
