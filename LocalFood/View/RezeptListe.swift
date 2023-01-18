@@ -13,6 +13,8 @@ struct RezeptListe: View {
     @State var searchText = ""
     @State var selectedCategory = "Alles"
     let categories = ["Alles", "Vorspeise", "Hauptgang", "Dessert", "Vegan", "Veggie"]
+    @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
 
     var filteredRezepte: [Rezept] {
         modelData.rezepte.filter { rezept in
@@ -30,7 +32,7 @@ struct RezeptListe: View {
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.background(Color.white).padding(.bottom)
+                    }.padding(.bottom).background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
                     //HEADER
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
@@ -100,12 +102,13 @@ struct RezeptListe: View {
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                     
                     TabBar()
-                }
+                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
                 
             }
             .navigationBarBackButtonHidden(true)
             .navigationTitle("Rezepte")
             .navigationBarHidden(true)
+     
             
         }
         .edgesIgnoringSafeArea(.bottom)
