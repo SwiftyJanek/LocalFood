@@ -15,6 +15,7 @@ struct ChallengeView: View {
     @State var progressValue: Float = 0.6
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    
 
     var body: some View {
 
@@ -144,8 +145,9 @@ struct ChallengeView: View {
                     TabBar()
 
                 }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
-            }.navigationBarBackButtonHidden(true)
-
+            }.navigationBarBackButtonHidden(true).navigationTitle("Challenges").accentColor(fontColor).navigationBarHidden(true)
+            
+            
         }.edgesIgnoringSafeArea(.bottom)
     }
 }

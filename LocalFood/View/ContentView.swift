@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     
