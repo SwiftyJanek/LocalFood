@@ -11,6 +11,7 @@ struct ChallengeDetails: View {
     
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State private var progress = false
     @State private var imageOne = false
     @State private var imageTwo = false
     @State private var imageThree = false
@@ -26,10 +27,14 @@ struct ChallengeDetails: View {
     @Namespace private var imageAnimationOne
     @Namespace private var imageAnimationTwo
     @Namespace private var imageAnimationThree
+   
     
     var body: some View {
         
+      
+        
         GeometryReader { geometry in
+
             VStack(spacing:0){
                 
                 HStack(spacing:0){
@@ -49,14 +54,7 @@ struct ChallengeDetails: View {
                         }.padding(.top, 10)
                         
                         
-                        
-                
                     ProgressBar(value: challenge.progress).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
-                        
-                        
-                 
-             
-                  
                      
                         
                         Image(challenge.bild1)
@@ -187,8 +185,25 @@ struct ChallengeDetails: View {
                             if(idNow == 100 || idNow == 101){
                                 // Button für Foto
                                 Button(action: {
-                                    self.showImagePicker.toggle()
-                                    challenge.step1 = true
+                                    
+                                    
+                                    if (challenge.step1 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step1 = true
+                                        isDisclosed.toggle()
+                                        isDisclosed2.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step1 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                         
+                                    
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -209,19 +224,20 @@ struct ChallengeDetails: View {
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    challenge.progress = challenge.progress + 0.3
-                                    challenge.step1 = true
-                                    isDisclosed.toggle()
-                                    isDisclosed2.toggle()
-                                    deleteCha(fileName: "Challenges")
-                                    for char in challenges {
-                                        if (char.id == challenge.id){
-                                            char.step1 = true
-                                            char.progress = char.progress + 0.3
+                                    if (challenge.step1 == false){
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step1 = true
+                                        isDisclosed.toggle()
+                                        isDisclosed2.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step1 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
                                         }
-                                        saveCha(object: char, fileName: "Challenges")
                                     }
-                                    
                                 }) {
                                     Text("Gefunden")
                                         .padding()
@@ -330,8 +346,22 @@ struct ChallengeDetails: View {
                                 // Button für Foto
                                 Button(action: {
                                     
-                                    self.showImagePicker.toggle()
-                                    challenge.step2 = true
+                                    if (challenge.step2 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.4
+                                        challenge.step2 = true
+                                        isDisclosed2.toggle()
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step2 = true
+                                                char.progress = char.progress + 0.4
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                   
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -352,19 +382,20 @@ struct ChallengeDetails: View {
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    challenge.progress = challenge.progress + 0.4
-                                    challenge.step2 = true
-                                    isDisclosed2.toggle()
-                                    isDisclosed3.toggle()
-                                    deleteCha(fileName: "Challenges")
-                                    for char in challenges {
-                                        if (char.id == challenge.id){
-                                            char.step2 = true
-                                            char.progress = char.progress + 0.4
+                                    if (challenge.step2 == false){
+                                        challenge.progress = challenge.progress + 0.4
+                                        challenge.step2 = true
+                                        isDisclosed2.toggle()
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step2 = true
+                                                char.progress = char.progress + 0.4
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
                                         }
-                                        saveCha(object: char, fileName: "Challenges")
                                     }
-                                    
                                 }) {
                                     Text("Gefunden")
                                         .padding()
@@ -383,8 +414,7 @@ struct ChallengeDetails: View {
                             
                             
                             
-                            
-                            
+
                             
                             
                             
@@ -462,8 +492,22 @@ struct ChallengeDetails: View {
                             if(idNow == 100 || idNow == 101){
                                 // Button für Foto
                                 Button(action: {
-                                    self.showImagePicker.toggle()
-                                    challenge.step3 = true
+                                    
+                                    if (challenge.step3 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step3 = true
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step3 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                    
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -484,16 +528,18 @@ struct ChallengeDetails: View {
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    challenge.progress = challenge.progress + 0.3
-                                    challenge.step3 = true
-                                    isDisclosed3.toggle()
-                                    deleteCha(fileName: "Challenges")
-                                    for char in challenges {
-                                        if (char.id == challenge.id){
-                                            char.step3 = true
-                                            char.progress = char.progress + 0.3
+                                    if (challenge.step3 == false){
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step3 = true
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step3 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
                                         }
-                                        saveCha(object: char, fileName: "Challenges")
                                     }
                                     
                                 }) {
@@ -677,4 +723,6 @@ struct ChallengeDetails: View {
             ChallengeDetails(challenge: modelDataC.challenges[0]).environmentObject(modelDataC)
         }
     }
+
+
 }
