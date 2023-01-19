@@ -11,6 +11,7 @@ struct ChallengeDetails: View {
     
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State private var progress = false
     @State private var imageOne = false
     @State private var imageTwo = false
     @State private var imageThree = false
@@ -22,13 +23,18 @@ struct ChallengeDetails: View {
     var arrowUp: Image = Image(systemName: "chevron.compact.up")
     @EnvironmentObject var modelDataC : ModelDataChallenge
     var challenge: Challenge
+    var challenges: [Challenge] = ModelDataChallenge().challenges
     @Namespace private var imageAnimationOne
     @Namespace private var imageAnimationTwo
     @Namespace private var imageAnimationThree
+   
     
     var body: some View {
         
+      
+        
         GeometryReader { geometry in
+
             VStack(spacing:0){
                 
                 HStack(spacing:0){
@@ -38,8 +44,7 @@ struct ChallengeDetails: View {
                 VStack{}
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                 
-                
-                
+
                 ScrollView{
                     
                     // ANFANG HEADER CHallenge
@@ -47,7 +52,11 @@ struct ChallengeDetails: View {
                         HStack{
                             Text(challenge.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         }.padding(.top, 10)
-                        ProgressBar(value: challenge.progress).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+                        
+                        
+                    ProgressBar(value: challenge.progress).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+                     
+                        
                         Image(challenge.bild1)
                             .resizable(resizingMode: .stretch)
                             .frame(width: 330, height: 220)
@@ -107,14 +116,18 @@ struct ChallengeDetails: View {
                     
                     // Bilder der Pilze + Foto Buttons
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     //Marone Anfang
                     VStack{
                         
                         Text(challenge.step1Name).font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
-                        
-                        
-                        
-                
                         VStack{
                             
                             if imageOne{
@@ -124,15 +137,9 @@ struct ChallengeDetails: View {
                                 imageOneSmall
                             }
                         }
-                        
-                        
-                        
                         VStack{
-                            
-                            
                             Button(action: {
                                 isDisclosed.toggle()
-                                
                             }, label: {
                                            
                                 if(isDisclosed == false){
@@ -140,24 +147,15 @@ struct ChallengeDetails: View {
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(fontColor)
                                     .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
-                                    
                                 }else{
                                     arrowUp.resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(fontColor)
                                     .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
                                 }
-                                
-                             
-                                
                                     
                             })
-                            
-                            
-                            
-                            
-                            
-                       
+
                             .buttonStyle(.plain).multilineTextAlignment(.center).font(.title)
                         }.frame(height: 10)
                         VStack{
@@ -175,13 +173,37 @@ struct ChallengeDetails: View {
                                 .fontWeight(.light)
                                 .multilineTextAlignment(.center)
                                 .padding([.leading, .trailing], 20)
+ 
+                            
+                            
+                            
+                            
+                            // IF ELSE FÜR BUTTON
                             
                             
                             let idNow = challenge.id
                             if(idNow == 100 || idNow == 101){
                                 // Button für Foto
                                 Button(action: {
-                                    self.showImagePicker.toggle()
+                                    
+                                    
+                                    if (challenge.step1 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step1 = true
+                                        isDisclosed.toggle()
+                                        isDisclosed2.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step1 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                         
+                                    
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -200,7 +222,22 @@ struct ChallengeDetails: View {
                             }else{
                                 
                                 Button(action: {
-                                    self.showImagePicker.toggle()
+                                    
+                                    // Änderung in der JSON Datei
+                                    if (challenge.step1 == false){
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step1 = true
+                                        isDisclosed.toggle()
+                                        isDisclosed2.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step1 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
                                 }) {
                                     Text("Gefunden")
                                         .padding()
@@ -212,14 +249,15 @@ struct ChallengeDetails: View {
                                         .font(.headline)
                                     
                                 }
-                                
                             }
+                            
+                            
+                            
+                            
+                            // IF ELSE für Button
+                            
+                            
                       
-                            
-                            
-                            
-                            
-                            
                             
                         }.frame(height: isDisclosed ? nil : 0, alignment: .top)
                             .clipped()
@@ -232,34 +270,37 @@ struct ChallengeDetails: View {
                     //Marone Ende
 
                     Divider().padding()
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     //Pfifferling
                     VStack{
                         
                         Text(challenge.step2Name).font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
-                        
-            
-                            
+                    
                               VStack{
                                 
                                 if imageTwo{
                                     imageTwoBig
-                              
+                                    
                                 }else{
                                     imageTwoSmall
                                 }
                             }
-                            
-                        
-                        
+
                         VStack{
-                            
-                            
-                            
-                            
-                            // Button für Foto
                             Button(action: {
                                 isDisclosed2.toggle()
-                                
                             }, label: {
                                            
                                 if(isDisclosed2 == false){
@@ -274,11 +315,11 @@ struct ChallengeDetails: View {
                                     .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
                                 }
                             })
-                            // Ende Button für Foto
-                            
-                            
                             .buttonStyle(.plain).multilineTextAlignment(.center).font(.title)
                         }.frame(height: 10)
+                        
+                        
+                        
                         VStack{
                             Text(challenge.step1Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
                             Text(challenge.step1Header1Beschreibung)
@@ -296,7 +337,7 @@ struct ChallengeDetails: View {
                         
                         
                             
-                            
+                           
                             
                             
                             
@@ -304,7 +345,23 @@ struct ChallengeDetails: View {
                             if(idNow == 100 || idNow == 101){
                                 // Button für Foto
                                 Button(action: {
-                                    self.showImagePicker.toggle()
+                                    
+                                    if (challenge.step2 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.4
+                                        challenge.step2 = true
+                                        isDisclosed2.toggle()
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step2 = true
+                                                char.progress = char.progress + 0.4
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                   
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -322,8 +379,34 @@ struct ChallengeDetails: View {
                                 
                             }else{
                                 
-                                
-                                
+                                Button(action: {
+                                    
+                                    // Änderung in der JSON Datei
+                                    if (challenge.step2 == false){
+                                        challenge.progress = challenge.progress + 0.4
+                                        challenge.step2 = true
+                                        isDisclosed2.toggle()
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step2 = true
+                                                char.progress = char.progress + 0.4
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                }) {
+                                    Text("Gefunden")
+                                        .padding()
+                                        .frame(maxWidth: 250)
+                                        .frame(width: 200, height: 40)
+                                        .background(fontColor)
+                                        .foregroundColor(.white)
+                                        .clipShape(Capsule())
+                                        .font(.headline)
+                                    
+                                }
                                 
                                 
                                 
@@ -331,7 +414,7 @@ struct ChallengeDetails: View {
                             
                             
                             
-                            
+
                             
                             
                             
@@ -405,12 +488,26 @@ struct ChallengeDetails: View {
                             
                             
                             
-                            
                             let idNow = challenge.id
                             if(idNow == 100 || idNow == 101){
                                 // Button für Foto
                                 Button(action: {
-                                    self.showImagePicker.toggle()
+                                    
+                                    if (challenge.step3 == false){
+                                        self.showImagePicker.toggle()
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step3 = true
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step3 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                    
                                 }) {
                                     Text("Gefunden")
                                 }
@@ -428,18 +525,39 @@ struct ChallengeDetails: View {
                                 
                             }else{
                                 
-                                
-                                
-                                
-                                
-                                
+                                Button(action: {
+                                    
+                                    // Änderung in der JSON Datei
+                                    if (challenge.step3 == false){
+                                        challenge.progress = challenge.progress + 0.3
+                                        challenge.step3 = true
+                                        isDisclosed3.toggle()
+                                        deleteCha(fileName: "Challenges")
+                                        for char in challenges {
+                                            if (char.id == challenge.id){
+                                                char.step3 = true
+                                                char.progress = char.progress + 0.3
+                                            }
+                                            saveCha(object: char, fileName: "Challenges")
+                                        }
+                                    }
+                                    
+                                }) {
+                                    Text("Gefunden")
+                                        .padding()
+                                        .frame(maxWidth: 250)
+                                        .frame(width: 200, height: 40)
+                                        .background(fontColor)
+                                        .foregroundColor(.white)
+                                        .clipShape(Capsule())
+                                        .font(.headline)
+                                    
+                                }
+                            
                             }
                             
                             
-                            
-                            
-                            
-                            
+    
                             
                         }.frame(height: isDisclosed3 ? nil : 0, alignment: .top)
                             .clipped()
@@ -499,7 +617,14 @@ struct ChallengeDetails: View {
             .resizable()
             .clipShape(Circle())
             .overlay {
-                Circle().stroke(.white, lineWidth: 4)
+                
+                if (challenge.step1 == true){
+                    Circle().stroke(.green, lineWidth: 4)
+                }else{
+                    Circle().stroke(.white, lineWidth: 4)
+                }   
+                
+
             }
             .shadow(radius: 7).padding(.bottom, 10)
             .onTapGesture{
@@ -532,7 +657,13 @@ struct ChallengeDetails: View {
             .resizable()
             .clipShape(Circle())
             .overlay {
-                Circle().stroke(.white, lineWidth: 4)
+                 
+                if (challenge.step2 == true){
+                    Circle().stroke(.green, lineWidth: 4)
+                }else{
+                    Circle().stroke(.white, lineWidth: 4)
+                }
+
             }
             .shadow(radius: 7).padding(.bottom, 10)
             .onTapGesture{
@@ -567,7 +698,14 @@ struct ChallengeDetails: View {
             .resizable()
             .clipShape(Circle())
             .overlay {
-                Circle().stroke(.white, lineWidth: 4)
+               
+                if (challenge.step3 == true){
+                    Circle().stroke(.green, lineWidth: 4)
+                }else{
+                    Circle().stroke(.white, lineWidth: 4)
+                }
+                
+                
             }
             .shadow(radius: 7).padding(.bottom, 10)
             .onTapGesture{
@@ -577,8 +715,7 @@ struct ChallengeDetails: View {
             }
     }
 
-    
-    
+
     
     struct ChallengeDetails_Previews: PreviewProvider {
         static let modelDataC = ModelDataChallenge()
@@ -586,4 +723,6 @@ struct ChallengeDetails: View {
             ChallengeDetails(challenge: modelDataC.challenges[0]).environmentObject(modelDataC)
         }
     }
+
+
 }

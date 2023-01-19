@@ -11,7 +11,7 @@ import SwiftUI
 struct ChallengeView: View {
     @EnvironmentObject var modelData: ModelDataChallenge
     @State var showFavoritesOnly = false
-    var filteredRezepte: [Challenge] = ModelDataChallenge().challenges
+    var challenges: [Challenge] = ModelDataChallenge().challenges
     @State var progressValue: Float = 0.6
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
@@ -68,7 +68,7 @@ struct ChallengeView: View {
                  
                             Section(header: Text("Draußen in der Natur").foregroundColor(fontColor)) {
                                 
-                                ForEach(filteredRezepte) { challenge in
+                                ForEach(challenges) { challenge in
                                     let loop = challenge.kategorie
                                     if loop == "Draußen in der Natur" {
                                         HStack{
@@ -105,7 +105,7 @@ struct ChallengeView: View {
                             Section(header: Text("Beim Einkaufen").foregroundColor(fontColor)) {
                                 
                                 
-                                ForEach(filteredRezepte) { challenge in
+                                ForEach(challenges) { challenge in
                                     let loop = challenge.kategorie
                                     if loop == "Beim Einkaufen" {
                                         HStack{
@@ -142,7 +142,7 @@ struct ChallengeView: View {
                             Section(header: Text("Beim Kochen").foregroundColor(fontColor)) {
                                 
                                 
-                                ForEach(filteredRezepte) { challenge in
+                                ForEach(challenges) { challenge in
                                     let loop = challenge.kategorie
                                     if loop == "Beim Kochen" {
                                         HStack{

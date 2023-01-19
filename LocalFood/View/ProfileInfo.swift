@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct ProfileInfo: View {
+    @EnvironmentObject var modelData: ModelDataChallenge
+    var challenges: [Challenge] = ModelDataChallenge().challenges
     @State var progressValue: Float = 0.6
     let nextBadges = ["erstesDienstjahr", "meeresChamp", "PilzMeister", "abzeichenChamp"]
+    @State var allBadges = ["winterChamp"]
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
-    //TEST
     @State private var showingSheet = false
 
-    
     var body: some View {
+        
+   
+        
         NavigationStack{
             List {
                 // Add your profile info here, such as an image and name
@@ -38,8 +42,33 @@ struct ProfileInfo: View {
                 // Add a section for your profile details, such as your location and bio
                 
                     Section(header: Text("Abzeichen")) {
-                        BadgeGrid(badges: ["pilzChamp", "sommerChamp", "winterChamp", "ersteChallengeGeschafft"])
-                    
+          
+                        ScrollView(.horizontal){
+                            HStack {
+                      
+                                ForEach(challenges) { challenge in
+                                    let loop = challenge.progress
+                                    if loop >= 1.0{
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails(challenge: challenge)
+                                            } label: {
+                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                            }
+                                        }.listRowBackground(barColor.brightness(0.55))
+                                    }
+                                }
+                             
+                                
+                                
+                                
+                            }.listRowBackground(barColor.brightness(0.55))
+                            .background(barColor.brightness(0.55))
+                            .padding(.leading)
+                        }.listRowBackground(barColor.brightness(0.55))
+                        
                 }.background(barColor.brightness(0.55))
                     .listRowBackground(barColor.brightness(0.55))
                 
@@ -48,11 +77,25 @@ struct ProfileInfo: View {
 
                     ScrollView(.horizontal){
                         HStack {
-                            ForEach(Array(self.nextBadges.enumerated()), id: \.offset) { (index, badge) in
-                                ProgressCircularBar(progress: progressValue, imageName: badge)
-                                    .padding(.vertical)
-                                    .frame(width: 57.0, height: 57.0)
+                  
+                            ForEach(challenges) { challenge in
+                                let loop = challenge.progress
+                                if loop < 1.0{
+                                    HStack{
+                                        NavigationLink {
+                                            ChallengeDetails(challenge: challenge)
+                                        } label: {
+                                            ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                .padding(.vertical)
+                                                .frame(width: 60.0, height: 60.0)
+                                        }
+                                    }.listRowBackground(barColor.brightness(0.55))
+                                }
                             }
+                         
+                            
+                            
+                            
                         }.listRowBackground(barColor.brightness(0.55))
                         .background(barColor.brightness(0.55))
                         .padding(.leading)
@@ -97,9 +140,14 @@ struct ProfileInfo: View {
                 .listRowBackground(barColor.brightness(0.55))
                 .background(barColor.brightness(0.55))
             
-                }
+                }    .navigationBarBackButtonHidden(true)
+            .navigationTitle("Profil")
+            .navigationBarHidden(true)
         }
+    
     }
+
+
 
 
 struct ProgressBar: View {
@@ -117,6 +165,7 @@ struct ProgressBar: View {
             }.cornerRadius(45.0)
         }
     }
+
 }
 
 struct ProfileInfo_Previews: PreviewProvider {

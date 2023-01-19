@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Challenge: Hashable, Codable, Identifiable {
+class Challenge: Codable, Identifiable {
     var id: Int
     var name: String
     var kategorie: String
@@ -76,8 +76,9 @@ struct Challenge: Hashable, Codable, Identifiable {
         self.finished = finished
     }
     
-    
-    
+ 
+
+
 }
     
 
