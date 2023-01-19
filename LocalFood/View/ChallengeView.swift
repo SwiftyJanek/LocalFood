@@ -60,9 +60,12 @@ struct ChallengeView: View {
                             }
                             
                             HStack{
-                                let images = ["1","2"]
+                        
+                                let images = ["StartseiteChallenge1","StartseiteChallenge2"]
                                 ImageSlider(images: images)
-                                    .frame(height: 262).shadow(radius: 10)
+                                    .frame(height: 220)
+                                    .shadow(radius: 10)
+                                
                             }.listRowBackground(barColor.brightness(0.55))
                             
                  
