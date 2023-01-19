@@ -30,6 +30,7 @@ struct CreateRezeptView: View {
     @State var newRezept: Rezept
 
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
 
     
@@ -42,19 +43,19 @@ struct CreateRezeptView: View {
                     HStack{
                         Slider(value: $dauer, in: 5...120, step: 1)
                         Text("\(dauer, specifier: "%.f") Minuten")
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     Picker("", selection: $eigenschaft) {
                         Text("🥩 Mit Fleisch").tag(0)
                         Text("🧀 Vegetarisch").tag(1)
                         Text("🌱 Vegan").tag(2)
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     .pickerStyle(.segmented)
                     TextField("Kategorie", text: $kategorie)
                     HStack{
                         Slider(value: $portionen, in: 1...10, step: 1)
                         Text("\(portionen, specifier: "%.f") Portionen")
-                    }.listRowBackground(barColor.brightness(0.55))
-                }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
+                }.listRowBackground(bgColor)
                 
                 //Hier wird das Bild hinzugefügt, dazu wird ein Sheet mit der lokalen gallerie geöffnet
                 Section(header: Text("Bild hinzufügen")){
@@ -73,7 +74,7 @@ struct CreateRezeptView: View {
                             .sheet(isPresented: $showSheet) {
                                 ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
                             }
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                 }
                 Section(header: Text("Zutaten")){
                     HStack{
@@ -94,14 +95,14 @@ struct CreateRezeptView: View {
                                 TextField("", text: $text.value)
                             }
                         }
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     Button {
                         zutatenMenge.append(SchrittText(value: ""))
                         zutatenListe.append(SchrittText(value: ""))
                     } label: {
                         Label("Zutat hinzufügen", systemImage: "plus.circle")
                     }
-                }.listRowBackground(barColor.brightness(0.55))
+                }.listRowBackground(bgColor)
                 Section(header: Text("Schritte hinzufügen")){
                     ForEach($schritte) { $element in
                         TextField("Schritt", text: $element.value)
@@ -111,8 +112,8 @@ struct CreateRezeptView: View {
                         schritte.append(SchrittText(value: ""))
                     } label: {
                         Label("Schritt hinzufügen", systemImage: "plus.circle")
-                    }.listRowBackground(barColor.brightness(0.55))
-                }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
+                }.listRowBackground(bgColor)
             }
             .navigationTitle ("Rezept erstellen")
             .background(barColor)
@@ -188,8 +189,8 @@ struct CreateRezeptView: View {
                         }.foregroundColor(fontColor)
                     }
                 }
-                .background(barColor.brightness(0.15))
-            }.background(barColor.brightness(0.15))
+                
+            }
         }
     }
 

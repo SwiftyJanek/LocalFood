@@ -14,6 +14,9 @@ struct RezeptView: View {
     var rezept: Rezept
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
+    @FocusState private var editorIsFocused: Bool
+    
     var rezeptIndex: Int {
         modelData.rezepte.firstIndex(where: { $0.id == rezept.id })!
     }
@@ -176,13 +179,14 @@ struct RezeptView: View {
                                 .border(.black)
                                 .padding()
 
-                        }
+                        }.focused($editorIsFocused)
 
                             
                         
                         Button {
                             print("Veröffentlichen")
                             kommentar = ""
+                            editorIsFocused = false
                         } label: {
                             Label("Kommentar veröffentlicht", systemImage: "square.and.pencil")
                         }
@@ -235,7 +239,7 @@ struct RezeptView: View {
                         }.padding()
                     }
                     /// Hier Ende
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55))
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(bgColor)
                     .navigationTitle(rezept.name).navigationBarTitleDisplayMode(.inline)
                 VStack{}
                     .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)

@@ -15,7 +15,8 @@ struct RezeptListe: View {
     let categories = ["Alles", "Vorspeise", "Hauptgang", "Dessert", "Vegan", "Veggie"]
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
-    
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
+
     var feedbackGenerator = UINotificationFeedbackGenerator()
 
     var filteredRezepte: [Rezept] {
@@ -66,7 +67,7 @@ struct RezeptListe: View {
                                         
                                     }.padding(.vertical)
                                 }
-                                .listRowBackground(barColor.brightness(0.55))
+                                .listRowBackground(bgColor)
 
                                 HStack {
                                     TextField("🔎 Rezept suchen...", text: $searchText)
@@ -79,12 +80,12 @@ struct RezeptListe: View {
                                             .opacity(searchText == "" ? 0 : 1)
                                     }
                                 }
-                                .listRowBackground(barColor.brightness(0.55))
+                                .listRowBackground(bgColor)
 
                                 Toggle(isOn: $showFavoritesOnly) {
                                     Text("Nur Favoriten anzeigen")
                                 }
-                                .listRowBackground(barColor.brightness(0.55))
+                                .listRowBackground(bgColor)
 
                                 
                                 
@@ -96,14 +97,14 @@ struct RezeptListe: View {
                                     } label: {
                                         RezeptRow(rezept: rezept)
                                     }
-                                    .listRowBackground(barColor.brightness(0.55))
+                                    .listRowBackground(bgColor)
                                 }
                             }
                             .listStyle(.plain)
                             .onAppear{self.modelData.rezepte = load("RezeptDaten.json") + load("RezeptDatenUser.json")}
-                            .background(barColor.brightness(0.55))
+                            .background(bgColor)
                             //.preferredColorScheme()
-                            .listRowBackground(barColor.brightness(0.55))
+                            .listRowBackground(bgColor)
                             .onAppear(){
                                 UIView.setAnimationsEnabled(true)
                             }
@@ -114,7 +115,7 @@ struct RezeptListe: View {
 
                             
                         }.frame(maxHeight: .infinity)
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(bgColor)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
