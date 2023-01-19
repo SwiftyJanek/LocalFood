@@ -43,7 +43,32 @@ struct ProfileInfo: View {
                 
                     Section(header: Text("Abzeichen")) {
           
-                    
+                        ScrollView(.horizontal){
+                            HStack {
+                      
+                                ForEach(challenges) { challenge in
+                                    let loop = challenge.progress
+                                    if loop >= 1.0{
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails(challenge: challenge)
+                                            } label: {
+                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                            }
+                                        }.listRowBackground(barColor.brightness(0.55))
+                                    }
+                                }
+                             
+                                
+                                
+                                
+                            }.listRowBackground(barColor.brightness(0.55))
+                            .background(barColor.brightness(0.55))
+                            .padding(.leading)
+                        }.listRowBackground(barColor.brightness(0.55))
+                        
                 }.background(barColor.brightness(0.55))
                     .listRowBackground(barColor.brightness(0.55))
                 
@@ -53,8 +78,6 @@ struct ProfileInfo: View {
                     ScrollView(.horizontal){
                         HStack {
                   
-                            
-                            
                             ForEach(challenges) { challenge in
                                 let loop = challenge.progress
                                 if loop < 1.0{
@@ -117,17 +140,10 @@ struct ProfileInfo: View {
                 .listRowBackground(barColor.brightness(0.55))
                 .background(barColor.brightness(0.55))
             
-                }
+                }    .navigationBarBackButtonHidden(true)
+            .navigationTitle("Profil")
+            .navigationBarHidden(true)
         }
-    
-    
-    func fillAllBadgess(){
-        for char in challenges{
-            allBadges.append(char.badge)
-            BadgeGrid(badges: allBadges)
-        }
-    }
-
     
     }
 
