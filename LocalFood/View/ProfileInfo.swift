@@ -117,6 +117,7 @@ struct ProgressBar: View {
             }.cornerRadius(45.0)
         }
     }
+
 }
 
 struct ProfileInfo_Previews: PreviewProvider {
