@@ -62,7 +62,23 @@ struct ChallengeDetails: View {
                             .frame(width: 330, height: 220)
                             .clipShape(Rectangle())
                             .overlay { Rectangle().stroke(.white, lineWidth: 3) }
-                            .shadow(radius: 7)
+                            .shadow(radius: 7).onAppear(){
+                                
+                                
+                                deleteCha(fileName: "Challenges")
+                                for char in challenges {
+                                    if (char.id == challenge.id){
+                                        char.finished = true
+                                    }else{
+                                        char.finished = false
+                                    }
+                                    saveCha(object: char, fileName: "Challenges")
+                                }
+                                
+                                
+                                
+                                
+                            }
                         
                         VStack(alignment: .leading){
                             VStack{

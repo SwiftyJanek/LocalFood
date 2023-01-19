@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ChallengeView: View {
     @EnvironmentObject var modelData: ModelDataChallenge
     @State var showFavoritesOnly = false
@@ -15,7 +16,6 @@ struct ChallengeView: View {
     @State var progressValue: Float = 0.6
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
-    
 
     var body: some View {
 
@@ -43,23 +43,44 @@ struct ChallengeView: View {
                     VStack(spacing: 0){
                         
                         List{
-                            Section(header: Text("In Bearbeitung").foregroundColor(fontColor)) {
-                                HStack{
-                                    NavigationLink {
-                                        // ChallengeDetails(challenge: challenge)
-                                    } label: {
-                                        ProgressCircularBar(progress: 0.5, imageName: "pilzChamp" )
-                                            .padding(.vertical)
-                                            .frame(width: 60.0, height: 60.0)
-                                        Text("Pilz Challenge").foregroundColor(fontColor)
-                                        Text(" ")
-                                        ProgressBar(value: 0.5).frame(height: 15)
-                                        Text(" ")
-                                    }
-                                }.listRowBackground(barColor.brightness(0.55))
-                            }
                             
-                            HStack{
+                            Section(header: Text("In Bearbeitung").foregroundColor(fontColor)){
+                                
+                                
+                                
+                                
+
+                                
+                                ForEach(challenges) { chall in
+                                    let loop = chall.finished
+                                
+                                    if loop == true {
+                                        
+                                        HStack{
+                                            NavigationLink {
+                                                ChallengeDetails(challenge: chall)
+                                            } label: {
+                                                ProgressCircularBar(progress: chall.progress, imageName: chall.badge)
+                                                    .padding(.vertical)
+                                                    .frame(width: 60.0, height: 60.0)
+                                                Text(chall.name).foregroundColor(fontColor)
+                                                Text(" ")
+                                                ProgressBar(value: chall.progress).frame(height: 15)
+                                                Text(" ")
+                                            }
+                                        }.listRowBackground(barColor.brightness(0.55))
+
+                                        
+                                    }
+                                        
+                                    }
+                                    
+                                }
+                                
+                            
+                        
+                        
+                        HStack{
                         
                                 let images = ["StartseiteChallenge1","StartseiteChallenge2"]
                                 ImageSlider(images: images)
@@ -77,7 +98,9 @@ struct ChallengeView: View {
                                         HStack{
                                             NavigationLink {
                                                 ChallengeDetails(challenge: challenge)
+
                                             } label: {
+                                                
                                                 ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
                                                     .padding(.vertical)
                                                     .frame(width: 60.0, height: 60.0)
