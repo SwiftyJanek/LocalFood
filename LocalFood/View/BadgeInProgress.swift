@@ -17,12 +17,12 @@ import SwiftUI
                 Circle()
                     .stroke(lineWidth: 7.0)
                     .opacity(0.3)
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Color.green)
                 
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(progress, 1.0)))
                     .stroke(style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Color.green)
                     .rotationEffect(Angle(degrees: 270.0))
                     .animation(.linear(duration: 1), value: 1)
                 

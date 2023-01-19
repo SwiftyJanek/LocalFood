@@ -165,12 +165,12 @@ struct ChallengeView: View {
                             
                             
                       
-                            Section(header: Text("Beim Kochen").foregroundColor(fontColor)) {
+                            Section(header: Text("Im Garten").foregroundColor(fontColor)) {
                                 
                                 
                                 ForEach(challenges) { challenge in
                                     let loop = challenge.kategorie
-                                    if loop == "Beim Kochen" {
+                                    if loop == "Im Garten" {
                                         HStack{
                                             NavigationLink {
                                                 ChallengeDetails(challenge: challenge)

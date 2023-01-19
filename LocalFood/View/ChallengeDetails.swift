@@ -27,6 +27,8 @@ struct ChallengeDetails: View {
     @Namespace private var imageAnimationOne
     @Namespace private var imageAnimationTwo
     @Namespace private var imageAnimationThree
+    @Namespace private var imageAnimationBar
+    @State var refreshBar = false
    
     
     var body: some View {
@@ -53,9 +55,13 @@ struct ChallengeDetails: View {
                             Text(challenge.name).font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
                         }.padding(.top, 10)
                         
-                        
-                    ProgressBar(value: challenge.progress).frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
-                     
+                        VStack{
+                            if refreshBar{
+                                imageBarOne
+                            }else{
+                                imageBarTwo
+                            }
+                        }
                         
                         Image(challenge.bild1)
                             .resizable(resizingMode: .stretch)
@@ -109,7 +115,7 @@ struct ChallengeDetails: View {
                                         .font(.headline)
                                     Text("\(challenge.belohnung) 🥬")
                                 }
-                            }
+                            }.padding(.leading, 60)
                             Divider().padding()
                         }
                         
@@ -209,6 +215,7 @@ struct ChallengeDetails: View {
                                         challenge.step1 = true
                                         isDisclosed.toggle()
                                         isDisclosed2.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -245,6 +252,7 @@ struct ChallengeDetails: View {
                                         challenge.step1 = true
                                         isDisclosed.toggle()
                                         isDisclosed2.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -368,6 +376,7 @@ struct ChallengeDetails: View {
                                         challenge.step2 = true
                                         isDisclosed2.toggle()
                                         isDisclosed3.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -403,6 +412,7 @@ struct ChallengeDetails: View {
                                         challenge.step2 = true
                                         isDisclosed2.toggle()
                                         isDisclosed3.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -514,6 +524,7 @@ struct ChallengeDetails: View {
                                         challenge.progress = challenge.progress + 0.3
                                         challenge.step3 = true
                                         isDisclosed3.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -548,6 +559,7 @@ struct ChallengeDetails: View {
                                         challenge.progress = challenge.progress + 0.3
                                         challenge.step3 = true
                                         isDisclosed3.toggle()
+                                        refreshBar.toggle()
                                         deleteCha(fileName: "Challenges")
                                         for char in challenges {
                                             if (char.id == challenge.id){
@@ -731,6 +743,35 @@ struct ChallengeDetails: View {
             }
     }
 
+
+    var imageBarOne: some View {
+        VStack{
+            imageChalBar
+            .matchedGeometryEffect(id: "Bar", in: imageAnimationBar)
+            .frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+        }
+    }
+    
+    var imageBarTwo: some View {
+        VStack{
+                imageChalBar
+                .matchedGeometryEffect(id: "Bar", in: imageAnimationBar)
+                .frame(height: 15).padding([.leading, .trailing], 30).padding(.bottom, 10)
+        }
+    }
+    
+    var imageChalBar: some View{
+        
+
+        ProgressBar(value: challenge.progress).overlay {
+               
+            }
+            .onTapGesture{
+                withAnimation(.spring()){
+                    refreshBar.toggle()
+                }
+            }
+    }
 
     
     struct ChallengeDetails_Previews: PreviewProvider {
