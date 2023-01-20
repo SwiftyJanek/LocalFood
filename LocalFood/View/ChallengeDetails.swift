@@ -649,26 +649,27 @@ struct ChallengeDetails: View {
                     
                     Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 20)
               
-                    var id = challenge.id
+                    let id = challenge.id
                     if(id == 100 || id == 101){
                         ForEach(rezepte) { rezept in
-                            var name = rezept.name
+                            let name = rezept.name
             
-                            if(name == "Grüner Spargel mit Rindfleisch" || name == "Veggie Pizza"){
-                                NavigationLink {
-                                    RezeptView(rezept: rezept, rating: .constant(4), kommentar: "")
-                                } label: {
-                                    RezeptRow(rezept: rezept)
+                                if(name == "Pilz Pfanne"){
+                                    
+                                    NavigationLink {
+                                        RezeptView(rezept: rezept, rating: .constant(4), kommentar: "")
+                                    } label: {
+                                        RezeptRow(rezept: rezept)
+                                    }
+                                    .listRowBackground(bgColor)
+                                    .multilineTextAlignment(.center)
+                                    .padding([.leading, .trailing], 30)
+                                    .onAppear(){
+                                        UIView.setAnimationsEnabled(true)
+                                    }
+                                    Divider().padding()
                                 }
-                                .listRowBackground(bgColor)
-                                .multilineTextAlignment(.center)
-                                .padding([.leading, .trailing], 20)
-                                .onAppear(){
-                                    UIView.setAnimationsEnabled(true)
-                                }
-                                Divider().padding()
-                            }
-                
+
                         }
                         
                     }

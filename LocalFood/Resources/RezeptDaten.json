@@ -207,5 +207,24 @@
         "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
         "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
         "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
+    },
+    {
+        "id": "a98e993e-7eba-4aa1-a996-bd60ae90cddd",
+        "name": "Pilz Pfanne",
+        "kategorie": "Hauptgang",
+        "dauerMinuten": "30",
+        "portionen": 4,
+        "isVegan": true,
+        "isVegetarisch": false,
+        "isFavorisiert": true,
+        "isFavorit": false,
+        "zutatenListe": ["Pilze","Zwiebel","Knoblauchzehe","Butter","Paprika","Salz","Pfeffer"],
+        "zutatenMenge": ["800g","1 Stk.","1 Stk.","2 EL","2","Priese","Priese"],
+        "schritte": ["Pilze sauber machen und anschließend klein schneiden","Anschließend das Gemüse und die Ziebeln in der Pfanne anbraten","Nach ca. 5 Minuten die Pilze hinzugeben und alles zusammen für weitere 10 Minuten braten"],
+        "bildName": "PilzPfanne",
+        "bildURL" : "FotoHinzufuegen.png",
+        "kommentar" : ["Super Rezept, hat sehr gut geschmeckt! Daumen hoch!!! 👍🏻","WOW! Einfach nur lecker! Ein wirklich gutes Rezept ⭐️ habs geherzt","Besonders gefällt mir die Regionalität bei diesem Rezept! Einfach fantastisch. 😋","OMG 🤯 Wirklich gut!!!"],
+        "kommentarBenutzer" : ["Janek Behrens","Peter Gustavson","Jens Knossala","Erik Range"],
+        "benutzerBild" : ["profilePic_Janek","profilePic_Peter","profilePic_Jens","profilePic_Erik"]
     }
 ]
