@@ -98,6 +98,9 @@ struct RezeptListe: View {
                                         RezeptRow(rezept: rezept)
                                     }
                                     .listRowBackground(bgColor)
+                                    .onAppear(){
+                                        UIView.setAnimationsEnabled(true)
+                                       }
                                 }
                             }
                             .listStyle(.plain)
@@ -105,9 +108,7 @@ struct RezeptListe: View {
                             .background(bgColor)
                             //.preferredColorScheme()
                             .listRowBackground(bgColor)
-                           // .onAppear(){
-                            //    UIView.setAnimationsEnabled(true)
-                              // }
+                            
                             
                             
                         }

@@ -90,7 +90,9 @@ struct ContentView: View {
 
 
                 }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
-   
+                    .navigationTitle("Startseite")
+                    .navigationBarTitleDisplayMode(.inline)
+
             }
             .navigationBarBackButtonHidden(true)
             .background(barColor.brightness(0.15))

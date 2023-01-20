@@ -30,36 +30,34 @@ struct ImageSlider: View {
                     NavigationLink(destination: ChallengeDetails(challenge: challenges[0])){
                         Image(item).resizable().scaledToFill()
                     }
-                    .navigationTitle("Startseite")
                     .navigationBarHidden(true)
+                    .onAppear(){
+                        UIView.setAnimationsEnabled(true)
+                       }
                 }
                     
                 else if element == "StartseiteChallenge2"{
                     NavigationLink(destination: ChallengeDetails(challenge: challenges[1])){
                         Image(item).resizable().scaledToFill()
                     }
-                    .navigationTitle("Startseite")
                     .navigationBarHidden(true)
                 }
                 else if element == "StartseiteRezept1"{
                     NavigationLink(destination: RezeptView(rezept: rezepte[3], rating: .constant(4), kommentar: "")){
                         Image(item).resizable().scaledToFill()
                     }
-                    .navigationTitle("Startseite")
                     .navigationBarHidden(true)
                 }
                 else if element == "StartseiteRezept2"{
                     NavigationLink(destination: RezeptView(rezept: rezepte[0], rating: .constant(4), kommentar: "")){
                         Image(item).resizable().scaledToFill()
                     }
-                    .navigationTitle("Startseite")
                     .navigationBarHidden(true)
                 }
                 else if element == "StartseiteProdukt1"{
                     NavigationLink(destination: RezeptView(rezept: rezepte[3], rating: .constant(4), kommentar: "")){
                         Image(item).resizable().scaledToFill()
                     }
-                    .navigationTitle("Startseite")
                     .navigationBarHidden(true)
                 }
                     
