@@ -38,8 +38,8 @@ struct CreateRezeptView: View {
         
         NavigationView {
             List {
-                Section(header: Text("Infos")){
-                    TextField("Name", text: $name)
+                Section(header: Text("Infos").foregroundColor(fontColor)){
+                    TextField("Name", text: $name).foregroundColor(fontColor)
                     HStack{
                         Slider(value: $dauer, in: 5...120, step: 1)
                         Text("\(dauer, specifier: "%.f") Minuten")
@@ -55,7 +55,7 @@ struct CreateRezeptView: View {
                         Slider(value: $portionen, in: 1...10, step: 1)
                         Text("\(portionen, specifier: "%.f") Portionen")
                     }.listRowBackground(bgColor)
-                }.listRowBackground(barColor.brightness(0.55))
+                }.listRowBackground(bgColor)
                 
                 //Hier wird das Bild hinzugefügt, dazu wird ein Sheet mit der lokalen gallerie geöffnet
                 Section(header: Text("Bild hinzufügen")){
@@ -80,7 +80,7 @@ struct CreateRezeptView: View {
                     HStack{
                         VStack{
                             Text("Name")
-                                .fontWeight(.bold)
+                                .fontWeight(.bold).foregroundColor(fontColor)
                             Divider()
                             ForEach($zutatenListe) { $text in
                                     TextField("", text: $text.value)
@@ -89,7 +89,7 @@ struct CreateRezeptView: View {
                         Divider()
                         VStack{
                             Text("Menge")
-                                .fontWeight(.bold)
+                                .fontWeight(.bold).foregroundColor(fontColor)
                             Divider()
                             ForEach($zutatenMenge) { $text in
                                 TextField("", text: $text.value)
@@ -120,7 +120,7 @@ struct CreateRezeptView: View {
             .toolbarBackground(barColor, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .scrollContentBackground(.hidden)
-            
+          
             //.listStyle()
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {

@@ -32,8 +32,8 @@ struct RezeptListe: View {
                     
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
-                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center)
-                    }.padding(.bottom).background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
+                        Text("Rezepte").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
+                    }.padding(.bottom).background(barColor.ignoresSafeArea(edges: .top))
                     //HEADER
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
@@ -124,7 +124,7 @@ struct RezeptListe: View {
                     
                     TabBar()
                 }
-                .background(barColor.brightness(0.15)
+                .background(barColor
                 .ignoresSafeArea(edges: .top))
                 
             }

@@ -37,7 +37,7 @@ struct ImageSlider: View {
                 }
                     
                 else if element == "StartseiteChallenge2"{
-                    NavigationLink(destination: ChallengeDetails(challenge: challenges[1])){
+                    NavigationLink(destination: ChallengeDetails(challenge: challenges[2])){
                         Image(item).resizable().scaledToFill()
                     }
                     .navigationBarHidden(true)

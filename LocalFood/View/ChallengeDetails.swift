@@ -11,6 +11,7 @@ struct ChallengeDetails: View {
     
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
     @State private var progress = false
     @State private var imageOne = false
     @State private var imageTwo = false
@@ -646,7 +647,7 @@ struct ChallengeDetails: View {
                     
                     Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
                     
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(barColor.brightness(0.55)).navigationBarTitleDisplayMode(.inline)
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(bgColor).navigationBarTitleDisplayMode(.inline)
                 
                 
                 
@@ -658,7 +659,7 @@ struct ChallengeDetails: View {
                 TabBar()
             }.onAppear(){
                 UIView.setAnimationsEnabled(true)
-            }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
+            }.background(barColor.ignoresSafeArea(edges: .top))
         }
         
     }

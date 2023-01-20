@@ -248,8 +248,7 @@ struct RezeptView: View {
             }.onAppear(){
                 UIView.setAnimationsEnabled(true)
             }
-            .background(barColor.brightness(0.15)
-            .ignoresSafeArea(edges: .top))
+            .background(barColor.ignoresSafeArea(edges: .top))
             
         }
     }

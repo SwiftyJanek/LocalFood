@@ -24,7 +24,7 @@ struct ContentView: View {
                         Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
-                    }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top)).padding(.bottom)
+                    }.background(barColor.ignoresSafeArea(edges: .top)).padding(.bottom)
                     //HEADER
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
@@ -88,16 +88,16 @@ struct ContentView: View {
                     TabBar()
 
 
-                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
+                }.background(barColor.ignoresSafeArea(edges: .top))
                     .navigationTitle("Startseite")
                     .navigationBarTitleDisplayMode(.inline)
 
             }
             .navigationBarBackButtonHidden(true)
-            .background(barColor.brightness(0.15))
+            .background(barColor)
             
 
-        }.edgesIgnoringSafeArea(.bottom).background(barColor.brightness(0.15))
+        }.edgesIgnoringSafeArea(.bottom).background(barColor)
 
 
     }
