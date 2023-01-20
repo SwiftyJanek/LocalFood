@@ -29,7 +29,10 @@ struct ChallengeDetails: View {
     @Namespace private var imageAnimationThree
     @Namespace private var imageAnimationBar
     @State var refreshBar = false
-   
+    @State var codeOne = ""
+    @State var codeTwo = ""
+    @State var codeThree = ""
+    @State var codeFour = ""
     
     var body: some View {
         
@@ -244,10 +247,20 @@ struct ChallengeDetails: View {
                                 
                             }else{
                                 
+                                HStack{
+                                    
+                                    TextField(" ", text: $codeOne).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $codeTwo).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $codeThree).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $codeFour).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    
+                                }.frame(width: 234, height: 42).font(.title).background(fontColor)
+                                
+
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    if (challenge.step1 == false){
+                                    if (challenge.step1 == false && codeOne == "1" && codeTwo == "2" && codeThree == "3" && codeFour == "4"){
                                         challenge.progress = challenge.progress + 0.3
                                         challenge.step1 = true
                                         isDisclosed.toggle()
@@ -263,15 +276,15 @@ struct ChallengeDetails: View {
                                         }
                                     }
                                 }) {
-                                    Text("Gefunden")
-                                        .padding()
-                                        .frame(maxWidth: 250)
-                                        .frame(width: 200, height: 40)
-                                        .background(fontColor)
-                                        .foregroundColor(.white)
-                                        .clipShape(Capsule())
-                                        .font(.headline)
-                                    
+
+                                        Text("Gefunden")
+                                            .padding()
+                                            .frame(maxWidth: 250)
+                                            .frame(width: 200, height: 40)
+                                            .background(fontColor)
+                                            .foregroundColor(.white)
+                                            .clipShape(Capsule())
+                                            .font(.headline)
                                 }
                             }
                             
@@ -407,7 +420,7 @@ struct ChallengeDetails: View {
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    if (challenge.step2 == false){
+                                    if (challenge.step2 == false && codeOne == "1" && codeTwo == "2" && codeThree == "3" && codeFour == "4"){
                                         challenge.progress = challenge.progress + 0.4
                                         challenge.step2 = true
                                         isDisclosed2.toggle()
@@ -571,6 +584,22 @@ struct ChallengeDetails: View {
                                     }
                                     
                                 }) {
+                                    
+                                    
+                                    
+                                    HStack{
+                                        
+                                        
+                            
+                                        
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                    
                                     Text("Gefunden")
                                         .padding()
                                         .frame(maxWidth: 250)
