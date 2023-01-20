@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct CreateRezeptView: View {
     @Environment(\.dismiss) private var dismiss
     
@@ -20,22 +18,20 @@ struct CreateRezeptView: View {
     @State private var portionen: Double = 4
     @State private var image: UIImage = (UIImage(named: "FotoHinzufuegen.png") ?? UIImage())
     @State private var showSheet = false
-
+    
     @FocusState private var keyboardOn: Bool
     
     @State var schritte: [SchrittText] = [SchrittText(value: "")]
     @State var zutatenListe: [SchrittText] = [SchrittText(value: "")]
     @State var zutatenMenge: [SchrittText] = [SchrittText(value: "")]
-
+    
     @State var newRezept: Rezept
-
+    
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
-
     
     var body: some View {
-        
         NavigationView {
             List {
                 Section(header: Text("Infos").foregroundColor(fontColor)){
@@ -49,7 +45,7 @@ struct CreateRezeptView: View {
                         Text("🧀 Vegetarisch").tag(1)
                         Text("🌱 Vegan").tag(2)
                     }.listRowBackground(bgColor)
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                     TextField("Kategorie", text: $kategorie)
                     HStack{
                         Slider(value: $portionen, in: 1...10, step: 1)
@@ -83,7 +79,7 @@ struct CreateRezeptView: View {
                                 .fontWeight(.bold).foregroundColor(fontColor)
                             Divider()
                             ForEach($zutatenListe) { $text in
-                                    TextField("", text: $text.value)
+                                TextField("", text: $text.value)
                             }
                         }
                         Divider()
@@ -107,7 +103,7 @@ struct CreateRezeptView: View {
                     ForEach($schritte) { $element in
                         TextField("Schritt", text: $element.value)
                     }
-
+                    
                     Button {
                         schritte.append(SchrittText(value: ""))
                     } label: {
@@ -120,81 +116,81 @@ struct CreateRezeptView: View {
             .toolbarBackground(barColor, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .scrollContentBackground(.hidden)
-          
+            
             //.listStyle()
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button("Sichern") {
-                            // Hier werden alle Werte in das neue Rezeptobjekt aufgenommen
-                            newRezept.name = name
-                            newRezept.kategorie = kategorie
-                            newRezept.dauerMinuten = String(dauer)
-                            newRezept.portionen = Int(portionen)
-                            //wenn Vegan
-                            if eigenschaft == 2 {
-                                newRezept.isVegan = true
-                                newRezept.isVegetarisch = false
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Sichern") {
+                        // Hier werden alle Werte in das neue Rezeptobjekt aufgenommen
+                        newRezept.name = name
+                        newRezept.kategorie = kategorie
+                        newRezept.dauerMinuten = String(dauer)
+                        newRezept.portionen = Int(portionen)
+                        //wenn Vegan
+                        if eigenschaft == 2 {
+                            newRezept.isVegan = true
+                            newRezept.isVegetarisch = false
+                        }
+                        //Wenn Vegetarisch
+                        if eigenschaft == 1 {
+                            newRezept.isVegetarisch = true
+                            newRezept.isVegan = false
+                        }
+                        //Wenn weder Vegetarisch noch vegan
+                        if eigenschaft == 0 {
+                            newRezept.isVegan = false
+                            newRezept.isVegetarisch = false
+                        }
+                        newRezept.isFavorisiert = false
+                        newRezept.isFavorit = false
+                        
+                        for element in zutatenListe{
+                            if element.value == "" {
+                                continue
+                            } else {
+                                newRezept.zutatenListe.append(String(element.value))
                             }
-                            //Wenn Vegetarisch
-                            if eigenschaft == 1 {
-                                newRezept.isVegetarisch = true
-                                newRezept.isVegan = false
+                        }
+                        
+                        for element in zutatenMenge{
+                            if element.value == "" {
+                                continue
+                            } else {
+                                newRezept.zutatenMenge.append(String(element.value))
                             }
-                            //Wenn weder Vegetarisch noch vegan
-                            if eigenschaft == 0 {
-                                newRezept.isVegan = false
-                                newRezept.isVegetarisch = false
+                        }
+                        
+                        for element in schritte{
+                            if element.value.isEmpty {
+                                continue
+                            } else {
+                                newRezept.schritte.append(String(element.value))
+                                
                             }
-                            newRezept.isFavorisiert = false
-                            newRezept.isFavorit = false
-                            
-                            for element in zutatenListe{
-                                if element.value == "" {
-                                    continue
-                                } else {
-                                    newRezept.zutatenListe.append(String(element.value))
-                                }
-                            }
-                            
-                            for element in zutatenMenge{
-                                if element.value == "" {
-                                    continue
-                                } else {
-                                    newRezept.zutatenMenge.append(String(element.value))
-                                }
-                            }
-                            
-                            for element in schritte{
-                                if element.value.isEmpty {
-                                    continue
-                                } else {
-                                    newRezept.schritte.append(String(element.value))
-                                    
-                                }
-                            }
-                            newRezept.schritte.remove(at: 0)
-                            
-                            print("image.description: \(image.description)")
-                            newRezept.bildURL = store(image: image, forKey: image.description, withName: newRezept.name , withStorageType: .fileSystem) ?? URL(filePath: "")
-                            newRezept.bildName = newRezept.name + ".png"
-                            
-                            print("\(newRezept.name)\n\(newRezept.kategorie)\n\(newRezept.dauerMinuten)\n\(newRezept.portionen)\n\(newRezept.isVegan)\n\(newRezept.isVegetarisch)\n\(newRezept.isFavorisiert)\n\(newRezept.isFavorit)\n\(newRezept.zutatenListe.description)\n\(newRezept.zutatenMenge.description)\n\(newRezept.schritte.description)\n\(newRezept.bildName)")
-                            
-                            saveObjectAsJSON(object: newRezept, fileName: "RezeptDatenUser")
-                            
-                            dismiss()
-                        }.foregroundColor(fontColor)
-                    }
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Abbrechen", role: .cancel) {
-                            dismiss()
-                        }.foregroundColor(fontColor)
-                    }
+                        }
+                        newRezept.schritte.remove(at: 0)
+                        
+                        print("image.description: \(image.description)")
+                        newRezept.bildURL = store(image: image, forKey: image.description, withName: newRezept.name , withStorageType: .fileSystem) ?? URL(filePath: "")
+                        newRezept.bildName = newRezept.name + ".png"
+                        
+                        print("\(newRezept.name)\n\(newRezept.kategorie)\n\(newRezept.dauerMinuten)\n\(newRezept.portionen)\n\(newRezept.isVegan)\n\(newRezept.isVegetarisch)\n\(newRezept.isFavorisiert)\n\(newRezept.isFavorit)\n\(newRezept.zutatenListe.description)\n\(newRezept.zutatenMenge.description)\n\(newRezept.schritte.description)\n\(newRezept.bildName)")
+                        
+                        saveObjectAsJSON(object: newRezept, fileName: "RezeptDatenUser")
+                        
+                        dismiss()
+                    }.foregroundColor(fontColor)
                 }
-                
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Abbrechen", role: .cancel) {
+                        dismiss()
+                    }.foregroundColor(fontColor)
+                }
             }
+            
         }
     }
+}
 
 struct SchrittText: Identifiable {
     let id = UUID()
@@ -219,8 +215,8 @@ enum StorageType {
 }
 
 private func store(image: UIImage,
-forKey key: String,
-withName filename: String,
+                   forKey key: String,
+                   withName filename: String,
                    withStorageType storageType: StorageType) -> URL {
     let imageName = filename
     var destination: URL = URL(filePath: "")
@@ -251,12 +247,12 @@ withName filename: String,
     print("Bildname: \(imageName)")
     return destination
 }
-                    
+
 
 
 
 struct CreateRezeptView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
     }

@@ -15,7 +15,7 @@ struct BadgesGrid: View {
 
 struct BadgeGrid: View {
     var badges: [String]
-
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack() {

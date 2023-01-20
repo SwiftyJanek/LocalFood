@@ -17,14 +17,11 @@ struct ProfileInfo: View {
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
     @State private var showingSheet = false
-
+    
     var body: some View {
-        
-   
-        
         NavigationStack{
             List {
-                // Add your profile info here, such as an image and name
+                // Profilinfo
                 HStack{
                     Image("profilePic_Janek")
                         .resizable()
@@ -40,45 +37,33 @@ struct ProfileInfo: View {
                 HStack{
                     Text("Aktueller Rang: Newcomer")
                 }.listRowBackground(bgColor)
-                // Add a section for your profile details, such as your location and bio
-                
-                    Section(header: Text("Abzeichen")) {
-          
-                        ScrollView(.horizontal){
-                            HStack {
-                      
-                                ForEach(challenges) { challenge in
-                                    let loop = challenge.progress
-                                    if loop >= 1.0{
-                                        HStack{
-                                            NavigationLink {
-                                                ChallengeDetails(challenge: challenge)
-                                            } label: {
-                                                ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
-                                                    .padding(.vertical)
-                                                    .frame(width: 60.0, height: 60.0)
-                                            }
-                                        }.listRowBackground(bgColor)
-                                    }
-                                }
-                             
-                                
-                                
-                                
-                            }.listRowBackground(bgColor)
-                            .background(bgColor)
-                            .padding(.leading)
-                        }.listRowBackground(bgColor)
-                        
-                }.background(bgColor)
-                    .listRowBackground(bgColor)
-                
-                
-                Section(header: Text("Nächste Abzeichen")) {
-
+                // Weitere Sektionen die die Abezichen enthalten
+                Section(header: Text("Abzeichen")) {
                     ScrollView(.horizontal){
                         HStack {
-                  
+                            ForEach(challenges) { challenge in
+                                let loop = challenge.progress
+                                if loop >= 1.0{
+                                    HStack{
+                                        NavigationLink {
+                                            ChallengeDetails(challenge: challenge)
+                                        } label: {
+                                            ProgressCircularBar(progress: challenge.progress, imageName: challenge.badge )
+                                                .padding(.vertical)
+                                                .frame(width: 60.0, height: 60.0)
+                                        }
+                                    }.listRowBackground(bgColor)
+                                }
+                            }
+                        }.listRowBackground(bgColor)
+                            .background(bgColor)
+                            .padding(.leading)
+                    }.listRowBackground(bgColor)
+                }.background(bgColor)
+                    .listRowBackground(bgColor)
+                Section(header: Text("Nächste Abzeichen")) {
+                    ScrollView(.horizontal){
+                        HStack {
                             ForEach(challenges) { challenge in
                                 let loop = challenge.progress
                                 if loop < 1.0{
@@ -93,20 +78,14 @@ struct ProfileInfo: View {
                                     }.listRowBackground(bgColor)
                                 }
                             }
-                         
-                            
-                            
-                            
                         }.listRowBackground(bgColor)
-                        .background(bgColor)
-                        .padding(.leading)
+                            .background(bgColor)
+                            .padding(.leading)
                     }.listRowBackground(bgColor)
                 }
-                
                 Section(header: Text("Mein Bereich")) {
                     HStack {
                         NavigationLink {
-
                         } label: {
                             Image(systemName: "heart")
                             Text("Lebensmittel")
@@ -114,7 +93,6 @@ struct ProfileInfo: View {
                     }.listRowBackground(bgColor)
                     HStack {
                         NavigationLink {
-
                         } label: {
                             Image(systemName: "person")
                             Text("Eigene Rezepte")
@@ -129,27 +107,23 @@ struct ProfileInfo: View {
                         }
                     }.listRowBackground(bgColor)
                     Button("+ Rezept erstellen") {
-                               showingSheet.toggle()
-                           }
-                           .sheet(isPresented: $showingSheet) {
-                               CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
-                           }.listRowBackground(bgColor)
+                        showingSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
+                    }.listRowBackground(bgColor)
                 }
-                }
-                .listStyle(PlainListStyle())
-                .scrollContentBackground(.hidden)
-                .listRowBackground(bgColor)
-                .background(bgColor)
+            }
+            .listStyle(PlainListStyle())
+            .scrollContentBackground(.hidden)
+            .listRowBackground(bgColor)
+            .background(bgColor)
             
-                }    .navigationBarBackButtonHidden(true)
+        }    .navigationBarBackButtonHidden(true)
             .navigationTitle("Profil")
             .navigationBarHidden(true)
-        }
-    
     }
-
-
-
+}
 
 struct ProgressBar: View {
     @State var value: Float
@@ -166,7 +140,6 @@ struct ProgressBar: View {
             }.cornerRadius(45.0)
         }
     }
-
 }
 
 struct ProfileInfo_Previews: PreviewProvider {

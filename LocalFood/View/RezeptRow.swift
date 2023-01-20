@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+// Hier wird ein einzelner Eintrag in der Rezeptliste definiert, dafür werden alle daten aus dem rezeptObjekt geladen
 struct RezeptRow: View {
     var rezept: Rezept
-
+    
     var body: some View {
         HStack{
             if let image = loadImage(from: rezept.bildURL) {
@@ -32,7 +33,7 @@ struct RezeptRow: View {
 
 func loadImage(from url: URL) -> Image? {
     if let imageData = try? Data(contentsOf: url),
-        let uiImage = UIImage(data: imageData) {
+       let uiImage = UIImage(data: imageData) {
         print("RezeptROW - UIImage geladen! \(url)")
         return Image(uiImage: uiImage)
     } else {
@@ -51,4 +52,4 @@ struct RezeptRow_Previews: PreviewProvider {
         }.previewLayout(.fixed(width: 300, height: 70))
     }
 }
-    
+

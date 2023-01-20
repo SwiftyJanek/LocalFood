@@ -23,7 +23,7 @@ struct TabBarIcon: View {
             Spacer()
         }.padding(.horizontal, -4)
     }
-    }
+}
 
 
 

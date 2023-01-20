@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// rundes Profilfoto wie es der User erwartet
 struct ProfileImageCircle: View {
     var imageName: String
     var body: some View {

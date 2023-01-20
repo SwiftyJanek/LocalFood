@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-
+// Dies ist die Rezeptanzeige, hier wird das Rezept aus allen weiteren Elementen im View zusammengebaut
 struct RezeptView: View {
     @EnvironmentObject var modelData: ModelData
     var rezept: Rezept
@@ -37,7 +37,7 @@ struct RezeptView: View {
     @State var kommentarPlaceholder = "Schreibe einen Kommentar..."
     
     @State private var showImagePicker: Bool = false
-
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -160,15 +160,15 @@ struct RezeptView: View {
                         
                         ZStack {
                             if self.kommentar.isEmpty {
-                                    TextEditor(text:$kommentarPlaceholder)
-                                        .disabled(true)
-                                        .foregroundColor(Color.gray)
-                                        .font(.custom("HelveticaNeue", size: 13))
-                                        .lineSpacing(5)
-                                        .frame(height: 120)
-                                        .border(.black)
-                                        .padding()
-
+                                TextEditor(text:$kommentarPlaceholder)
+                                    .disabled(true)
+                                    .foregroundColor(Color.gray)
+                                    .font(.custom("HelveticaNeue", size: 13))
+                                    .lineSpacing(5)
+                                    .frame(height: 120)
+                                    .border(.black)
+                                    .padding()
+                                
                             }
                             TextEditor(text: $kommentar)
                                 .opacity(self.kommentar.isEmpty ? 0.25 : 1)
@@ -178,10 +178,10 @@ struct RezeptView: View {
                                 .frame(height: 120)
                                 .border(.black)
                                 .padding()
-
-                        }.focused($editorIsFocused)
-
                             
+                        }.focused($editorIsFocused)
+                        
+                        
                         
                         Button {
                             print("Veröffentlichen")
@@ -266,7 +266,7 @@ struct RezeptView: View {
             //Benuterfoto
             print("- finalUrl: \(bildURL)")
             if let imageData = try? Data(contentsOf: bildURL),
-                let uiImage = UIImage(data: imageData){
+               let uiImage = UIImage(data: imageData){
                 let image = Image(uiImage: uiImage)
                 return TitleImage(image: image)
             } else {
@@ -289,7 +289,7 @@ struct RezeptView: View {
 
 struct RezeptView_Previews: PreviewProvider {
     static let modelData = ModelData()
-
+    
     static var previews: some View {
         RezeptView(rezept: modelData.rezepte[0], rating: .constant(4), kommentar: "")
             .environmentObject(modelData)

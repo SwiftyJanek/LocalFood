@@ -15,7 +15,7 @@ struct ProfilView: View {
         GeometryReader { geometry in
             NavigationStack {
                 VStack(spacing: 0){
-
+                    
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Profil").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
@@ -23,20 +23,17 @@ struct ProfilView: View {
                     //HEADER
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
-
-                    // CONTENT
-
-                    ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
-
                     
+                    // CONTENT
+                    
+                    ProfileInfo(progressValue: 0.4).frame(width: geometry.size.width , height: geometry.size.height/1.22).background(Color.white)
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
-
-
+                    
                     TabBar()
-
+                    
                 }.background(barColor.ignoresSafeArea(edges: .top))
             }.navigationBarBackButtonHidden(true)
         }.edgesIgnoringSafeArea(.bottom)

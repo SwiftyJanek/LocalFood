@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Hier wird das obere Foto im Rezeptview erzeugt und angepasst.
 struct TitleImage: View {
     var image: Image
     
@@ -17,7 +18,7 @@ struct TitleImage: View {
             .clipShape(Rectangle())
             .overlay { Rectangle().stroke(.white, lineWidth: 3) }
             .shadow(radius: 7)
-            
+        
     }
 }
 

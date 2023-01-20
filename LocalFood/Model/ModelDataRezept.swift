@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Model Data, ist ein published Object das global verfügbar ist
 final class ModelData: ObservableObject {
     @Published var rezepte: [Rezept] = []
     public init() {
@@ -14,6 +15,7 @@ final class ModelData: ObservableObject {
     }
 }
 
+// Hier werden die Daten aus der Übergebenen JSON Datei geladen und ein Generic zurückgegeben, der Rückgabetyp ist also variabel
 func load<T: Decodable>(_ filename: String) -> [T] {
     let data: Data
     let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -26,7 +28,7 @@ func load<T: Decodable>(_ filename: String) -> [T] {
         }
     } else {
         guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-            else {
+        else {
             print("Couldn't find \(filename) in main bundle.")
             return []
         }
@@ -47,10 +49,10 @@ func load<T: Decodable>(_ filename: String) -> [T] {
     }
 }
 
-
+// Hier wird ein neues Rezept Objekt in der JSON Datei die übergeben wurde gespeichert
 func saveObjectAsJSON(object: Rezept, fileName: String) {
     let jsonEncoder = JSONEncoder()
-
+    
     // Get the URL for the JSON file
     let jsonURL = try? FileManager.default.url(
         for: .documentDirectory,
@@ -58,22 +60,22 @@ func saveObjectAsJSON(object: Rezept, fileName: String) {
         appropriateFor: nil,
         create: false
     ).appendingPathComponent(fileName).appendingPathExtension("json")
-
+    
     // Check if the file exists
     if FileManager.default.fileExists(atPath: jsonURL!.path) {
         // Read the existing JSON data
         let jsonData = try? Data(contentsOf: jsonURL!)
-
+        
         // Decode the JSON data into an array of Rezept objects
         let jsonDecoder = JSONDecoder()
         var rezeptArray = try? jsonDecoder.decode([Rezept].self, from: jsonData!)
-
+        
         // Add the new object to the array
         rezeptArray?.append(object)
-
+        
         // Encode the modified array back to JSON data
         let newJSONData = try? jsonEncoder.encode(rezeptArray)
-
+        
         // Write the new JSON data to the file
         try? newJSONData?.write(to: jsonURL!)
         print("JSON file saved successfully! to: \(jsonURL!)")

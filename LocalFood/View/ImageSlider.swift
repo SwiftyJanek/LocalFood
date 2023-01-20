@@ -33,9 +33,9 @@ struct ImageSlider: View {
                     .navigationBarHidden(true)
                     .onAppear(){
                         UIView.setAnimationsEnabled(true)
-                       }
+                    }
                 }
-                    
+                
                 else if element == "StartseiteChallenge2"{
                     NavigationLink(destination: ChallengeDetails(challenge: challenges[2])){
                         Image(item).resizable().scaledToFill()
@@ -60,17 +60,17 @@ struct ImageSlider: View {
                     }
                     .navigationBarHidden(true)
                 }
-                    
-                    
-                    
-                    
-                }
+                
+                
+                
                 
             }
-            .tabViewStyle(PageTabViewStyle())
             
         }
+        .tabViewStyle(PageTabViewStyle())
+        
     }
+}
 
 
 

@@ -14,66 +14,66 @@ struct TabBar: View {
     @State private var showingSheet = false
     var body: some View {
         GeometryReader { geometry in
-                HStack{
-                    NavigationLink(destination: ContentView() ) {
-                        TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "house", tabName: "Start").foregroundColor(fontColor)
-                    }.buttonStyle(PlainButtonStyle())
-                    NavigationLink(destination: RezeptListe() ) {
-                        TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "fork.knife", tabName: "Rezepte").foregroundColor(fontColor)
-                    }.buttonStyle(PlainButtonStyle()).onTapGesture( ){
-                        UIView.setAnimationsEnabled(false)
+            HStack{
+                NavigationLink(destination: ContentView() ) {
+                    TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "house", tabName: "Start").foregroundColor(fontColor)
+                }.buttonStyle(PlainButtonStyle())
+                NavigationLink(destination: RezeptListe() ) {
+                    TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "fork.knife", tabName: "Rezepte").foregroundColor(fontColor)
+                }.buttonStyle(PlainButtonStyle()).onTapGesture( ){
+                    UIView.setAnimationsEnabled(false)
+                }
+                
+                ZStack{
+                    
+                    
+                    
+                    Button(action: {
+                        changeAnimation()
+                        showingSheet.toggle()
+                        
+                    }, label: {
+                        Circle().foregroundColor(barColor)
+                            .frame(width: geometry.size.width/7, height: geometry.size.width/7)
+                            .shadow(radius: 4)
+                            .overlay(
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(fontColor)
+                                    .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
+                                
+                                
+                            )
+                        
+                    }).sheet(isPresented: $showingSheet) {
+                        CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
                     }
                     
-                    ZStack{
-                        
-                     
-                        
-                        Button(action: {
-                            changeAnimation()
-                            showingSheet.toggle()
-                           
-                        }, label: {
-                            Circle().foregroundColor(barColor)
-                                .frame(width: geometry.size.width/7, height: geometry.size.width/7)
-                                .shadow(radius: 4)
-                                .overlay(
-                                        Image(systemName: "plus.circle")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .foregroundColor(fontColor)
-                                            .frame(width: geometry.size.width/7-6 , height: geometry.size.width/7-6)
-                                         
-                                           
-                                )
-                       
-                        }).sheet(isPresented: $showingSheet) {
-                            CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
-                        }
-                        
-                        
-                 
-
-                        
-                 
-                        
-                        
-
-                    }.offset(y: -geometry.size.height/3/1)
-                    NavigationLink(destination: ChallengeView() ) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }.offset(y: -geometry.size.height/3/1)
+                NavigationLink(destination: ChallengeView() ) {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "trophy", tabName: "Challanges").foregroundColor(fontColor)
-                    }.buttonStyle(PlainButtonStyle())
-
-                    NavigationLink(destination: ProfilView() ) {
+                }.buttonStyle(PlainButtonStyle())
+                
+                NavigationLink(destination: ProfilView() ) {
                     TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "person.crop.circle", tabName: "Profil").foregroundColor(fontColor)
-                    }.buttonStyle(PlainButtonStyle())
-                }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(barColor.edgesIgnoringSafeArea(.bottom))
+                }.buttonStyle(PlainButtonStyle())
+            }.frame(width: geometry.size.width, height: geometry.size.height/1).shadow(radius: 2).background(barColor.edgesIgnoringSafeArea(.bottom))
                 .onAppear(){
                     UIView.setAnimationsEnabled(false)
                 }
-
+            
         }.edgesIgnoringSafeArea(.bottom)
-        }
     }
+}
 
 func changeAnimation(){
     UIView.setAnimationsEnabled(true)
