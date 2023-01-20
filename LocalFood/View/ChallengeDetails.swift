@@ -286,7 +286,7 @@ struct ChallengeDetails: View {
                                     }
                                 }) {
 
-                                        Text("Gefunden")
+                                        Text("Einlösen")
                                             .padding()
                                             .frame(maxWidth: 250)
                                             .frame(width: 200, height: 40)
@@ -454,7 +454,7 @@ struct ChallengeDetails: View {
                                         }
                                     }
                                 }) {
-                                    Text("Gefunden")
+                                    Text("Einlösen")
                                         .padding()
                                         .frame(maxWidth: 250)
                                         .frame(width: 200, height: 40)
@@ -614,7 +614,7 @@ struct ChallengeDetails: View {
                                 }) {
                                     
       
-                                    Text("Gefunden")
+                                    Text("Einlösen")
                                         .padding()
                                         .frame(maxWidth: 250)
                                         .frame(width: 200, height: 40)
