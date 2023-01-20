@@ -48,7 +48,7 @@ struct RezeptView: View {
                 
                 //Linie zwischen Navigation und Inhalt
                 VStack{}
-                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                 
                 ScrollView{
                     /// Hier ändern
@@ -242,7 +242,7 @@ struct RezeptView: View {
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(bgColor)
                     .navigationTitle(rezept.name).navigationBarTitleDisplayMode(.inline)
                 VStack{}
-                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                 
                 TabBar()
             }.onAppear(){

@@ -22,7 +22,7 @@ struct ProfilView: View {
                     }.background(barColor).padding(.bottom)
                     //HEADER
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
 
                     // CONTENT
 
@@ -32,7 +32,7 @@ struct ProfilView: View {
                     
                     //Linie zwischen Navigation und Inhalt
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
 
 
                     TabBar()

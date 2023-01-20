@@ -56,7 +56,7 @@ struct ChallengeDetails: View {
                 
                 //Linie zwischen Navigation und Inhalt
                 VStack{}
-                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                    .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                 
 
                 ScrollView{
@@ -367,15 +367,15 @@ struct ChallengeDetails: View {
                         
                         
                         VStack{
-                            Text(challenge.step1Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
-                            Text(challenge.step1Header1Beschreibung)
+                            Text(challenge.step2Header1).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5).padding(.top, 15)
+                            Text(challenge.step2Header1Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
                             .padding([.leading, .trailing], 20)
                             .padding(.bottom, 10)
-                        Text(challenge.step1Header2).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
-                        Text(challenge.step1Header2Beschreibung)
+                        Text(challenge.step2Header2).font(.headline).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 5)
+                        Text(challenge.step2Header2Beschreibung)
                             .font(.body)
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
@@ -654,7 +654,7 @@ struct ChallengeDetails: View {
                 
                 
                     VStack{}
-                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
+                        .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                 
                 TabBar()
             }.onAppear(){

@@ -95,6 +95,7 @@ struct ContentView: View {
             }
             .navigationBarBackButtonHidden(true)
             .background(barColor)
+            .foregroundColor(fontColor)
             
 
         }.edgesIgnoringSafeArea(.bottom).background(barColor)
