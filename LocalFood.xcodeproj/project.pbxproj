@@ -20,6 +20,7 @@
 		084832F72931797200D380E7 /* ModelDataRezept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F62931797200D380E7 /* ModelDataRezept.swift */; };
 		084832F9293179FA00D380E7 /* RezeptRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832F8293179FA00D380E7 /* RezeptRow.swift */; };
 		084832FD293184AD00D380E7 /* RezeptListe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084832FC293184AD00D380E7 /* RezeptListe.swift */; };
+		086038D1297AB6B8005883EC /* Startpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086038D0297AB6B8005883EC /* Startpage.swift */; };
 		08EDE0B628F9B6F700BBF02F /* LocalFoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0B528F9B6F700BBF02F /* LocalFoodApp.swift */; };
 		08EDE0B828F9B6F700BBF02F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE0B728F9B6F700BBF02F /* ContentView.swift */; };
 		08EDE0BA28F9B6F800BBF02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08EDE0B928F9B6F800BBF02F /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		084832F62931797200D380E7 /* ModelDataRezept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataRezept.swift; sourceTree = "<group>"; };
 		084832F8293179FA00D380E7 /* RezeptRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptRow.swift; sourceTree = "<group>"; };
 		084832FC293184AD00D380E7 /* RezeptListe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptListe.swift; sourceTree = "<group>"; };
+		086038D0297AB6B8005883EC /* Startpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Startpage.swift; sourceTree = "<group>"; };
 		08EDE0B228F9B6F700BBF02F /* LocalFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EDE0B528F9B6F700BBF02F /* LocalFoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFoodApp.swift; sourceTree = "<group>"; };
 		08EDE0B728F9B6F700BBF02F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				081A80C82975D6C000934421 /* CameraOpen.swift */,
+				086038D0297AB6B8005883EC /* Startpage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				084832F1293158C600D380E7 /* ProfileImageCircle.swift in Sources */,
 				CFDCD77A291BD2F900A4FB9B /* ChallengeView.swift in Sources */,
 				08EDE0C928FA0B3700BBF02F /* RezeptView.swift in Sources */,
+				086038D1297AB6B8005883EC /* Startpage.swift in Sources */,
 				084832F72931797200D380E7 /* ModelDataRezept.swift in Sources */,
 				CF44127C29757F1E00062A91 /* Challenge.swift in Sources */,
 			);

@@ -13,8 +13,7 @@ struct ContentView: View {
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
     @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
 
-    @State private var showWelcome: Bool = true
-
+    @AppStorage("showWelcome") private var showWelcome = true
     
     var body: some View {
 
