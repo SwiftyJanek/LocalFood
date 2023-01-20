@@ -25,6 +25,8 @@ struct ChallengeDetails: View {
     @EnvironmentObject var modelDataC : ModelDataChallenge
     var challenge: Challenge
     var challenges: [Challenge] = ModelDataChallenge().challenges
+    @EnvironmentObject var modelData: ModelData
+    var rezepte: [Rezept] = ModelData().rezepte
     @Namespace private var imageAnimationOne
     @Namespace private var imageAnimationTwo
     @Namespace private var imageAnimationThree
@@ -645,7 +647,39 @@ struct ChallengeDetails: View {
                     //Steinpilz Ende
                     // Bilder der Pilze Ende
                     
-                    Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 10)
+                    Text("Rezept Empfehlungen").font(.title3).fontWeight(.bold).multilineTextAlignment(.center).padding(.bottom, 20)
+              
+                    var id = challenge.id
+                    if(id == 100 || id == 101){
+                        ForEach(rezepte) { rezept in
+                            var name = rezept.name
+            
+                            if(name == "Grüner Spargel mit Rindfleisch" || name == "Veggie Pizza"){
+                                NavigationLink {
+                                    RezeptView(rezept: rezept, rating: .constant(4), kommentar: "")
+                                } label: {
+                                    RezeptRow(rezept: rezept)
+                                }
+                                .listRowBackground(bgColor)
+                                .multilineTextAlignment(.center)
+                                .padding([.leading, .trailing], 20)
+                                .onAppear(){
+                                    UIView.setAnimationsEnabled(true)
+                                }
+                                Divider().padding()
+                            }
+                
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                 }.frame(width: geometry.size.width , height: geometry.size.height/1.083).background(bgColor).navigationBarTitleDisplayMode(.inline)
                 
