@@ -16,6 +16,7 @@ struct ChallengeView: View {
     @State var progressValue: Float = 0.6
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
 
     var body: some View {
 
@@ -26,7 +27,7 @@ struct ChallengeView: View {
                     HStack{
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Challenges").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
-                    }.background(barColor.brightness(0.15)).padding(.bottom)
+                    }.background(barColor).padding(.bottom)
                     //HEADER
                     
                     VStack{}
@@ -68,7 +69,7 @@ struct ChallengeView: View {
                                                 ProgressBar(value: chall.progress).frame(height: 15)
                                                 Text(" ")
                                             }
-                                        }.listRowBackground(barColor.brightness(0.55))
+                                        }.listRowBackground(bgColor)
 
                                         
                                     }
@@ -87,7 +88,7 @@ struct ChallengeView: View {
                                     .frame(height: 220)
                                     .shadow(radius: 10)
                                 
-                            }.listRowBackground(barColor.brightness(0.55))
+                            }.listRowBackground(bgColor)
                             
                  
                             Section(header: Text("Draußen in der Natur").foregroundColor(fontColor)) {
@@ -121,7 +122,7 @@ struct ChallengeView: View {
                                                     Text("🌱")
                                                 }
                                             }
-                                        }.listRowBackground(barColor.brightness(0.55))
+                                        }.listRowBackground(bgColor)
                                     }
                                 }
                             }
@@ -157,7 +158,7 @@ struct ChallengeView: View {
                                                     Text("🌱")
                                                 }
                                             }
-                                        }.listRowBackground(barColor.brightness(0.55))
+                                        }.listRowBackground(bgColor)
                                     }
                                 }
                                 
@@ -194,7 +195,7 @@ struct ChallengeView: View {
                                                     Text("🌱")
                                                 }
                                             }
-                                        }.listRowBackground(barColor.brightness(0.55))
+                                        }.listRowBackground(bgColor)
                                     }
                                 }
                                 
@@ -203,14 +204,14 @@ struct ChallengeView: View {
                             
                         }.listStyle(PlainListStyle())
                             .scrollContentBackground(.hidden)
-                            .background(barColor.brightness(0.55))
-                            .listRowBackground(barColor.brightness(0.55))
+                            .background(bgColor)
+                            .listRowBackground(bgColor)
                         
-                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
+                    }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(bgColor)
                     
                     
                     
-                }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(barColor.brightness(0.55))
+                }.frame(width: geometry.size.width , height: geometry.size.height/1.22).background(bgColor)
                    
                     
                     // Scrol
@@ -223,8 +224,8 @@ struct ChallengeView: View {
                             
                     TabBar()
 
-                }.background(barColor.brightness(0.15).ignoresSafeArea(edges: .top))
-            }.navigationBarBackButtonHidden(true).navigationTitle("Challenges").accentColor(fontColor).navigationBarHidden(true).background(barColor.brightness(0.15))
+                }.background(barColor.ignoresSafeArea(edges: .top))
+            }.navigationBarBackButtonHidden(true).navigationTitle("Challenges").accentColor(fontColor).navigationBarHidden(true).background(barColor.brightness(0.15)).navigationBarHidden(true)
             
             
         }.edgesIgnoringSafeArea(.bottom)

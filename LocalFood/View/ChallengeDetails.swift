@@ -33,6 +33,14 @@ struct ChallengeDetails: View {
     @State var codeTwo = ""
     @State var codeThree = ""
     @State var codeFour = ""
+    @State var code2One = ""
+    @State var code2Two = ""
+    @State var code2Three = ""
+    @State var code2Four = ""
+    @State var code3One = ""
+    @State var code3Two = ""
+    @State var code3Three = ""
+    @State var code3Four = ""
     
     var body: some View {
         
@@ -417,10 +425,19 @@ struct ChallengeDetails: View {
                                 
                             }else{
                                 
+                                HStack{
+                                    
+                                    TextField(" ", text: $code2One).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code2Two).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code2Three).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code2Four).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    
+                                }.frame(width: 234, height: 42).font(.title).background(fontColor)
+                                
                                 Button(action: {
                                     
                                     // Änderung in der JSON Datei
-                                    if (challenge.step2 == false && codeOne == "1" && codeTwo == "2" && codeThree == "3" && codeFour == "4"){
+                                    if (challenge.step2 == false && code2One == "1" && code2Two == "2" && code2Three == "3" && code2Four == "4"){
                                         challenge.progress = challenge.progress + 0.4
                                         challenge.step2 = true
                                         isDisclosed2.toggle()
@@ -564,11 +581,21 @@ struct ChallengeDetails: View {
                                 // Ende BUtton für Foto
                                 
                             }else{
-                                
+                                HStack{
+                                    
+                                    TextField(" ", text: $code3One).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code3Two).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code3Three).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    TextField(" ", text: $code3Four).frame(width: 50, height: 40).font(.title).background(.white).multilineTextAlignment(.center).lineLimit(1)
+                                    
+                                }.frame(width: 234, height: 42).font(.title).background(fontColor)
                                 Button(action: {
                                     
+                                    
+                               
+                                    
                                     // Änderung in der JSON Datei
-                                    if (challenge.step3 == false){
+                                    if (challenge.step3 == false && code3One == "1" && code3Two == "2" && code3Three == "3" && code3Four == "4"){
                                         challenge.progress = challenge.progress + 0.3
                                         challenge.step3 = true
                                         isDisclosed3.toggle()
@@ -585,21 +612,7 @@ struct ChallengeDetails: View {
                                     
                                 }) {
                                     
-                                    
-                                    
-                                    HStack{
-                                        
-                                        
-                            
-                                        
-                                        
-                                        
-                                    }
-                                    
-                                    
-                                    
-                                    
-                                    
+      
                                     Text("Gefunden")
                                         .padding()
                                         .frame(maxWidth: 250)

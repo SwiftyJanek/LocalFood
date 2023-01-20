@@ -19,7 +19,10 @@ struct TabBar: View {
                     }.buttonStyle(PlainButtonStyle())
                     NavigationLink(destination: RezeptListe() ) {
                         TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/3, systemIconName: "fork.knife", tabName: "Rezepte").foregroundColor(fontColor)
-                    }.buttonStyle(PlainButtonStyle())
+                    }.buttonStyle(PlainButtonStyle()).onTapGesture( ){
+                        UIView.setAnimationsEnabled(false)
+                    }
+                    
                     ZStack{
                         
                      

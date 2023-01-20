@@ -105,9 +105,9 @@ struct RezeptListe: View {
                             .background(bgColor)
                             //.preferredColorScheme()
                             .listRowBackground(bgColor)
-                            .onAppear(){
-                                UIView.setAnimationsEnabled(true)
-                            }
+                           // .onAppear(){
+                            //    UIView.setAnimationsEnabled(true)
+                              // }
                             
                             
                         }
@@ -122,9 +122,6 @@ struct RezeptListe: View {
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(Color.gray)
                     
                     TabBar()
-                }
-                .onAppear(){
-                    UIView.setAnimationsEnabled(true)
                 }
                 .background(barColor.brightness(0.15)
                 .ignoresSafeArea(edges: .top))
