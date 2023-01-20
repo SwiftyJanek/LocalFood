@@ -15,6 +15,7 @@ struct ProfileInfo: View {
     @State var allBadges = ["winterChamp"]
     @State var barColor: Color = Color(red: 166/255, green: 178/255, blue: 83/255)
     @State var fontColor: Color = Color(red: 51/255, green: 45/255, blue: 17/255)
+    @State var bgColor: Color = Color(red: 255/255, green: 255/255, blue: 226/255)
     @State private var showingSheet = false
 
     var body: some View {
@@ -30,15 +31,15 @@ struct ProfileInfo: View {
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
                     Text("Janek Behrens")
-                }.listRowBackground(barColor.brightness(0.55))
+                }.listRowBackground(bgColor)
                 HStack{
                     Text("Level: 1")
                     ProgressBar(value: 0.5).frame(height: 20)
                     Text("2")
-                }.listRowBackground(barColor.brightness(0.55))
+                }.listRowBackground(bgColor)
                 HStack{
                     Text("Aktueller Rang: Newcomer")
-                }.listRowBackground(barColor.brightness(0.55))
+                }.listRowBackground(bgColor)
                 // Add a section for your profile details, such as your location and bio
                 
                     Section(header: Text("Abzeichen")) {
@@ -57,20 +58,20 @@ struct ProfileInfo: View {
                                                     .padding(.vertical)
                                                     .frame(width: 60.0, height: 60.0)
                                             }
-                                        }.listRowBackground(barColor.brightness(0.55))
+                                        }.listRowBackground(bgColor)
                                     }
                                 }
                              
                                 
                                 
                                 
-                            }.listRowBackground(barColor.brightness(0.55))
-                            .background(barColor.brightness(0.55))
+                            }.listRowBackground(bgColor)
+                            .background(bgColor)
                             .padding(.leading)
-                        }.listRowBackground(barColor.brightness(0.55))
+                        }.listRowBackground(bgColor)
                         
-                }.background(barColor.brightness(0.55))
-                    .listRowBackground(barColor.brightness(0.55))
+                }.background(bgColor)
+                    .listRowBackground(bgColor)
                 
                 
                 Section(header: Text("Nächste Abzeichen")) {
@@ -89,17 +90,17 @@ struct ProfileInfo: View {
                                                 .padding(.vertical)
                                                 .frame(width: 60.0, height: 60.0)
                                         }
-                                    }.listRowBackground(barColor.brightness(0.55))
+                                    }.listRowBackground(bgColor)
                                 }
                             }
                          
                             
                             
                             
-                        }.listRowBackground(barColor.brightness(0.55))
-                        .background(barColor.brightness(0.55))
+                        }.listRowBackground(bgColor)
+                        .background(bgColor)
                         .padding(.leading)
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                 }
                 
                 Section(header: Text("Mein Bereich")) {
@@ -110,7 +111,7 @@ struct ProfileInfo: View {
                             Image(systemName: "heart")
                             Text("Lebensmittel")
                         }
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     HStack {
                         NavigationLink {
 
@@ -118,7 +119,7 @@ struct ProfileInfo: View {
                             Image(systemName: "person")
                             Text("Eigene Rezepte")
                         }
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     HStack {
                         NavigationLink {
                             RezeptListe(showFavoritesOnly: true)
@@ -126,19 +127,19 @@ struct ProfileInfo: View {
                             Image(systemName: "heart")
                             Text("Rezepte")
                         }
-                    }.listRowBackground(barColor.brightness(0.55))
+                    }.listRowBackground(bgColor)
                     Button("+ Rezept erstellen") {
                                showingSheet.toggle()
                            }
                            .sheet(isPresented: $showingSheet) {
                                CreateRezeptView(newRezept: Rezept(name: "", kategorie: "", dauerMinuten: "", portionen: 4, isVegan: true, isVegetarisch: false, isFavorisiert: false, isFavorit: false, zutatenListe: [""], zutatenMenge: [""], schritte: [""], bildName: "", bildURL: URL(filePath: ""), kommentar: [""], kommentarBenutzer: [""], benutzerBild: [""]))
-                           }.listRowBackground(barColor.brightness(0.55))
+                           }.listRowBackground(bgColor)
                 }
                 }
                 .listStyle(PlainListStyle())
                 .scrollContentBackground(.hidden)
-                .listRowBackground(barColor.brightness(0.55))
-                .background(barColor.brightness(0.55))
+                .listRowBackground(bgColor)
+                .background(bgColor)
             
                 }    .navigationBarBackButtonHidden(true)
             .navigationTitle("Profil")
