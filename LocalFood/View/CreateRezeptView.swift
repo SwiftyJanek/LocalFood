@@ -18,7 +18,8 @@ struct CreateRezeptView: View {
     @State private var portionen: Double = 4
     @State private var image: UIImage = (UIImage(named: "FotoHinzufuegen.png") ?? UIImage())
     @State private var showSheet = false
-    
+    let categories = ["Alles", "Vorspeise", "Hauptgang", "Dessert", "Vegan", "Veggie"]
+
     @FocusState private var keyboardOn: Bool
     
     @State var schritte: [SchrittText] = [SchrittText(value: "")]
@@ -46,7 +47,11 @@ struct CreateRezeptView: View {
                         Text("🌱 Vegan").tag(2)
                     }.listRowBackground(bgColor)
                         .pickerStyle(.segmented)
-                    TextField("Kategorie", text: $kategorie)
+                    Picker(selection: $kategorie, label: Text("Kategorie wählen")) {
+                        ForEach(categories, id: \.self) {
+                            Text($0)
+                        }
+                    }
                     HStack{
                         Slider(value: $portionen, in: 1...10, step: 1)
                         Text("\(portionen, specifier: "%.f") Portionen")
