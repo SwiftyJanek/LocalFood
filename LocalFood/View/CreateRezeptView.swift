@@ -55,7 +55,7 @@ struct CreateRezeptView: View {
                         Slider(value: $portionen, in: 1...10, step: 1)
                         Text("\(portionen, specifier: "%.f") Portionen")
                     }.listRowBackground(bgColor)
-                }.listRowBackground(bgColor)
+                }.listRowBackground(barColor.brightness(0.55))
                 
                 //Hier wird das Bild hinzugefügt, dazu wird ein Sheet mit der lokalen gallerie geöffnet
                 Section(header: Text("Bild hinzufügen")){
@@ -165,12 +165,14 @@ struct CreateRezeptView: View {
                             }
                             
                             for element in schritte{
-                                if element.value == "" {
+                                if element.value.isEmpty {
                                     continue
                                 } else {
                                     newRezept.schritte.append(String(element.value))
+                                    
                                 }
                             }
+                            newRezept.schritte.remove(at: 0)
                             
                             print("image.description: \(image.description)")
                             newRezept.bildURL = store(image: image, forKey: image.description, withName: newRezept.name , withStorageType: .fileSystem) ?? URL(filePath: "")
