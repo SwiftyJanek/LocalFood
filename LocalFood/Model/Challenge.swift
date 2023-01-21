@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
+// Klasse Challenge
 class Challenge: Codable, Identifiable {
     var id: Int
     var name: String
@@ -41,8 +43,9 @@ class Challenge: Codable, Identifiable {
     var bild4: String
     var finished: Bool
     
+    
+// Konstuktor für Challenges
     init(id: Int, name: String, kategorie: String, schwierigkeit: Int, progress: Float, belohnung: Int, badge: String, aufgabe: String, step1: Bool, step1Name: String, step1Header1: String, step1Header1Beschreibung: String, step1Header2: String, step1Header2Beschreibung: String, step2: Bool, step2Name: String, step2Header1: String, step2Header1Beschreibung: String, step2Header2: String, step2Header2Beschreibung: String, step3: Bool, step3Name: String, step3Header1: String, step3Header1Beschreibung: String, step3Header2: String, step3Header2Beschreibung: String, bild1: String, bild2: String, bild3: String, bild4: String, finished: Bool) {
-        
         self.id = id
         self.name = name
         self.kategorie = kategorie
@@ -76,9 +79,9 @@ class Challenge: Codable, Identifiable {
         self.finished = finished
     }
     
- 
-
-
-}
     
+    
+    
+}
+
 

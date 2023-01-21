@@ -53,7 +53,6 @@ func load<T: Decodable>(_ filename: String) -> [T] {
 func saveObjectAsJSON(object: Rezept, fileName: String) {
     let jsonEncoder = JSONEncoder()
     
-    // Get the URL for the JSON file
     let jsonURL = try? FileManager.default.url(
         for: .documentDirectory,
         in: .userDomainMask,
@@ -61,26 +60,27 @@ func saveObjectAsJSON(object: Rezept, fileName: String) {
         create: false
     ).appendingPathComponent(fileName).appendingPathExtension("json")
     
-    // Check if the file exists
+    
+    //Überprüfung ob die JSON-Datei existiert.
     if FileManager.default.fileExists(atPath: jsonURL!.path) {
-        // Read the existing JSON data
+        // Datei lesen
         let jsonData = try? Data(contentsOf: jsonURL!)
         
-        // Decode the JSON data into an array of Rezept objects
+        // Decode die JSON Daten in ein Array vom Typ Rezept
         let jsonDecoder = JSONDecoder()
         var rezeptArray = try? jsonDecoder.decode([Rezept].self, from: jsonData!)
         
-        // Add the new object to the array
+        // Füge dem Array ein neues Rezept hinzu
         rezeptArray?.append(object)
         
-        // Encode the modified array back to JSON data
+        // Encode die geänderten Daten wieder 
         let newJSONData = try? jsonEncoder.encode(rezeptArray)
         
-        // Write the new JSON data to the file
+        // Schreibe die Daten in die JSON-Datei
         try? newJSONData?.write(to: jsonURL!)
         print("JSON file saved successfully! to: \(jsonURL!)")
     } else {
-        // If the file does not exist, simply create a new array with the new object and save it
+        // Wenn die Datei nicht existiert, erstellte sie und speicher das Array anschließend in das File
         let newJSONData = try? jsonEncoder.encode([object])
         try? newJSONData?.write(to: jsonURL!)
         print("JSON file saved successfully! to: \(jsonURL!)")

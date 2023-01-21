@@ -21,12 +21,15 @@ struct ContentView: View {
         GeometryReader { geometry in
             NavigationStack {
                 VStack(spacing: 0){
+                    
+                    //HEADER
                     HStack{
                         Text("Local").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
                         Image("Logo").resizable().frame(width: 35, height: 35)
                         Text("Food").font(.title2).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(fontColor)
                     }.background(barColor.ignoresSafeArea(edges: .top)).padding(.bottom)
-                    //HEADER
+              
+                    //Linie zwischen Header und Inhalt
                     VStack{}
                         .frame(width: geometry.size.width , height: geometry.size.height/500).background(fontColor)
                     

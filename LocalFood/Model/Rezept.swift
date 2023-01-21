@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// Objekt Rezept
+// Klasse Rezept
 struct Rezept: Hashable, Codable, Identifiable {
     var id: UUID
     var name: String
@@ -25,13 +25,13 @@ struct Rezept: Hashable, Codable, Identifiable {
     var kommentar: [String]
     var kommentarBenutzer: [String]
     var benutzerBild: [String]
-    
     var bildURL: URL
     var bildName: String
     var bild: Image {
         Image(bildName)
     }
-    // Konstruktor für das Rezept
+    
+    // Konstruktor für Rezepte
     init(name: String, kategorie: String, dauerMinuten: String, portionen: Int, isVegan: Bool, isVegetarisch: Bool, isFavorisiert: Bool, isFavorit: Bool, zutatenListe: [String], zutatenMenge: [String], schritte: [String], bildName: String, bildURL: URL, kommentar: [String], kommentarBenutzer: [String], benutzerBild: [String]) {
         self.id = UUID()
         self.name = name
